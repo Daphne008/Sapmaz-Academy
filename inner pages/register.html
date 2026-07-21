@@ -226,6 +226,37 @@
                 </svg>
               </div>
             </div>
+            <!-- New Capacity Field (Shown only for IHA-3 Pre-Registration) -->
+            <div class="form-group" id="regCapacityWrapper" style="display: none;">
+              <label for="regCapacity" data-i18n="reg_lbl_capacity">Başvuru Kapasitesi *</label>
+              <div class="input-wrapper">
+                <select id="regCapacity" name="capacity">
+                  <option value="" disabled selected data-i18n="opt_select_capacity">Kapasite Seçiniz...</option>
+                  <option value="individual" data-i18n="opt_capacity_individual">Bireysel Öğrenci</option>
+                  <option value="company" data-i18n="opt_capacity_company">Kurumsal / Şirket</option>
+                  <option value="other" data-i18n="opt_capacity_other">Diğer</option>
+                </select>
+                <svg class="input-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </div>
+            </div>
+            <!-- Specify Other Field (Hidden by default, shown when 'other' capacity is selected) -->
+            <div class="form-group" id="regCapacityOtherWrapper" style="display: none;">
+              <label for="regCapacityOther" data-i18n="reg_lbl_capacity_other">Lütfen Belirtiniz *</label>
+              <div class="input-wrapper">
+                <input type="text" id="regCapacityOther" name="capacityOther" placeholder="Örn: Dernek, Vakıf, Kamu Kurumu...">
+                <svg class="input-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="4" y1="9" x2="20" y2="9" />
+                  <line x1="4" y1="15" x2="20" y2="15" />
+                  <line x1="10" y1="3" x2="8" y2="21" />
+                  <line x1="16" y1="3" x2="14" y2="21" />
+                </svg>
+              </div>
+            </div>
           </div>
 
           <div class="form-grid-2">
@@ -437,20 +468,63 @@
 
         <div class="footer-col">
           <h3 class="footer-title" data-i18n="footer_title_contact">İletişim Bilgileri</h3>
-          <ul class="footer-contact-info">
-            <li>
-              <span class="info-label" data-i18n="contact_address_label">Merkez Ofis</span>
-              <span class="info-val" data-i18n="contact_address">Sapmaz Plaza, Kat: 4, Havacılık Cd. No:12, Kadıköy / İstanbul</span>
-            </li>
-            <li>
-              <span class="info-label" data-i18n="contact_email_label">E-Posta</span>
-              <a href="mailto:info@sapmazacademy.com" class="info-val">info@sapmazacademy.com</a>
-            </li>
-            <li>
-              <span class="info-label" data-i18n="contact_phone_label">Müşteri İlişkileri</span>
-              <a href="tel:+902165554282" class="info-val">+90 (216) 555 4282</a>
-            </li>
-          </ul>
+          <div class="footer-contact">
+            <div class="contact-item">
+              <div class="contact-item-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                </svg>
+              </div>
+              <div class="contact-text">
+                <div class="contact-text-title" data-i18n="footer_addr1_label">İstanbul Merkez Ofis (HQ)</div>
+                <div class="contact-text-body">Sapmaz Plaza, Kat: 4, Havacılık Cd. No:12, Kadıköy / İstanbul</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                </svg>
+              </div>
+              <div class="contact-text">
+                <div class="contact-text-title" data-i18n="footer_addr2_label">Ankara Şube</div>
+                <div class="contact-text-body">Teknopark Ankara, Blok A, Kat: 2, İvedik / Ankara</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                </svg>
+              </div>
+              <div class="contact-text">
+                <div class="contact-text-title" data-i18n="footer_addr3_label">Eskişehir Hangar</div>
+                <div class="contact-text-body">Hasan Polatkan Havalimanı, Hangar No: 4, Eskişehir</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                </svg>
+              </div>
+              <div class="contact-text">
+                <div class="contact-text-title" data-i18n="contact_email_label">E-Posta</div>
+                <div class="contact-text-body">info@sapmazacademy.com</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                </svg>
+              </div>
+              <div class="contact-text">
+                <div class="contact-text-title" data-i18n="contact_phone_label">Müşteri İlişkileri</div>
+                <div class="contact-text-body">+90 (216) 555 4282</div>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>
