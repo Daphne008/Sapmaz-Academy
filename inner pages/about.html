@@ -9,12 +9,14 @@
   <title data-i18n="about_page_title">Hakkımızda | Sapmaz Academy</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="../styles.min.css">
 </head>
 
 <body>
-  <script>(function(){if(localStorage.getItem("theme")==="light")document.body.classList.add("light-mode")})();</script>
+  <script>(function () { if (localStorage.getItem("theme") === "light") document.body.classList.add("light-mode") })();</script>
 
   <!-- ==========================================
        HEADER & NAVIGATION
@@ -79,39 +81,56 @@
       </nav>
 
       <!-- Section 1: Overview & Vision/Mission (Paneled Layout) -->
-      <section class="about-overview-grid" style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px; margin-bottom: 60px; align-items: stretch;">
-        
+      <section class="about-overview-grid"
+        style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px; margin-bottom: 60px; align-items: stretch;">
+
         <!-- Panel 1: Who We Are (Intro & Image) -->
         <div class="standard-card about-intro-panel" style="padding: 35px; border-radius: 16px;">
           <div class="about-intro-text" style="display: flex; flex-direction: column; justify-content: center;">
-            <h1 class="section-title" style="font-size: 2rem; margin-bottom: 20px; text-align: left; margin-top: 0;" data-i18n="about_intro_title">Yarınların Havacılık Teknolojileri</h1>
-            <p style="color: var(--text-muted); line-height: 1.7; font-size: 0.98rem; margin-bottom: 15px;" data-i18n="about_intro_p1">
-              Sapmaz Academy, sivil havacılık ve insansız hava araçları teknolojilerinde 20 yılı aşkın süredir sektöre yön veren, Türkiye'nin lider eğitim kurumlarından biridir. Pilot yetiştirme programlarımızdan otonom uçuş yazılım eğitimlerimize kadar geniş bir spektrumda yarının profesyonellerini hazırlıyoruz.
+            <h1 class="section-title" style="font-size: 2rem; margin-bottom: 20px; text-align: left; margin-top: 0;"
+              data-i18n="about_intro_title">Yarınların Havacılık Teknolojileri</h1>
+            <p style="color: var(--text-muted); line-height: 1.7; font-size: 0.98rem; margin-bottom: 15px;"
+              data-i18n="about_intro_p1">
+              Sapmaz Academy, sivil havacılık ve insansız hava araçları teknolojilerinde 20 yılı aşkın süredir sektöre
+              yön veren, Türkiye'nin lider eğitim kurumlarından biridir. Pilot yetiştirme programlarımızdan otonom uçuş
+              yazılım eğitimlerimize kadar geniş bir spektrumda yarının profesyonellerini hazırlıyoruz.
             </p>
-            <p style="color: var(--text-muted); line-height: 1.7; font-size: 0.98rem; margin-bottom: 0;" data-i18n="about_intro_p2">
-              Gelişmiş simülatör altyapımız, zengin online öğrenim kütüphanemiz ve her biri sektörde aktif görev alan uçuş eğitmenlerimizle, teorik bilginin pratik saha tecrübesiyle harmanlandığı yüksek standartlarda eğitim sunuyoruz.
+            <p style="color: var(--text-muted); line-height: 1.7; font-size: 0.98rem; margin-bottom: 0;"
+              data-i18n="about_intro_p2">
+              Gelişmiş simülatör altyapımız, zengin online öğrenim kütüphanemiz ve her biri sektörde aktif görev alan
+              uçuş eğitmenlerimizle, teorik bilginin pratik saha tecrübesiyle harmanlandığı yüksek standartlarda eğitim
+              sunuyoruz.
             </p>
           </div>
-          <div class="about-intro-img" style="border-radius: 12px; overflow: hidden; height: 100%; min-height: 280px; border: 1px solid var(--border-color);">
-            <img src="https://images.unsplash.com/photo-1517479149777-5f3b1511d5ad?auto=format&fit=crop&w=600&q=80" alt="Flight Deck" style="width: 100%; height: 100%; object-fit: cover;">
+          <div class="about-intro-img"
+            style="border-radius: 12px; overflow: hidden; height: 100%; min-height: 280px; border: 1px solid var(--border-color);">
+            <img
+              src="/home/daphne/antigravity/sapmaz academy/sapmaz prototype/dist/inner pages/ChatGPT Image Jul 31, 2026, 05_13_45 PM.png"
+              alt="Flight Deck" style="width: 100%; height: 100%; object-fit: cover;">
           </div>
         </div>
 
         <!-- Panel 2: Core Values (Vision & Mission together) -->
-        <div class="standard-card about-values-panel" style="padding: 30px; border-radius: 16px; display: flex; flex-direction: column; gap: 24px; justify-content: center;">
+        <div class="standard-card about-values-panel"
+          style="padding: 30px; border-radius: 16px; display: flex; flex-direction: column; gap: 24px; justify-content: center;">
           <!-- Vision -->
           <div class="value-item">
             <div style="display: flex; gap: 15px; align-items: flex-start;">
-              <div class="value-icon-wrapper" style="color: var(--accent); flex-shrink: 0; background: rgba(var(--accent-rgb), 0.08); border-radius: 50%; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
-                  <path d="M12 6v6l4 2"/>
+              <div class="value-icon-wrapper"
+                style="color: var(--accent); flex-shrink: 0; background: rgba(var(--accent-rgb), 0.08); border-radius: 50%; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+                  <path d="M12 6v6l4 2" />
                 </svg>
               </div>
               <div>
-                <h3 style="font-size: 1.05rem; font-weight: 800; margin-bottom: 6px; color: var(--text-primary);" data-i18n="about_vision_title">Vizyonumuz</h3>
-                <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.55; margin-bottom: 0;" data-i18n="about_vision_text">
-                  İnsansız ve insanlı havacılık teknolojilerinde küresel standartları belirleyen, yenilikçi uçuş teorileri geliştiren ve dünya çapında tanınan nitelikli mezunlar yetiştiren öncü bir akademi olmak.
+                <h3 style="font-size: 1.05rem; font-weight: 800; margin-bottom: 6px; color: var(--text-primary);"
+                  data-i18n="about_vision_title">Vizyonumuz</h3>
+                <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.55; margin-bottom: 0;"
+                  data-i18n="about_vision_text">
+                  İnsansız ve insanlı havacılık teknolojilerinde küresel standartları belirleyen, yenilikçi uçuş
+                  teorileri geliştiren ve dünya çapında tanınan nitelikli mezunlar yetiştiren öncü bir akademi olmak.
                 </p>
               </div>
             </div>
@@ -123,17 +142,22 @@
           <!-- Mission -->
           <div class="value-item">
             <div style="display: flex; gap: 15px; align-items: flex-start;">
-              <div class="value-icon-wrapper" style="color: var(--accent); flex-shrink: 0; background: rgba(var(--accent-rgb), 0.08); border-radius: 50%; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polygon points="12 2 2 7 12 12 22 7 12 2"/>
-                  <polyline points="2 17 12 22 22 17"/>
-                  <polyline points="2 12 12 17 22 12"/>
+              <div class="value-icon-wrapper"
+                style="color: var(--accent); flex-shrink: 0; background: rgba(var(--accent-rgb), 0.08); border-radius: 50%; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                  <polyline points="2 17 12 22 22 17" />
+                  <polyline points="2 12 12 17 22 12" />
                 </svg>
               </div>
               <div>
-                <h3 style="font-size: 1.05rem; font-weight: 800; margin-bottom: 6px; color: var(--text-primary);" data-i18n="about_mission_title">Misyonumuz</h3>
-                <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.55; margin-bottom: 0;" data-i18n="about_mission_text">
-                  Havacılık emniyeti kurallarını en üst düzeyde benimseyen, güncel havacılık regülasyonlarına tam uyumlu ve otonom teknolojilere adapte olabilen profesyonel pilot ve teknik personeller yetiştirmek.
+                <h3 style="font-size: 1.05rem; font-weight: 800; margin-bottom: 6px; color: var(--text-primary);"
+                  data-i18n="about_mission_title">Misyonumuz</h3>
+                <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.55; margin-bottom: 0;"
+                  data-i18n="about_mission_text">
+                  Havacılık emniyeti kurallarını en üst düzeyde benimseyen, güncel havacılık regülasyonlarına tam uyumlu
+                  ve otonom teknolojilere adapte olabilen profesyonel pilot ve teknik personeller yetiştirmek.
                 </p>
               </div>
             </div>
@@ -142,61 +166,101 @@
       </section>
 
       <!-- Section 2: Key Metrics Showcase (Unified Dashboard Panel) -->
-      <section class="standard-card about-stats-panel" style="padding: 30px 20px; border-radius: 16px; margin-bottom: 60px;">
-        <div class="stats-showcase-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center;">
+      <section class="standard-card about-stats-panel"
+        style="padding: 30px 20px; border-radius: 16px; margin-bottom: 60px;">
+        <div class="stats-showcase-grid"
+          style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center;">
           <div class="stat-counter-box" style="width: 100%;">
-            <div class="stat-number" style="font-size: 2.3rem; font-weight: 900; color: var(--accent); margin-bottom: 10px; font-family: 'Outfit', sans-serif;">20+</div>
-            <div class="stat-lbl" style="font-size: 0.85rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; color: var(--text-secondary);" data-i18n="stat_experience">Yıllık Tecrübe</div>
+            <div class="stat-number"
+              style="font-size: 2.3rem; font-weight: 900; color: var(--accent); margin-bottom: 10px; font-family: 'Outfit', sans-serif;">
+              20+</div>
+            <div class="stat-lbl"
+              style="font-size: 0.85rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; color: var(--text-secondary);"
+              data-i18n="stat_experience">Yıllık Tecrübe</div>
           </div>
           <div class="stat-counter-box" style="width: 100%;">
-            <div class="stat-number" style="font-size: 2.3rem; font-weight: 900; color: var(--accent); margin-bottom: 10px; font-family: 'Outfit', sans-serif;">10K+</div>
-            <div class="stat-lbl" style="font-size: 0.85rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; color: var(--text-secondary);" data-i18n="stat_graduates">Mezun Pilot</div>
+            <div class="stat-number"
+              style="font-size: 2.3rem; font-weight: 900; color: var(--accent); margin-bottom: 10px; font-family: 'Outfit', sans-serif;">
+              10K+</div>
+            <div class="stat-lbl"
+              style="font-size: 0.85rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; color: var(--text-secondary);"
+              data-i18n="stat_graduates">Mezun Pilot</div>
           </div>
           <div class="stat-counter-box" style="width: 100%;">
-            <div class="stat-number" style="font-size: 2.3rem; font-weight: 900; color: var(--accent); margin-bottom: 10px; font-family: 'Outfit', sans-serif;">50+</div>
-            <div class="stat-lbl" style="font-size: 0.85rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; color: var(--text-secondary);" data-i18n="stat_staff">Eğitmen Kadrosu</div>
+            <div class="stat-number"
+              style="font-size: 2.3rem; font-weight: 900; color: var(--accent); margin-bottom: 10px; font-family: 'Outfit', sans-serif;">
+              50+</div>
+            <div class="stat-lbl"
+              style="font-size: 0.85rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; color: var(--text-secondary);"
+              data-i18n="stat_staff">Eğitmen Kadrosu</div>
           </div>
           <div class="stat-counter-box" style="width: 100%;">
-            <div class="stat-number" style="font-size: 2.3rem; font-weight: 900; color: var(--accent); margin-bottom: 10px; font-family: 'Outfit', sans-serif;">15+</div>
-            <div class="stat-lbl" style="font-size: 0.85rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; color: var(--text-secondary);" data-i18n="stat_courses">Aktif Program</div>
+            <div class="stat-number"
+              style="font-size: 2.3rem; font-weight: 900; color: var(--accent); margin-bottom: 10px; font-family: 'Outfit', sans-serif;">
+              15+</div>
+            <div class="stat-lbl"
+              style="font-size: 0.85rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; color: var(--text-secondary);"
+              data-i18n="stat_courses">Aktif Program</div>
           </div>
         </div>
       </section>
 
       <!-- Section 3: Training Infrastructure & Campus (Unified Panel) -->
-      <section class="standard-card about-facilities-panel" style="padding: 40px; border-radius: 16px; margin-bottom: 60px;">
-        <h2 class="section-title" style="margin-bottom: 35px; text-align: left; margin-top: 0;" data-i18n="facilities_title">Eğitim Altyapımız & Tesislerimiz</h2>
+      <section class="standard-card about-facilities-panel"
+        style="padding: 40px; border-radius: 16px; margin-bottom: 60px;">
+        <h2 class="section-title" style="margin-bottom: 35px; text-align: left; margin-top: 0;"
+          data-i18n="facilities_title">Eğitim Altyapımız & Tesislerimiz</h2>
         <div class="facilities-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;">
-          
-          <div class="facility-card" style="position: relative; height: 260px; border-radius: 12px; overflow: hidden; box-shadow: var(--card-shadow); border: 1px solid var(--border-color); transition: all 0.3s ease;">
-            <img src="https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?auto=format&fit=crop&w=500&q=80" alt="Simulator Center" style="width: 100%; height: 100%; object-fit: cover; transition: all 0.5s ease;">
-            <div class="facility-overlay" style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 20%, rgba(15, 23, 42, 0.2) 100%); padding: 20px; display: flex; flex-direction: column; justify-content: flex-end;">
-              <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--text-overlay-primary); margin-bottom: 5px;" data-i18n="fac_sim_title">Simülatör Merkezi</h3>
-              <p style="font-size: 0.78rem; color: var(--text-overlay-secondary); line-height: 1.4; margin-bottom: 0;" data-i18n="fac_sim_desc">Gerçekçi kokpit ve hava koşulları simülasyonları.</p>
+
+          <div class="facility-card"
+            style="position: relative; height: 260px; border-radius: 12px; overflow: hidden; box-shadow: var(--card-shadow); border: 1px solid var(--border-color); transition: all 0.3s ease;">
+            <img src="https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?auto=format&fit=crop&w=500&q=80"
+              alt="Simulator Center" style="width: 100%; height: 100%; object-fit: cover; transition: all 0.5s ease;">
+            <div class="facility-overlay"
+              style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 20%, rgba(15, 23, 42, 0.2) 100%); padding: 20px; display: flex; flex-direction: column; justify-content: flex-end;">
+              <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--text-overlay-primary); margin-bottom: 5px;"
+                data-i18n="fac_sim_title">Simülatör Merkezi</h3>
+              <p style="font-size: 0.78rem; color: var(--text-overlay-secondary); line-height: 1.4; margin-bottom: 0;"
+                data-i18n="fac_sim_desc">Gerçekçi kokpit ve hava koşulları simülasyonları.</p>
             </div>
           </div>
 
-          <div class="facility-card" style="position: relative; height: 260px; border-radius: 12px; overflow: hidden; box-shadow: var(--card-shadow); border: 1px solid var(--border-color); transition: all 0.3s ease;">
-            <img src="https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=500&q=80" alt="Hangar" style="width: 100%; height: 100%; object-fit: cover; transition: all 0.5s ease;">
-            <div class="facility-overlay" style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 20%, rgba(15, 23, 42, 0.2) 100%); padding: 20px; display: flex; flex-direction: column; justify-content: flex-end;">
-              <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--text-overlay-primary); margin-bottom: 5px;" data-i18n="fac_hangar_title">Uçuş Hangarı</h3>
-              <p style="font-size: 0.78rem; color: var(--text-overlay-secondary); line-height: 1.4; margin-bottom: 0;" data-i18n="fac_hangar_desc">Eğitim uçaklarımız ve teknik bakım atölyemiz.</p>
+          <div class="facility-card"
+            style="position: relative; height: 260px; border-radius: 12px; overflow: hidden; box-shadow: var(--card-shadow); border: 1px solid var(--border-color); transition: all 0.3s ease;">
+            <img src="https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=500&q=80"
+              alt="Hangar" style="width: 100%; height: 100%; object-fit: cover; transition: all 0.5s ease;">
+            <div class="facility-overlay"
+              style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 20%, rgba(15, 23, 42, 0.2) 100%); padding: 20px; display: flex; flex-direction: column; justify-content: flex-end;">
+              <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--text-overlay-primary); margin-bottom: 5px;"
+                data-i18n="fac_hangar_title">Uçuş Hangarı</h3>
+              <p style="font-size: 0.78rem; color: var(--text-overlay-secondary); line-height: 1.4; margin-bottom: 0;"
+                data-i18n="fac_hangar_desc">Eğitim uçaklarımız ve teknik bakım atölyemiz.</p>
             </div>
           </div>
 
-          <div class="facility-card" style="position: relative; height: 260px; border-radius: 12px; overflow: hidden; box-shadow: var(--card-shadow); border: 1px solid var(--border-color); transition: all 0.3s ease;">
-            <img src="https://images.unsplash.com/photo-1508849789987-4e5333c12b78?auto=format&fit=crop&w=500&q=80" alt="UAV Field" style="width: 100%; height: 100%; object-fit: cover; transition: all 0.5s ease;">
-            <div class="facility-overlay" style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 20%, rgba(15, 23, 42, 0.2) 100%); padding: 20px; display: flex; flex-direction: column; justify-content: flex-end;">
-              <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--text-overlay-primary); margin-bottom: 5px;" data-i18n="fac_field_title">İHA Test Sahası</h3>
-              <p style="font-size: 0.78rem; color: var(--text-overlay-secondary); line-height: 1.4; margin-bottom: 0;" data-i18n="fac_field_desc">Pratik uçuş eğitimleri için özel İHA sahası.</p>
+          <div class="facility-card"
+            style="position: relative; height: 260px; border-radius: 12px; overflow: hidden; box-shadow: var(--card-shadow); border: 1px solid var(--border-color); transition: all 0.3s ease;">
+            <img src="https://images.unsplash.com/photo-1508849789987-4e5333c12b78?auto=format&fit=crop&w=500&q=80"
+              alt="UAV Field" style="width: 100%; height: 100%; object-fit: cover; transition: all 0.5s ease;">
+            <div class="facility-overlay"
+              style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 20%, rgba(15, 23, 42, 0.2) 100%); padding: 20px; display: flex; flex-direction: column; justify-content: flex-end;">
+              <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--text-overlay-primary); margin-bottom: 5px;"
+                data-i18n="fac_field_title">İHA Test Sahası</h3>
+              <p style="font-size: 0.78rem; color: var(--text-overlay-secondary); line-height: 1.4; margin-bottom: 0;"
+                data-i18n="fac_field_desc">Pratik uçuş eğitimleri için özel İHA sahası.</p>
             </div>
           </div>
 
-          <div class="facility-card" style="position: relative; height: 260px; border-radius: 12px; overflow: hidden; box-shadow: var(--card-shadow); border: 1px solid var(--border-color); transition: all 0.3s ease;">
-            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=500&q=80" alt="Tech Lab" style="width: 100%; height: 100%; object-fit: cover; transition: all 0.5s ease;">
-            <div class="facility-overlay" style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 20%, rgba(15, 23, 42, 0.2) 100%); padding: 20px; display: flex; flex-direction: column; justify-content: flex-end;">
-              <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--text-overlay-primary); margin-bottom: 5px;" data-i18n="fac_lab_title">Teknoloji Laboratuvarı</h3>
-              <p style="font-size: 0.78rem; color: var(--text-overlay-secondary); line-height: 1.4; margin-bottom: 0;" data-i18n="fac_lab_desc">Otonom kodlama ve drone montaj laboratuvarları.</p>
+          <div class="facility-card"
+            style="position: relative; height: 260px; border-radius: 12px; overflow: hidden; box-shadow: var(--card-shadow); border: 1px solid var(--border-color); transition: all 0.3s ease;">
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=500&q=80"
+              alt="Tech Lab" style="width: 100%; height: 100%; object-fit: cover; transition: all 0.5s ease;">
+            <div class="facility-overlay"
+              style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 20%, rgba(15, 23, 42, 0.2) 100%); padding: 20px; display: flex; flex-direction: column; justify-content: flex-end;">
+              <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--text-overlay-primary); margin-bottom: 5px;"
+                data-i18n="fac_lab_title">Teknoloji Laboratuvarı</h3>
+              <p style="font-size: 0.78rem; color: var(--text-overlay-secondary); line-height: 1.4; margin-bottom: 0;"
+                data-i18n="fac_lab_desc">Otonom kodlama ve drone montaj laboratuvarları.</p>
             </div>
           </div>
 
@@ -206,78 +270,181 @@
       <!-- Section 4: Interactive Milestone Timeline (Horizontal Nodes / 2-Column Cards) -->
       <section class="about-timeline-section" style="margin-bottom: 60px;">
         <h2 class="section-title" style="margin-bottom: 45px;" data-i18n="timeline_title">Tarihsel Yolculuğumuz</h2>
-        
-        <div class="about-timeline-wrapper" style="position: relative; display: flex; flex-direction: column; align-items: center; gap: 40px;">
-          
+
+        <div class="about-timeline-wrapper"
+          style="position: relative; display: flex; flex-direction: column; align-items: center; gap: 40px;">
+
           <!-- Timeline Timeline Selector Row -->
-          <div class="timeline-selector-row" style="position: relative; display: flex; width: 100%; max-width: 600px; justify-content: space-between; align-items: center; z-index: 5; margin-bottom: 10px;">
+          <div class="timeline-selector-row" style="position: relative; display: flex; width: 100%; max-width: 850px; justify-content: space-between; align-items: center; z-index: 5; margin-bottom: 10px; gap: 8px; overflow-x: auto; padding-bottom: 8px;">
             <!-- Horizontal central bar -->
             <div class="timeline-bar" style="position: absolute; left: 0; right: 0; top: 50%; height: 3px; background: var(--border-color); transform: translateY(-50%); z-index: -1;"></div>
             
             <!-- Nodes -->
-            <button class="timeline-node active" data-year="2004">2004</button>
-            <button class="timeline-node" data-year="2012">2012</button>
-            <button class="timeline-node" data-year="2018">2018</button>
-            <button class="timeline-node" data-year="2023">2023</button>
+            <button class="timeline-node active" data-year="2014">2014</button>
+            <button class="timeline-node" data-year="2019">2019</button>
+            <button class="timeline-node" data-year="2021">2021</button>
+            <button class="timeline-node" data-year="2022a">2022</button>
+            <button class="timeline-node" data-year="2022b">2022</button>
+            <button class="timeline-node" data-year="2023a">2023</button>
+            <button class="timeline-node" data-year="2023b">2023</button>
+            <button class="timeline-node" data-year="2024">2024</button>
+            <button class="timeline-node" data-year="2025">2025</button>
+            <button class="timeline-node" data-year="2026">2026</button>
           </div>
 
           <!-- Timeline Detail Cards (Toggleable) -->
           <div class="timeline-cards-container" style="position: relative; width: 100%; min-height: 240px; display: flex; align-items: center; justify-content: center;">
             
-            <!-- Card 2004 -->
-            <div class="standard-card timeline-card active" id="card2004" style="padding: 30px; border-radius: 12px; width: 100%; max-width: 800px; position: absolute; transition: all 0.4s ease; display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px;">
+            <!-- Card 2014 -->
+            <div class="standard-card timeline-card active" id="card2014" style="padding: 30px; border-radius: 12px; width: 100%; max-width: 800px; position: absolute; transition: all 0.4s ease; display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px;">
               <div style="display: flex; flex-direction: column; justify-content: center;">
-                <h3 class="timeline-card-title" data-i18n="time_2004_title">Sapmaz Havacılık'ın Kuruluşu</h3>
-                <p class="timeline-card-desc" data-i18n="time_2004_desc">
-                  Türkiye'nin havacılık alanında uzmanlaşmış özel girişimlerinden biri olarak pilotaj, yer hizmetleri ve özel havacılık danışmanlık hizmetleri sunmak amacıyla kurulduk. İlk pilot kadromuzu oluşturduk.
+                <h3 class="timeline-card-title" data-i18n="time_2014_title">Sapmaz Havacılık'ın Kuruluşu</h3>
+                <p class="timeline-card-desc" data-i18n="time_2014_desc">
+                  Havacılık alanında pilotaj, yer hizmetleri ve danışmanlık sunmak amacıyla kurulduk. Sektördeki yolculuğumuzun ilk adımını attık.
                 </p>
               </div>
               <div class="timeline-card-img-wrapper" style="border-radius: 8px; overflow: hidden; height: 160px; border: 1px solid var(--border-color);">
-                <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=500&q=80" alt="2004" style="width: 100%; height: 100%; object-fit: cover;">
+                <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=500&q=80" alt="2014" style="width: 100%; height: 100%; object-fit: cover;">
               </div>
-              <span class="timeline-card-year">2004</span>
+              <span class="timeline-card-year">2014</span>
             </div>
 
-            <!-- Card 2012 -->
-            <div class="standard-card timeline-card" id="card2012" style="padding: 30px; border-radius: 12px; width: 100%; max-width: 800px; position: absolute; opacity: 0; pointer-events: none; transform: translateY(15px); transition: all 0.4s ease; display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px;">
+            <!-- Card 2019 -->
+            <div class="standard-card timeline-card" id="card2019" style="padding: 30px; border-radius: 12px; width: 100%; max-width: 800px; position: absolute; opacity: 0; pointer-events: none; transform: translateY(15px); transition: all 0.4s ease; display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px;">
               <div style="display: flex; flex-direction: column; justify-content: center;">
-                <h3 class="timeline-card-title" data-i18n="time_2012_title">Drone (İHA) Eğitimlerinin Başlaması</h3>
-                <p class="timeline-card-desc" data-i18n="time_2012_desc">
-                  İnsansız Hava Araçları (İHA) teknolojisinin dünyada yükselişe geçmesiyle beraber, Türkiye'nin ilk kurumsal İHA eğitim programlarını başlatarak sivil İHA alanında bir ilke imza attık.
+                <h3 class="timeline-card-title" data-i18n="time_2019_title">SHGM Uçuş Eğitim Yetkisi</h3>
+                <p class="timeline-card-desc" data-i18n="time_2019_desc">
+                  Sivil Havacılık Genel Müdürlüğü (SHGM) tarafından resmi olarak yetkilendirilmiş İHA Eğitim Kuruluşu yetki belgemizi aldık.
                 </p>
               </div>
               <div class="timeline-card-img-wrapper" style="border-radius: 8px; overflow: hidden; height: 160px; border: 1px solid var(--border-color);">
-                <img src="https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=500&q=80" alt="2012" style="width: 100%; height: 100%; object-fit: cover;">
+                <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?auto=format&fit=crop&w=500&q=80" alt="2019" style="width: 100%; height: 100%; object-fit: cover;">
               </div>
-              <span class="timeline-card-year">2012</span>
+              <span class="timeline-card-year">2019</span>
             </div>
 
-            <!-- Card 2018 -->
-            <div class="standard-card timeline-card" id="card2018" style="padding: 30px; border-radius: 12px; width: 100%; max-width: 800px; position: absolute; opacity: 0; pointer-events: none; transform: translateY(15px); transition: all 0.4s ease; display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px;">
+            <!-- Card 2021 -->
+            <div class="standard-card timeline-card" id="card2021" style="padding: 30px; border-radius: 12px; width: 100%; max-width: 800px; position: absolute; opacity: 0; pointer-events: none; transform: translateY(15px); transition: all 0.4s ease; display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px;">
               <div style="display: flex; flex-direction: column; justify-content: center;">
-                <h3 class="timeline-card-title" data-i18n="time_2018_title">SHGM Uçuş Eğitim Yetkisi</h3>
-                <p class="timeline-card-desc" data-i18n="time_2018_desc">
-                  Sivil Havacılık Genel Müdürlüğü (SHGM) tarafından resmi olarak yetkilendirilmiş İHA Eğitim Kuruluşu yetki belgemizi aldık. İHA0, İHA1 ve İHA2 sınıflarında resmi ehliyet vermeye başladık.
+                <h3 class="timeline-card-title" data-i18n="time_2021_title">Zirai Drone Üretim İzni</h3>
+                <p class="timeline-card-desc" data-i18n="time_2021_desc">
+                  Tarımsal üretimi modernize etmek amacıyla zirai drone üretim izinlerimizi tamamlayarak yerli teknoloji üretimine katkı sağladık.
                 </p>
               </div>
               <div class="timeline-card-img-wrapper" style="border-radius: 8px; overflow: hidden; height: 160px; border: 1px solid var(--border-color);">
-                <img src="https://images.unsplash.com/photo-1483450388369-9ed95738483c?auto=format&fit=crop&w=500&q=80" alt="2018" style="width: 100%; height: 100%; object-fit: cover;">
+                <img src="https://images.unsplash.com/photo-1586749845663-8a39a6744888?auto=format&fit=crop&w=500&q=80" alt="2021" style="width: 100%; height: 100%; object-fit: cover;">
               </div>
-              <span class="timeline-card-year">2018</span>
+              <span class="timeline-card-year">2021</span>
             </div>
 
-            <!-- Card 2023 -->
-            <div class="standard-card timeline-card" id="card2023" style="padding: 30px; border-radius: 12px; width: 100%; max-width: 800px; position: absolute; opacity: 0; pointer-events: none; transform: translateY(15px); transition: all 0.4s ease; display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px;">
+            <!-- Card 2022a -->
+            <div class="standard-card timeline-card" id="card2022a" style="padding: 30px; border-radius: 12px; width: 100%; max-width: 800px; position: absolute; opacity: 0; pointer-events: none; transform: translateY(15px); transition: all 0.4s ease; display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px;">
               <div style="display: flex; flex-direction: column; justify-content: center;">
-                <h3 class="timeline-card-title" data-i18n="time_2023_title">10.000+ Mezun ve Ar-Ge Çalışmaları</h3>
-                <p class="timeline-card-desc" data-i18n="time_2023_desc">
-                  Türkiye genelinde 10.000'den fazla lisanslı İHA ve pilotaj mezununa ulaştık. Otonom zirai İHA haritalama sistemleri ve savunma sanayi taktik eğitimleri alanında özel Ar-Ge projeleri başlattık.
+                <h3 class="timeline-card-title" data-i18n="time_2022a_title">Hafif İHA İşleticisi Yetkisi</h3>
+                <p class="timeline-card-desc" data-i18n="time_2022a_desc">
+                  Sivil havacılık standartlarında hafif İHA işletici yetkisini alarak operasyonel kabiliyetlerimizi üst seviyeye taşıdık.
                 </p>
               </div>
               <div class="timeline-card-img-wrapper" style="border-radius: 8px; overflow: hidden; height: 160px; border: 1px solid var(--border-color);">
-                <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=500&q=80" alt="2023" style="width: 100%; height: 100%; object-fit: cover;">
+                <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=500&q=80" alt="2022" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+              <span class="timeline-card-year">2022</span>
+            </div>
+
+            <!-- Card 2022b -->
+            <div class="standard-card timeline-card" id="card2022b" style="padding: 30px; border-radius: 12px; width: 100%; max-width: 800px; position: absolute; opacity: 0; pointer-events: none; transform: translateY(15px); transition: all 0.4s ease; display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px;">
+              <div style="display: flex; flex-direction: column; justify-content: center;">
+                <h3 class="timeline-card-title">
+                  <span data-i18n="time_2022b_title">Azerbaycan'a ZİHA İhracatı</span>
+                  <span class="timeline-card-badge" data-i18n="badge_first_export" style="background: rgba(var(--accent-rgb), 0.15); border: 1px solid var(--accent); color: var(--accent); font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; font-weight: 800; margin-left: 10px; display: inline-block; vertical-align: middle; text-transform: uppercase; letter-spacing: 0.5px;">İLK İHRACAT</span>
+                </h3>
+                <p class="timeline-card-desc" data-i18n="time_2022b_desc">
+                  Geliştirdiğimiz tarımsal insansız hava araçlarının (ZİHA) Azerbaycan'a ilk ihracatını başarıyla gerçekleştirerek küresel pazara açıldık.
+                </p>
+              </div>
+              <div class="timeline-card-img-wrapper" style="border-radius: 8px; overflow: hidden; height: 160px; border: 1px solid var(--border-color);">
+                <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=500&q=80" alt="2022" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+              <span class="timeline-card-year">2022</span>
+            </div>
+
+            <!-- Card 2023a -->
+            <div class="standard-card timeline-card" id="card2023a" style="padding: 30px; border-radius: 12px; width: 100%; max-width: 800px; position: absolute; opacity: 0; pointer-events: none; transform: translateY(15px); transition: all 0.4s ease; display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px;">
+              <div style="display: flex; flex-direction: column; justify-content: center;">
+                <h3 class="timeline-card-title" data-i18n="time_2023a_title">Sapmaz Academy Kuruldu</h3>
+                <p class="timeline-card-desc" data-i18n="time_2023a_desc">
+                  Eğitim ve akademi faaliyetlerimizi tek bir kurumsal çatı altında toplayarak profesyonel havacılık eğitimlerini kurumsallaştırdık.
+                </p>
+              </div>
+              <div class="timeline-card-img-wrapper" style="border-radius: 8px; overflow: hidden; height: 160px; border: 1px solid var(--border-color);">
+                <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=500&q=80" alt="2023" style="width: 100%; height: 100%; object-fit: cover;">
               </div>
               <span class="timeline-card-year">2023</span>
+            </div>
+
+            <!-- Card 2023b -->
+            <div class="standard-card timeline-card" id="card2023b" style="padding: 30px; border-radius: 12px; width: 100%; max-width: 800px; position: absolute; opacity: 0; pointer-events: none; transform: translateY(15px); transition: all 0.4s ease; display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px;">
+              <div style="display: flex; flex-direction: column; justify-content: center;">
+                <h3 class="timeline-card-title">
+                  <span data-i18n="time_2023b_title">TÜBİTAK 1507 · İHA Motoru Geliştirme</span>
+                  <span class="timeline-card-badge" data-i18n="badge_arge" style="background: rgba(var(--accent-rgb), 0.15); border: 1px solid var(--accent); color: var(--accent); font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; font-weight: 800; margin-left: 10px; display: inline-block; vertical-align: middle; text-transform: uppercase; letter-spacing: 0.5px;">AR-GE</span>
+                </h3>
+                <p class="timeline-card-desc" data-i18n="time_2023b_desc">
+                  TÜBİTAK 1507 programı kapsamında yenilikçi İHA motoru projemizi başlatarak yerli motor Ar-Ge çalışmalarına hız verdik.
+                </p>
+              </div>
+              <div class="timeline-card-img-wrapper" style="border-radius: 8px; overflow: hidden; height: 160px; border: 1px solid var(--border-color);">
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=500&q=80" alt="2023" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+              <span class="timeline-card-year">2023</span>
+            </div>
+
+            <!-- Card 2024 -->
+            <div class="standard-card timeline-card" id="card2024" style="padding: 30px; border-radius: 12px; width: 100%; max-width: 800px; position: absolute; opacity: 0; pointer-events: none; transform: translateY(15px); transition: all 0.4s ease; display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px;">
+              <div style="display: flex; flex-direction: column; justify-content: center;">
+                <h3 class="timeline-card-title" data-i18n="time_2024_title">Sapmaz Savunma A.Ş.</h3>
+                <p class="timeline-card-desc" data-i18n="time_2024_desc">
+                  Savunma sanayi projeleri ve taktiksel insansız hava sistemleri odağında uzmanlaşmış Sapmaz Savunma A.Ş. şirketimizi kurduk.
+                </p>
+              </div>
+              <div class="timeline-card-img-wrapper" style="border-radius: 8px; overflow: hidden; height: 160px; border: 1px solid var(--border-color);">
+                <img src="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=500&q=80" alt="2024" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+              <span class="timeline-card-year">2024</span>
+            </div>
+
+            <!-- Card 2025 -->
+            <div class="standard-card timeline-card" id="card2025" style="padding: 30px; border-radius: 12px; width: 100%; max-width: 800px; position: absolute; opacity: 0; pointer-events: none; transform: translateY(15px); transition: all 0.4s ease; display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px;">
+              <div style="display: flex; flex-direction: column; justify-content: center;">
+                <h3 class="timeline-card-title">
+                  <span data-i18n="time_2025_title">TÜBİTAK 1501 · Yüksek Kapasiteli ZİHA</span>
+                  <span class="timeline-card-badge" data-i18n="badge_arge" style="background: rgba(var(--accent-rgb), 0.15); border: 1px solid var(--accent); color: var(--accent); font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; font-weight: 800; margin-left: 10px; display: inline-block; vertical-align: middle; text-transform: uppercase; letter-spacing: 0.5px;">AR-GE</span>
+                </h3>
+                <p class="timeline-card-desc" data-i18n="time_2025_desc">
+                  TÜBİTAK 1501 desteğiyle yüksek taşıma kapasiteli, gelişmiş otonom zirai insansız hava aracı (ZİHA) Ar-Ge projesini başlattık.
+                </p>
+              </div>
+              <div class="timeline-card-img-wrapper" style="border-radius: 8px; overflow: hidden; height: 160px; border: 1px solid var(--border-color);">
+                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=500&q=80" alt="2025" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+              <span class="timeline-card-year">2025</span>
+            </div>
+
+            <!-- Card 2026 -->
+            <div class="standard-card timeline-card" id="card2026" style="padding: 30px; border-radius: 12px; width: 100%; max-width: 800px; position: absolute; opacity: 0; pointer-events: none; transform: translateY(15px); transition: all 0.4s ease; display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px;">
+              <div style="display: flex; flex-direction: column; justify-content: center;">
+                <h3 class="timeline-card-title">
+                  <span data-i18n="time_2026_title">Yetkili EKS ve Sınav Merkezi</span>
+                  <span class="timeline-card-badge" data-i18n="badge_current" style="background: rgba(var(--accent-rgb), 0.15); border: 1px solid var(--accent); color: var(--accent); font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; font-weight: 800; margin-left: 10px; display: inline-block; vertical-align: middle; text-transform: uppercase; letter-spacing: 0.5px;">GÜNCEL</span>
+                </h3>
+                <p class="timeline-card-desc" data-i18n="time_2026_desc">
+                  Sınav ve yetkilendirme süreçlerini tek merkezden yönetmek üzere Yetkili EKS ve Sınav Merkezi unvanını alarak güncel hizmetlerimize ekledik.
+                </p>
+              </div>
+              <div class="timeline-card-img-wrapper" style="border-radius: 8px; overflow: hidden; height: 160px; border: 1px solid var(--border-color);">
+                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=500&q=80" alt="2026" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+              <span class="timeline-card-year">2026</span>
             </div>
 
           </div>
@@ -285,18 +452,27 @@
       </section>
 
       <!-- Section 5: Accreditations Showcase (Unified Panel) -->
-      <section class="standard-card about-accreditations-panel" style="padding: 40px; border-radius: 16px; margin-bottom: 60px;">
-        <div class="accreditations-container-grid" style="display: grid; grid-template-columns: 1fr 2.5fr; gap: 40px; align-items: center;">
-          
+      <section class="standard-card about-accreditations-panel"
+        style="padding: 40px; border-radius: 16px; margin-bottom: 60px;">
+        <div class="accreditations-container-grid"
+          style="display: grid; grid-template-columns: 1fr 2.5fr; gap: 40px; align-items: center;">
+
           <div class="accreditations-intro" style="display: flex; flex-direction: column; justify-content: center;">
-            <span style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--accent); letter-spacing: 1.5px; margin-bottom: 10px; display: block;" data-i18n="acc_top_lbl">AKREDİTASYONLAR</span>
-            <h2 class="section-title" style="text-align: left; font-size: 2rem; margin-bottom: 20px; line-height: 1.25; margin-top: 0;" data-i18n="accreditations_title">Yetki ve Sertifikalarımız</h2>
-            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px;" data-i18n="acc_intro_desc">
-              Sapmaz Academy, havacılık standartlarına tam uyumlu ve ulusal/uluslararası denetimlerden başarıyla geçmiş akredite bir kurumdur.
+            <span
+              style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--accent); letter-spacing: 1.5px; margin-bottom: 10px; display: block;"
+              data-i18n="acc_top_lbl">AKREDİTASYONLAR</span>
+            <h2 class="section-title"
+              style="text-align: left; font-size: 2rem; margin-bottom: 20px; line-height: 1.25; margin-top: 0;"
+              data-i18n="accreditations_title">Yetki ve Sertifikalarımız</h2>
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px;"
+              data-i18n="acc_intro_desc">
+              Sapmaz Academy, havacılık standartlarına tam uyumlu ve ulusal/uluslararası denetimlerden başarıyla geçmiş
+              akredite bir kurumdur.
             </p>
-            <a href="#" class="btn btn-secondary" style="align-self: flex-start; padding: 10px 20px; font-size: 0.85rem; border-radius: 30px; display: inline-flex; align-items: center; gap: 8px;">
+            <a href="#" class="btn btn-secondary"
+              style="align-self: flex-start; padding: 10px 20px; font-size: 0.85rem; border-radius: 30px; display: inline-flex; align-items: center; gap: 8px;">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
-                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
               </svg>
               <span data-i18n="acc_download_all">Sertifikaları Görüntüle</span>
             </a>
@@ -304,21 +480,26 @@
 
           <!-- The Grid of Certificates -->
           <div class="certs-grid-wrapper" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
-            
+
             <!-- Certificate 1 -->
             <div class="standard-card accreditation-card">
-              <div class="accreditation-icon" style="color: var(--accent); width: 56px; height: 56px; border-radius: 50%; background: rgba(var(--accent-rgb), 0.08); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.1);">
+              <div class="accreditation-icon"
+                style="color: var(--accent); width: 56px; height: 56px; border-radius: 50%; background: rgba(var(--accent-rgb), 0.08); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.1);">
                 <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
                 </svg>
               </div>
               <div style="text-align: center;">
-                <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--text-primary); margin-bottom: 6px;" data-i18n="acc_shgm_title">SHGM Lisanslı Kuruluş</h3>
-                <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.45; margin-bottom: 0;" data-i18n="acc_shgm_desc">
+                <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--text-primary); margin-bottom: 6px;"
+                  data-i18n="acc_shgm_title">SHGM Lisanslı Kuruluş</h3>
+                <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.45; margin-bottom: 0;"
+                  data-i18n="acc_shgm_desc">
                   Sivil Havacılık Genel Müdürlüğü onaylı havacılık eğitim kuruluşu yetkisine sahibiz.
                 </p>
               </div>
-              <div style="font-size: 0.68rem; color: var(--text-muted); font-family: monospace; border-top: 1px dashed var(--border-color); width: 100%; padding-top: 10px; margin-top: 5px; opacity: 0.65; display: flex; justify-content: space-between;">
+              <div
+                style="font-size: 0.68rem; color: var(--text-muted); font-family: monospace; border-top: 1px dashed var(--border-color); width: 100%; padding-top: 10px; margin-top: 5px; opacity: 0.65; display: flex; justify-content: space-between;">
                 <span>ID: SHGM-TR-094</span>
                 <span style="color: var(--success-color); font-weight: bold;">ACTIVE</span>
               </div>
@@ -326,18 +507,23 @@
 
             <!-- Certificate 2 -->
             <div class="standard-card accreditation-card">
-              <div class="accreditation-icon" style="color: var(--accent); width: 56px; height: 56px; border-radius: 50%; background: rgba(var(--accent-rgb), 0.08); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.1);">
+              <div class="accreditation-icon"
+                style="color: var(--accent); width: 56px; height: 56px; border-radius: 50%; background: rgba(var(--accent-rgb), 0.08); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.1);">
                 <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
-                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2z"/>
+                  <path
+                    d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2z" />
                 </svg>
               </div>
               <div style="text-align: center;">
-                <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--text-primary); margin-bottom: 6px;" data-i18n="acc_iso_title">ISO 9001:2015 Kalite</h3>
-                <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.45; margin-bottom: 0;" data-i18n="acc_iso_desc">
+                <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--text-primary); margin-bottom: 6px;"
+                  data-i18n="acc_iso_title">ISO 9001:2015 Kalite</h3>
+                <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.45; margin-bottom: 0;"
+                  data-i18n="acc_iso_desc">
                   Eğitim ve operasyon süreçlerinde uluslararası kalite ve standardizasyon yönetimi.
                 </p>
               </div>
-              <div style="font-size: 0.68rem; color: var(--text-muted); font-family: monospace; border-top: 1px dashed var(--border-color); width: 100%; padding-top: 10px; margin-top: 5px; opacity: 0.65; display: flex; justify-content: space-between;">
+              <div
+                style="font-size: 0.68rem; color: var(--text-muted); font-family: monospace; border-top: 1px dashed var(--border-color); width: 100%; padding-top: 10px; margin-top: 5px; opacity: 0.65; display: flex; justify-content: space-between;">
                 <span>ISO: 9001-2015</span>
                 <span style="color: var(--success-color); font-weight: bold;">VERIFIED</span>
               </div>
@@ -345,18 +531,23 @@
 
             <!-- Certificate 3 -->
             <div class="standard-card accreditation-card">
-              <div class="accreditation-icon" style="color: var(--accent); width: 56px; height: 56px; border-radius: 50%; background: rgba(var(--accent-rgb), 0.08); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.1);">
+              <div class="accreditation-icon"
+                style="color: var(--accent); width: 56px; height: 56px; border-radius: 50%; background: rgba(var(--accent-rgb), 0.08); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.1);">
                 <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
-                  <path d="M12 11.55C9.64 9.35 6.48 8 3 8v11c3.48 0 6.64 1.35 9 3.55 2.36-2.2 5.52-3.55 9-3.55V8c-3.48 0-6.64 1.35-9 3.55zM12 8c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3z"/>
+                  <path
+                    d="M12 11.55C9.64 9.35 6.48 8 3 8v11c3.48 0 6.64 1.35 9 3.55 2.36-2.2 5.52-3.55 9-3.55V8c-3.48 0-6.64 1.35-9 3.55zM12 8c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3z" />
                 </svg>
               </div>
               <div style="text-align: center;">
-                <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--text-primary); margin-bottom: 6px;" data-i18n="acc_univ_title">Üniversite İş Birlikleri</h3>
-                <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.45; margin-bottom: 0;" data-i18n="acc_univ_desc">
+                <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--text-primary); margin-bottom: 6px;"
+                  data-i18n="acc_univ_title">Üniversite İş Birlikleri</h3>
+                <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.45; margin-bottom: 0;"
+                  data-i18n="acc_univ_desc">
                   Akademik entegrasyonlar, e-Devlet onaylı sertifikasyon ve teknik mühendislik destekleri.
                 </p>
               </div>
-              <div style="font-size: 0.68rem; color: var(--text-muted); font-family: monospace; border-top: 1px dashed var(--border-color); width: 100%; padding-top: 10px; margin-top: 5px; opacity: 0.65; display: flex; justify-content: space-between;">
+              <div
+                style="font-size: 0.68rem; color: var(--text-muted); font-family: monospace; border-top: 1px dashed var(--border-color); width: 100%; padding-top: 10px; margin-top: 5px; opacity: 0.65; display: flex; justify-content: space-between;">
                 <span>PARTNER: YTU / IAU</span>
                 <span style="color: var(--success-color); font-weight: bold;">VERIFIED</span>
               </div>
@@ -373,16 +564,16 @@
        FLOATING ACTIONS SIDEBAR
        ========================================== -->
   <aside class="floating-sidebar-pill">
-    <a href="https://www.instagram.com/sapmazhavacilik" class="floating-action-item" data-tooltip="Instagram" target="_blank"
-      rel="noopener noreferrer">
+    <a href="https://www.instagram.com/sapmazhavacilik" class="floating-action-item" data-tooltip="Instagram"
+      target="_blank" rel="noopener noreferrer">
       <!-- Instagram SVG -->
       <svg viewBox="0 0 24 24">
         <path
           d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
       </svg>
     </a>
-    <a href="https://www.linkedin.com/company/sapmaz-havac%C4%B1l%C4%B1k/" class="floating-action-item" data-tooltip="LinkedIn" target="_blank"
-      rel="noopener noreferrer">
+    <a href="https://www.linkedin.com/company/sapmaz-havac%C4%B1l%C4%B1k/" class="floating-action-item"
+      data-tooltip="LinkedIn" target="_blank" rel="noopener noreferrer">
       <!-- LinkedIn SVG -->
       <svg viewBox="0 0 24 24">
         <path
@@ -481,19 +672,23 @@
             <div class="address-scroller-container">
               <div class="address-scroller-wrapper">
                 <button class="scroller-btn scroller-btn-prev" aria-label="Previous Address">
-                  <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                  <svg viewBox="0 0 24 24">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                  </svg>
                 </button>
                 <div class="address-scroller-content">
                   <div class="address-slide active">
                     <div class="contact-item">
                       <div class="contact-item-icon">
                         <svg viewBox="0 0 24 24">
-                          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                          <path
+                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                         </svg>
                       </div>
                       <div class="contact-text">
                         <div class="contact-text-title" data-i18n="footer_addr1_label">İstanbul Merkez Ofis (HQ)</div>
-                        <div class="contact-text-body">Sapmaz Plaza, Kat: 4, Havacılık Cd. No:12, Kadıköy / İstanbul</div>
+                        <div class="contact-text-body">Sapmaz Plaza, Kat: 4, Havacılık Cd. No:12, Kadıköy / İstanbul
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -501,7 +696,8 @@
                     <div class="contact-item">
                       <div class="contact-item-icon">
                         <svg viewBox="0 0 24 24">
-                          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                          <path
+                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                         </svg>
                       </div>
                       <div class="contact-text">
@@ -514,7 +710,8 @@
                     <div class="contact-item">
                       <div class="contact-item-icon">
                         <svg viewBox="0 0 24 24">
-                          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                          <path
+                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                         </svg>
                       </div>
                       <div class="contact-text">
@@ -525,7 +722,9 @@
                   </div>
                 </div>
                 <button class="scroller-btn scroller-btn-next" aria-label="Next Address">
-                  <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                  <svg viewBox="0 0 24 24">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
                 </button>
               </div>
               <div class="address-scroller-dots">
@@ -537,7 +736,8 @@
             <div class="contact-item">
               <div class="contact-item-icon">
                 <svg viewBox="0 0 24 24">
-                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                  <path
+                    d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
                 </svg>
               </div>
               <div class="contact-text">
@@ -548,7 +748,8 @@
             <div class="contact-item">
               <div class="contact-item-icon">
                 <svg viewBox="0 0 24 24">
-                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                  <path
+                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
                 </svg>
               </div>
               <div class="contact-text">
@@ -557,22 +758,22 @@
               </div>
             </div>
             <script>
-              (function() {
+              (function () {
                 const container = document.currentScript ? document.currentScript.parentElement : document.querySelector('.footer-contact');
                 if (!container) return;
-                
+
                 const slides = container.querySelectorAll('.address-slide');
                 const dots = container.querySelectorAll('.address-scroller-dots .dot');
                 const prevBtn = container.querySelector('.scroller-btn-prev');
                 const nextBtn = container.querySelector('.scroller-btn-next');
                 let currentSlide = 0;
-                
+
                 function showSlide(index) {
                   if (slides.length === 0) return;
                   if (index >= slides.length) currentSlide = 0;
                   else if (index < 0) currentSlide = slides.length - 1;
                   else currentSlide = index;
-                  
+
                   slides.forEach((slide, i) => {
                     if (i === currentSlide) {
                       slide.classList.add('active');
@@ -580,7 +781,7 @@
                       slide.classList.remove('active');
                     }
                   });
-                  
+
                   dots.forEach((dot, i) => {
                     if (i === currentSlide) {
                       dot.classList.add('active');
@@ -589,22 +790,22 @@
                     }
                   });
                 }
-                
+
                 if (prevBtn) {
-                  prevBtn.addEventListener('click', function(e) {
+                  prevBtn.addEventListener('click', function (e) {
                     e.preventDefault();
                     showSlide(currentSlide - 1);
                   });
                 }
                 if (nextBtn) {
-                  nextBtn.addEventListener('click', function(e) {
+                  nextBtn.addEventListener('click', function (e) {
                     e.preventDefault();
                     showSlide(currentSlide + 1);
                   });
                 }
-                
+
                 dots.forEach((dot, i) => {
-                  dot.addEventListener('click', function(e) {
+                  dot.addEventListener('click', function (e) {
                     e.preventDefault();
                     showSlide(i);
                   });
