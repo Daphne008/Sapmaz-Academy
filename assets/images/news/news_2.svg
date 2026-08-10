@@ -1,0 +1,12 @@
+<svg width="800" height="500" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgN2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B0F19"/><stop offset="100%" stop-color="#0369A1"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bgN2)"/>
+  <circle cx="400" cy="220" r="120" fill="rgba(56, 189, 248, 0.15)"/>
+  <path d="M 280 220 L 520 220 M 400 130 L 400 310" stroke="#38BDF8" stroke-width="6"/>
+  <rect x="40" y="420" width="200" height="40" rx="8" fill="rgba(2, 132, 199, 0.9)"/>
+  <text x="140" y="446" font-family="'Outfit', sans-serif" font-weight="700" font-size="16" fill="#FFFFFF" text-anchor="middle">Havayolu Anlaşması</text>
+</svg>

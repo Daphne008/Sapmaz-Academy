@@ -1,0 +1,14 @@
+<svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgNight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#030712"/>
+      <stop offset="100%" stop-color="#1E1B4B"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#bgNight)"/>
+  <!-- Moon & Runway Beacon Lights -->
+  <path d="M 360 110 A 45 45 0 1 0 420 170 A 55 55 0 1 1 360 110 Z" fill="#FDE047"/>
+  <line x1="100" y1="260" x2="500" y2="260" stroke="#FDE047" stroke-width="4" stroke-dasharray="15 15"/>
+  <rect x="30" y="320" width="160" height="40" rx="8" fill="rgba(88, 28, 135, 0.9)"/>
+  <text x="110" y="346" font-family="'Outfit', sans-serif" font-weight="700" font-size="16" fill="#FFFFFF" text-anchor="middle">Night Rating (NR)</text>
+</svg>

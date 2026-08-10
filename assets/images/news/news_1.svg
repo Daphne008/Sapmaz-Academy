@@ -1,0 +1,12 @@
+<svg width="800" height="500" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgN1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/><stop offset="100%" stop-color="#1E40AF"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bgN1)"/>
+  <circle cx="400" cy="220" r="120" fill="rgba(59, 130, 246, 0.15)"/>
+  <polygon points="400,140 430,220 510,220 445,265 470,345 400,295 330,345 355,265 290,220 370,220" fill="#60A5FA"/>
+  <rect x="40" y="420" width="180" height="40" rx="8" fill="rgba(37, 99, 235, 0.9)"/>
+  <text x="130" y="446" font-family="'Outfit', sans-serif" font-weight="700" font-size="16" fill="#FFFFFF" text-anchor="middle">İHA-2 Duyurusu</text>
+</svg>

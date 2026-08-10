@@ -1,0 +1,8 @@
+<svg width="500" height="350" viewBox="0 0 500 350" xmlns="http://www.w3.org/2000/svg">
+  <defs><linearGradient id="bgT26" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0F172A"/><stop offset="100%" stop-color="#E11D48"/></linearGradient></defs>
+  <rect width="500" height="350" fill="url(#bgT26)"/>
+  <circle cx="250" cy="150" r="70" fill="rgba(251, 113, 133, 0.2)"/>
+  <text x="250" y="165" font-family="'Outfit', sans-serif" font-weight="800" font-size="42" fill="#FB7185" text-anchor="middle">2026</text>
+  <rect x="30" y="270" width="180" height="36" rx="6" fill="rgba(225, 29, 72, 0.9)"/>
+  <text x="120" y="293" font-family="'Outfit', sans-serif" font-weight="700" font-size="14" fill="#FFFFFF" text-anchor="middle">Akademi Kampüsü</text>
+</svg>

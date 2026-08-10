@@ -1,0 +1,11 @@
+<svg width="800" height="500" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgN5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/><stop offset="100%" stop-color="#B45309"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bgN5)"/>
+  <circle cx="400" cy="220" r="100" fill="rgba(245, 158, 11, 0.2)"/>
+  <rect x="40" y="420" width="180" height="40" rx="8" fill="rgba(217, 119, 6, 0.9)"/>
+  <text x="130" y="446" font-family="'Outfit', sans-serif" font-weight="700" font-size="16" fill="#FFFFFF" text-anchor="middle">Zirai Seminer</text>
+</svg>

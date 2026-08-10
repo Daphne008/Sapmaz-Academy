@@ -1,0 +1,14 @@
+<svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgMCC" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#0F766E"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#bgMCC)"/>
+  <circle cx="240" cy="170" r="45" fill="none" stroke="#2DD4BF" stroke-width="4"/>
+  <circle cx="360" cy="170" r="45" fill="none" stroke="#2DD4BF" stroke-width="4"/>
+  <path d="M 240 170 L 360 170" stroke="#2DD4BF" stroke-width="4"/>
+  <rect x="30" y="320" width="160" height="40" rx="8" fill="rgba(13, 148, 136, 0.9)"/>
+  <text x="110" y="346" font-family="'Outfit', sans-serif" font-weight="700" font-size="16" fill="#FFFFFF" text-anchor="middle">MCC / JOC</text>
+</svg>

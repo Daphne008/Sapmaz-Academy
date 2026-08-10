@@ -1,0 +1,27 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="hero2Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B0F19" />
+      <stop offset="60%" stop-color="#1E1B4B" />
+      <stop offset="100%" stop-color="#4F46E5" />
+    </linearGradient>
+    <pattern id="dotGrid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="15" cy="15" r="1.5" fill="rgba(255,255,255,0.08)" />
+    </pattern>
+  </defs>
+  <rect width="1600" height="900" fill="url(#hero2Grad)" />
+  <rect width="1600" height="900" fill="url(#dotGrid)" />
+  <!-- Autonomous Drone Path Lines -->
+  <path d="M -100 700 Q 400 200 900 500 T 1700 200" fill="none" stroke="rgba(99, 102, 241, 0.3)" stroke-width="4" stroke-dasharray="12 12" />
+  <path d="M -100 750 Q 400 250 900 550 T 1700 250" fill="none" stroke="rgba(168, 85, 247, 0.2)" stroke-width="2" />
+  <!-- Quadcopter Drone Graphic -->
+  <g transform="translate(1000, 300) scale(1.5)" opacity="0.25">
+    <circle cx="0" cy="0" r="15" fill="#6366F1" />
+    <line x1="-60" y1="-60" x2="60" y2="60" stroke="#FFFFFF" stroke-width="6" />
+    <line x1="60" y1="-60" x2="-60" y2="60" stroke="#FFFFFF" stroke-width="6" />
+    <circle cx="-60" cy="-60" r="25" fill="none" stroke="#6366F1" stroke-width="4" />
+    <circle cx="60" cy="-60" r="25" fill="none" stroke="#6366F1" stroke-width="4" />
+    <circle cx="-60" cy="60" r="25" fill="none" stroke="#6366F1" stroke-width="4" />
+    <circle cx="60" cy="60" r="25" fill="none" stroke="#6366F1" stroke-width="4" />
+  </g>
+</svg>
