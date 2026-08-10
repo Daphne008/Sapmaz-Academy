@@ -7,14 +7,11 @@
   <meta name="description"
     content="Sapmaz Academy Eğitim Programları - Pilotaj ve Drone (İHA) lisans eğitimleri. Sivil havacılık onaylı sertifikalı kurslarımızı keşfedin.">
   <title>Eğitimler | Sapmaz Academy</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.min.css">
   <link rel="stylesheet" href="../styles.min.css">
 </head>
 
-<body>
-  <script>(function(){if(localStorage.getItem("theme")==="light")document.body.classList.add("light-mode")})();</script>
+<body class="light-mode">
 
   <!-- ==========================================
        HEADER & NAVIGATION
@@ -35,16 +32,7 @@
       </nav>
 
       <div class="nav-controls">
-        <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
-          <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20">
-            <path
-              d="M12.3 22h-.1c-5.5 0-10-4.5-10-10 0-4.8 3.5-8.9 8.2-9.8.5-.1 1 .2 1.1.7.1.5-.2 1-.7 1.1-3.6.7-6.2 3.8-6.2 7.6 0 4.4 3.6 8 8 8 3.8 0 7-2.6 7.6-6.2.1-.5.6-.8 1.1-.7.5.1.8.6.7 1.1-.9 4.7-5 8.2-9.7 8.2z" />
-          </svg>
-          <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20">
-            <path
-              d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.01c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z" />
-          </svg>
-        </button>
+
 
         <div class="lang-dropdown">
           <select class="lang-select" id="langSelect" aria-label="Change Language">
@@ -106,7 +94,7 @@
           <!-- İHA-0 -->
           <a href="course-detail.html?course=iha0" class="course-listing-card">
             <div class="listing-card-img">
-              <img src="https://images.unsplash.com/photo-1508444845599-5c89863b1c44?w=400&h=250&fit=crop"
+              <img src="../assets/images/courses/course_iha_cert.jpg"
                 alt="İHA-0 Eğitimi">
               <span class="listing-badge listing-badge-drone" data-i18n="courses_badge_drone">Drone</span>
             </div>
@@ -141,7 +129,7 @@
           <!-- İHA-1 -->
           <a href="course-detail.html?course=iha1" class="course-listing-card">
             <div class="listing-card-img">
-              <img src="https://images.unsplash.com/photo-1579829366248-204fe8413f31?w=400&h=250&fit=crop"
+              <img src="../assets/images/courses/course_zirai.jpg"
                 alt="İHA-1 Eğitimi">
               <span class="listing-badge listing-badge-drone" data-i18n="courses_badge_drone">Drone</span>
             </div>
@@ -176,7 +164,7 @@
           <!-- İHA-2 -->
           <a href="course-detail.html?course=iha2" class="course-listing-card">
             <div class="listing-card-img">
-              <img src="https://images.unsplash.com/photo-1527977966376-1c8408f9f108?w=400&h=250&fit=crop"
+              <img src="../assets/images/courses/course_iha2.jpg"
                 alt="İHA-2 Eğitimi">
               <span class="listing-badge listing-badge-drone" data-i18n="courses_badge_drone">Drone</span>
             </div>
@@ -211,7 +199,7 @@
           <!-- İHA-3 -->
           <a href="course-detail.html?course=iha3" class="course-listing-card">
             <div class="listing-card-img">
-              <img src="https://images.unsplash.com/photo-1527977966376-1c8408f9f108?w=400&h=250&fit=crop"
+              <img src="../assets/images/courses/course_iha2.jpg"
                 alt="İHA-3 Eğitimi">
               <span class="listing-badge listing-badge-drone" data-i18n="courses_badge_drone">Drone</span>
             </div>
@@ -318,7 +306,7 @@
           <!-- PPL -->
           <a href="course-detail.html?course=ppl" class="course-listing-card">
             <div class="listing-card-img">
-              <img src="https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=400&h=250&fit=crop"
+              <img src="../assets/images/courses/course_ppl.jpg"
                 alt="PPL Eğitimi">
               <span class="listing-badge listing-badge-pilotaj" data-i18n="courses_badge_pilotaj">Pilotaj</span>
             </div>
@@ -353,7 +341,7 @@
           <!-- ATPL -->
           <a href="course-detail.html?course=atpl" class="course-listing-card">
             <div class="listing-card-img">
-              <img src="https://images.unsplash.com/photo-1436491865332-7a61a109db05?w=400&h=250&fit=crop"
+              <img src="../assets/images/courses/course_atpl.jpg"
                 alt="ATPL Eğitimi">
               <span class="listing-badge listing-badge-pilotaj" data-i18n="courses_badge_pilotaj">Pilotaj</span>
             </div>
@@ -388,7 +376,7 @@
           <!-- NR -->
           <a href="course-detail.html?course=nr" class="course-listing-card">
             <div class="listing-card-img">
-              <img src="https://images.unsplash.com/photo-1517479149777-5f3b1511d5ad?w=400&h=250&fit=crop"
+              <img src="../assets/images/courses/course_cpl.jpg"
                 alt="NR Eğitimi">
               <span class="listing-badge listing-badge-pilotaj" data-i18n="courses_badge_pilotaj">Pilotaj</span>
             </div>
@@ -422,7 +410,7 @@
           <!-- PIC -->
           <a href="course-detail.html?course=pic" class="course-listing-card">
             <div class="listing-card-img">
-              <img src="https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?w=400&h=250&fit=crop"
+              <img src="../assets/images/courses/course_ir.jpg"
                 alt="PIC Eğitimi">
               <span class="listing-badge listing-badge-pilotaj" data-i18n="courses_badge_pilotaj">Pilotaj</span>
             </div>
@@ -456,7 +444,7 @@
           <!-- IR -->
           <a href="course-detail.html?course=ir" class="course-listing-card">
             <div class="listing-card-img">
-              <img src="https://images.unsplash.com/photo-1483450388369-9ed95738483c?w=400&h=250&fit=crop"
+              <img src="../assets/images/courses/course_me.jpg"
                 alt="IR Eğitimi">
               <span class="listing-badge listing-badge-pilotaj" data-i18n="courses_badge_pilotaj">Pilotaj</span>
             </div>
@@ -490,7 +478,7 @@
           <!-- CPL -->
           <a href="course-detail.html?course=cpl" class="course-listing-card">
             <div class="listing-card-img">
-              <img src="https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=400&h=250&fit=crop"
+              <img src="../assets/images/courses/course_fi.jpg"
                 alt="CPL Eğitimi">
               <span class="listing-badge listing-badge-pilotaj" data-i18n="courses_badge_pilotaj">Pilotaj</span>
             </div>
@@ -525,7 +513,7 @@
           <!-- ME -->
           <a href="course-detail.html?course=me" class="course-listing-card">
             <div class="listing-card-img">
-              <img src="https://images.unsplash.com/photo-1610830873832-75f807212450?w=400&h=250&fit=crop"
+              <img src="../assets/images/courses/course_night.jpg"
                 alt="ME Eğitimi">
               <span class="listing-badge listing-badge-pilotaj" data-i18n="courses_badge_pilotaj">Pilotaj</span>
             </div>
@@ -559,7 +547,7 @@
           <!-- MCC -->
           <a href="course-detail.html?course=mcc" class="course-listing-card">
             <div class="listing-card-img">
-              <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=400&h=250&fit=crop"
+              <img src="../assets/images/courses/course_mcc.jpg"
                 alt="MCC Eğitimi">
               <span class="listing-badge listing-badge-pilotaj" data-i18n="courses_badge_pilotaj">Pilotaj</span>
             </div>

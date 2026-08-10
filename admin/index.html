@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sapmaz Academy - Administrative Panel</title>
+  <link rel="stylesheet" href="css/admin-styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Top Global Header Bar -->
+  <header class="admin-topbar">
+    <div class="admin-topbar-left">
+      <a href="#overview" class="admin-brand" onclick="app.navigateToView('overview')">
+        <img src="../logo.svg" alt="Sapmaz Academy Logo" onerror="this.src='../academy.jpg'" />
+        <span class="admin-brand-title">
+          Sapmaz Academy
+          <span class="admin-brand-tag">ADMIN</span>
+        </span>
+      </a>
+
+      <!-- Global Search Querying Applicants, Contacts, Courses & News -->
+      <div class="admin-global-search">
+        <span class="admin-search-icon">🔍</span>
+        <input type="text" id="globalSearchInput" placeholder="Search applicants, contacts, courses, news..."
+          autocomplete="off" />
+        <div id="globalSearchResults" class="admin-search-results"></div>
+      </div>
+    </div>
+
+    <div class="admin-topbar-right">
+      <!-- Notification Bell Indicator -->
+      <div style="position: relative;">
+        <button id="notifTriggerBtn" class="notification-trigger" title="System Alerts">
+          🔔
+          <span id="notifCountBadge" class="notification-badge-count">0</span>
+        </button>
+
+        <!-- Notification Dropdown -->
+        <div id="notifDropdown" class="notification-dropdown">
+          <div class="notification-header">
+            <span data-i18n="notif_header">System Notifications</span>
+            <span class="badge-status badge-unread" data-i18n="notif_live">Live</span>
+          </div>
+          <div class="notification-list">
+            <div class="notification-item" onclick="app.navigateToView('applications')">
+              <strong data-i18n="notif_app_title">📥 New Course Application Received</strong>
+              <div data-i18n="notif_app_desc">Hasan Caner applied for İHA-1 Commercial Certification.</div>
+              <div class="notification-item-time">10 mins ago</div>
+            </div>
+            <div class="notification-item" onclick="app.navigateToView('contacts')">
+              <strong data-i18n="notif_cnt_title">💬 Unread Contact Form Message</strong>
+              <div data-i18n="notif_cnt_desc">Serkan Öztürk (TechCorp) requested corporate group quote.</div>
+              <div class="notification-item-time">1 hour ago</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Language Switcher Toggle (TR / EN) -->
+      <div class="lang-switcher">
+        <button id="langToggleBtn" class="lang-toggle-btn" onclick="app.toggleLanguage()"
+          title="Switch Language / Dil Değiştir">
+          <span id="langFlag">🇹🇷</span>
+          <span id="langLabel">TR</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Administrative Shell Layout -->
+  <div class="admin-shell">
+    <!-- Persistent Left Navigation Sidebar -->
+    <aside class="admin-sidebar">
+      <ul class="admin-nav">
+        <!-- Main Overview -->
+        <li class="admin-nav-item active">
+          <a href="#overview">
+            <span class="nav-link-left" data-i18n="nav_dashboard">📌 Dashboard</span>
+          </a>
+        </li>
+
+        <!-- Group 1: INBOXES (Communication) -->
+        <li class="nav-section-label" data-i18n="group_inboxes">INBOXES</li>
+        <li class="admin-nav-item">
+          <a href="#applications">
+            <span class="nav-link-left" data-i18n="nav_applications">📥 Course Applications</span>
+            <span id="appNavUnreadBadge" class="nav-unread-badge" style="display:none;">0</span>
+          </a>
+        </li>
+        <li class="admin-nav-item">
+          <a href="#contacts">
+            <span class="nav-link-left" data-i18n="nav_contacts">💬 Contact Forms</span>
+            <span id="contactNavUnreadBadge" class="nav-unread-badge" style="display:none;">0</span>
+          </a>
+        </li>
+
+        <!-- Group 2: CONTENT MANAGEMENT (Publishing) -->
+        <li class="nav-section-label" data-i18n="group_content">CONTENT MANAGEMENT</li>
+        <li class="admin-nav-item">
+          <a href="#courses">
+            <span class="nav-link-left" data-i18n="nav_courses">📚 Course Listings</span>
+          </a>
+        </li>
+        <li class="admin-nav-item">
+          <a href="#news">
+            <span class="nav-link-left" data-i18n="nav_news">📰 News & Articles</span>
+          </a>
+        </li>
+        <li class="admin-nav-item">
+          <a href="#resources">
+            <span class="nav-link-left" data-i18n="nav_resources_admin">📁 Resource Pool Files</span>
+          </a>
+        </li>
+
+        <!-- Group 3: SYSTEM -->
+        <li class="nav-section-label" data-i18n="group_system">SYSTEM</li>
+        <li class="admin-nav-item">
+          <a href="#settings">
+            <span class="nav-link-left" data-i18n="nav_settings">⚙️ Settings & Users</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Dynamic Main Canvas Container -->
+    <main class="admin-main">
+      <div id="mainCanvas" class="admin-canvas">
+        <!-- Views rendered dynamically via admin-app.js -->
+      </div>
+    </main>
+  </div>
+
+  <!-- Slide-Out Right Drawer Overlay -->
+  <div id="drawerBackdrop" class="drawer-backdrop"></div>
+  <div id="drawerPanel" class="drawer-panel">
+    <!-- Content populated dynamically -->
+  </div>
+
+  <!-- Destructive Action Confirmation Modal -->
+  <div id="modalBackdrop" class="modal-backdrop">
+    <div class="modal-box">
+      <div class="modal-icon-danger">⚠️</div>
+      <h3 id="modalTitle" class="modal-title" data-i18n="modal_sure">Are you sure?</h3>
+      <p id="modalDesc" class="modal-desc" data-i18n="modal_undone">This action cannot be undone.</p>
+      <div class="modal-actions">
+        <button class="btn btn-secondary" onclick="app.closeModal()" data-i18n="btn_cancel">Cancel</button>
+        <button id="modalConfirmBtn" class="btn btn-danger" data-i18n="btn_confirm_delete">Confirm Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script Modules -->
+  <script src="js/git-storage.js"></script>
+  <script src="js/admin-app.js"></script>
+</body>
+
+</html>

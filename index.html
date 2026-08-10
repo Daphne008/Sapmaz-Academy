@@ -7,14 +7,11 @@
   <meta name="description"
     content="Sapmaz Academy - Pilotaj ve İHA (Drone) Lisans Eğitimleri. Sivil Havacılık onaylı sertifikalı online ve pratik uçuş eğitimleri.">
   <title>Sapmaz Academy | Havacılık ve İHA Eğitim Merkezi</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.min.css">
   <link rel="stylesheet" href="styles.min.css">
 </head>
 
-<body>
-  <script>(function(){if(localStorage.getItem("theme")==="light")document.body.classList.add("light-mode")})();</script>
+<body class="light-mode">
 
   <!-- ==========================================
        HEADER & NAVIGATION
@@ -38,19 +35,7 @@
 
       <!-- Nav Controls: Theme Switcher & Language Dropdown -->
       <div class="nav-controls">
-        <!-- Day/Night Toggle Button -->
-        <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
-          <!-- Moon Icon (Dark Mode active by default, so clicking goes to Light Mode) -->
-          <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20">
-            <path
-              d="M12.3 22h-.1c-5.5 0-10-4.5-10-10 0-4.8 3.5-8.9 8.2-9.8.5-.1 1 .2 1.1.7.1.5-.2 1-.7 1.1-3.6.7-6.2 3.8-6.2 7.6 0 4.4 3.6 8 8 8 3.8 0 7-2.6 7.6-6.2.1-.5.6-.8 1.1-.7.5.1.8.6.7 1.1-.9 4.7-5 8.2-9.7 8.2z" />
-          </svg>
-          <!-- Sun Icon (Appears in Light Mode) -->
-          <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20">
-            <path
-              d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.01c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z" />
-          </svg>
-        </button>
+
 
         <!-- Language Select -->
         <div class="lang-dropdown">
@@ -80,7 +65,7 @@
       <div class="hero-slide active">
         <!-- High-quality aviation photography background -->
         <div class="slide-bg"
-          style="background-image: url('https://images.unsplash.com/photo-1540962351504-03099e0a754b?q=80&w=1600&auto=format&fit=crop');">
+          style="background-image: url('assets/hero_plane_drone.png');">
         </div>
         <div class="container">
           <div class="hero-content">
@@ -100,7 +85,7 @@
       <!-- Slide 2 -->
       <div class="hero-slide">
         <div class="slide-bg"
-          style="background-image: url('https://images.unsplash.com/photo-1508614589041-895b88991e3e?q=80&w=1600&auto=format&fit=crop');">
+          style="background-image: url('./assets/images/hero/hero_slide_1.jpg');">
         </div>
         <div class="container">
           <div class="hero-content">
@@ -119,7 +104,7 @@
       <!-- Slide 3 -->
       <div class="hero-slide">
         <div class="slide-bg"
-          style="background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1600&auto=format&fit=crop');">
+          style="background-image: url('./assets/images/hero/hero_slide_2.jpg');">
         </div>
         <div class="container">
           <div class="hero-content">
@@ -216,7 +201,7 @@
               <div class="course-card">
                 <div class="course-img-wrapper">
                   <img
-                    src="https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=600&q=80"
+                    src="./assets/images/courses/course_ppl.jpg"
                     alt="PPL" class="course-card-img">
                 </div>
                 <div class="card-header">
@@ -248,7 +233,7 @@
               <div class="course-card">
                 <div class="course-img-wrapper">
                   <img
-                    src="https://images.unsplash.com/photo-1508849789987-4e5333c12b78?auto=format&fit=crop&w=600&q=80"
+                    src="./assets/images/courses/course_atpl.jpg"
                     alt="ATPL" class="course-card-img">
                 </div>
                 <div class="card-header">
@@ -280,7 +265,7 @@
               <div class="course-card">
                 <div class="course-img-wrapper">
                   <img
-                    src="https://images.unsplash.com/photo-1517479149777-5f3b1511d5ad?auto=format&fit=crop&w=600&q=80"
+                    src="./assets/images/courses/course_cpl.jpg"
                     alt="NR" class="course-card-img">
                 </div>
                 <div class="card-header">
@@ -312,7 +297,7 @@
               <div class="course-card">
                 <div class="course-img-wrapper">
                   <img
-                    src="https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?auto=format&fit=crop&w=600&q=80"
+                    src="./assets/images/courses/course_ir.jpg"
                     alt="PIC" class="course-card-img">
                 </div>
                 <div class="card-header">
@@ -344,7 +329,7 @@
               <div class="course-card">
                 <div class="course-img-wrapper">
                   <img
-                    src="https://images.unsplash.com/photo-1483450388369-9ed95738483c?auto=format&fit=crop&w=600&q=80"
+                    src="./assets/images/courses/course_me.jpg"
                     alt="IR" class="course-card-img">
                 </div>
                 <div class="card-header">
@@ -376,7 +361,7 @@
               <div class="course-card">
                 <div class="course-img-wrapper">
                   <img
-                    src="https://images.unsplash.com/photo-1474302770737-173ee21bab63?auto=format&fit=crop&w=600&q=80"
+                    src="./assets/images/courses/course_fi.jpg"
                     alt="CPL" class="course-card-img">
                 </div>
                 <div class="card-header">
@@ -408,7 +393,7 @@
               <div class="course-card">
                 <div class="course-img-wrapper">
                   <img
-                    src="https://images.unsplash.com/photo-1610830873832-75f807212450?auto=format&fit=crop&w=600&q=80"
+                    src="./assets/images/courses/course_night.jpg"
                     alt="ME" class="course-card-img">
                 </div>
                 <div class="card-header">
@@ -440,7 +425,7 @@
               <div class="course-card">
                 <div class="course-img-wrapper">
                   <img
-                    src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=600&q=80"
+                    src="./assets/images/courses/course_mcc.jpg"
                     alt="MCC" class="course-card-img">
                 </div>
                 <div class="card-header">
@@ -478,7 +463,7 @@
               <div class="course-card">
                 <div class="course-img-wrapper">
                   <img
-                    src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=600&q=80"
+                    src="./assets/images/courses/course_iha01.jpg"
                     alt="İHA0" class="course-card-img">
                 </div>
                 <div class="card-header">
@@ -510,7 +495,7 @@
               <div class="course-card">
                 <div class="course-img-wrapper">
                   <img
-                    src="https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=600&q=80"
+                    src="./assets/images/courses/course_iha2.jpg"
                     alt="İHA1" class="course-card-img">
                 </div>
                 <div class="card-header">
@@ -542,7 +527,7 @@
               <div class="course-card">
                 <div class="course-img-wrapper">
                   <img
-                    src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=600&q=80"
+                    src="./assets/images/news/news_4.jpg"
                     alt="İHA2" class="course-card-img">
                 </div>
                 <div class="card-header">
@@ -574,7 +559,7 @@
               <div class="course-card">
                 <div class="course-img-wrapper">
                   <img
-                    src="https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=600&q=80"
+                    src="./assets/images/news/news_1.jpg"
                     alt="İHA3" class="course-card-img">
                 </div>
                 <div class="card-header">

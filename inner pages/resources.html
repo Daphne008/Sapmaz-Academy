@@ -7,14 +7,10 @@
   <meta name="description"
     content="Sapmaz Academy Kaynak Havuzu - Sivil havacılık direktifleri, NOTAM bölgeleri, LTBW (Hezarfen) canlı hava ve meydan bilgileri, pilotaj ve drone eğitim dökümanları ile FAQ portalı.">
   <title data-i18n="resources_page_title">Kaynak Havuzu | Sapmaz Academy</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles.min.css">
 </head>
 
-<body>
-  <script>(function(){if(localStorage.getItem("theme")==="light")document.body.classList.add("light-mode")})();</script>
+<body class="light-mode">
 
   <!-- ==========================================
        HEADER & NAVIGATION
@@ -38,18 +34,7 @@
 
       <!-- Nav Controls: Theme Switcher & Language Dropdown -->
       <div class="nav-controls">
-        <!-- Day/Night Toggle Button -->
-        <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
-          <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20">
-            <path
-              d="M12.3 22h-.1c-5.5 0-10-4.5-10-10 0-4.8 3.5-8.9 8.2-9.8.5-.1 1 .2 1.1.7.1.5-.2 1-.7 1.1-3.6.7-6.2 3.8-6.2 7.6 0 4.4 3.6 8 8 8 3.8 0 7-2.6 7.6-6.2.1-.5.6-.8 1.1-.7.5.1.8.6.7 1.1-.9 4.7-5 8.2-9.7 8.2z" />
-          </svg>
-          <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20">
-            <path
-              d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.01c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z" />
-          </svg>
-        </button>
-
+        
         <!-- Language Select -->
         <div class="lang-dropdown">
           <select class="lang-select" id="langSelect" aria-label="Change Language">
@@ -104,44 +89,54 @@
 
     <!-- Main Container Layout -->
     <section class="container">
-      <div class="staff-binder-wrapper" style="margin-bottom: 80px;">
-        <!-- Left Panel: Active Content Pane -->
+      <div class="resources-wrapper">
+        <!-- Top Horizontal Tab Bar -->
+        <nav class="resources-tabs-nav" id="resourcesTabNavigation" role="tablist" aria-label="Kaynak Kategorileri">
+          <button class="resources-tab-btn binder-tab active" data-tab="faq" role="tab" aria-selected="true">
+            <div class="tab-icon-wrapper">
+              <svg viewBox="0 0 24 24" class="tab-icon">
+                <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 16h-2v-2h2v2zm1.07-7.75l-.9.92C12.45 11.9 12 12.5 12 14h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/>
+              </svg>
+            </div>
+            <span class="tab-text" data-i18n="tab_faq">Sıkça Sorulan Sorular</span>
+          </button>
+          <button class="resources-tab-btn binder-tab" data-tab="directives" role="tab" aria-selected="false">
+            <div class="tab-icon-wrapper">
+              <svg viewBox="0 0 24 24" class="tab-icon">
+                <path fill="currentColor" d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+              </svg>
+            </div>
+            <span class="tab-text" data-i18n="tab_directives">Havacılık Talimatları</span>
+          </button>
+          <button class="resources-tab-btn binder-tab" data-tab="regions" role="tab" aria-selected="false">
+            <div class="tab-icon-wrapper">
+              <svg viewBox="0 0 24 24" class="tab-icon">
+                <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+              </svg>
+            </div>
+            <span class="tab-text" data-i18n="tab_regions">Bölgeler & NOTAM</span>
+          </button>
+          <button class="resources-tab-btn binder-tab" data-tab="students" role="tab" aria-selected="false">
+            <div class="tab-icon-wrapper">
+              <svg viewBox="0 0 24 24" class="tab-icon">
+                <path fill="currentColor" d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5.89 12.5L12 15.82l6.11-3.32L12 9.18 5.89 12.5z"/>
+              </svg>
+            </div>
+            <span class="tab-text" data-i18n="tab_students">Öğrenci Dokümanları</span>
+          </button>
+          <button class="resources-tab-btn binder-tab" data-tab="hezarfen" role="tab" aria-selected="false">
+            <div class="tab-icon-wrapper">
+              <svg viewBox="0 0 24 24" class="tab-icon">
+                <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+              </svg>
+            </div>
+            <span class="tab-text" data-i18n="tab_hezarfen">Hezarfen Portal</span>
+          </button>
+        </nav>
+
+        <!-- Main Content Card Pane -->
         <div class="resources-content-pane" id="resourcesContentPane">
           <!-- Dynamically populated via JS -->
-        </div>
-
-        <!-- Right Panel: Vertical Folder Tabs -->
-        <div class="binder-tabs-container" id="resourcesTabNavigation">
-          <button class="binder-tab active" data-tab="faq">
-            <svg viewBox="0 0 24 24" class="tab-icon">
-              <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 16h-2v-2h2v2zm1.07-7.75l-.9.92C12.45 11.9 12 12.5 12 14h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/>
-            </svg>
-            <span data-i18n="tab_faq">Sıkça Sorulan Sorular</span>
-          </button>
-          <button class="binder-tab" data-tab="directives">
-            <svg viewBox="0 0 24 24" class="tab-icon">
-              <path fill="currentColor" d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
-            </svg>
-            <span data-i18n="tab_directives">Havacılık Talimatları</span>
-          </button>
-          <button class="binder-tab" data-tab="regions">
-            <svg viewBox="0 0 24 24" class="tab-icon">
-              <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-            </svg>
-            <span data-i18n="tab_regions">Bölgeler & NOTAM</span>
-          </button>
-          <button class="binder-tab" data-tab="students">
-            <svg viewBox="0 0 24 24" class="tab-icon">
-              <path fill="currentColor" d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5.89 12.5L12 15.82l6.11-3.32L12 9.18 5.89 12.5z"/>
-            </svg>
-            <span data-i18n="tab_students">Öğrenci Dokümanları</span>
-          </button>
-          <button class="binder-tab" data-tab="hezarfen">
-            <svg viewBox="0 0 24 24" class="tab-icon">
-              <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
-            </svg>
-            <span data-i18n="tab_hezarfen">Hezarfen Portal</span>
-          </button>
         </div>
       </div>
     </section>

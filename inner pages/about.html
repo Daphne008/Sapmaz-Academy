@@ -7,16 +7,10 @@
   <meta name="description"
     content="Sapmaz Academy Hakkımızda - 20 yılı aşkın tecrübemiz, uzman uçuş ve drone eğitmen kadromuz, vizyonumuz ve yetkilerimiz.">
   <title data-i18n="about_page_title">Hakkımızda | Sapmaz Academy</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet">
   <link rel="stylesheet" href="../styles.min.css">
 </head>
 
-<body>
-  <script>(function () { if (localStorage.getItem("theme") === "light") document.body.classList.add("light-mode") })();</script>
+<body class="light-mode">
 
   <!-- ==========================================
        HEADER & NAVIGATION
@@ -37,16 +31,7 @@
       </nav>
 
       <div class="nav-controls">
-        <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
-          <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20">
-            <path
-              d="M12.3 22h-.1c-5.5 0-10-4.5-10-10 0-4.8 3.5-8.9 8.2-9.8.5-.1 1 .2 1.1.7.1.5-.2 1-.7 1.1-3.6.7-6.2 3.8-6.2 7.6 0 4.4 3.6 8 8 8 3.8 0 7-2.6 7.6-6.2.1-.5.6-.8 1.1-.7.5.1.8.6.7 1.1-.9 4.7-5 8.2-9.7 8.2z" />
-          </svg>
-          <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20">
-            <path
-              d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.01c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z" />
-          </svg>
-        </button>
+
 
         <div class="lang-dropdown">
           <select class="lang-select" id="langSelect" aria-label="Change Language">
@@ -80,71 +65,74 @@
         <span class="current-page" data-i18n="nav_about">Hakkımızda</span>
       </nav>
 
-      <!-- Section 1: Overview & Vision/Mission (Paneled Layout) -->
-      <section class="about-overview-grid"
-        style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px; margin-bottom: 60px; align-items: stretch;">
-
+      <!-- Section 1: Who We Are (Full Width Panel) -->
+      <section class="about-intro-section" style="margin-bottom: 30px;">
         <!-- Panel 1: Who We Are (Intro & Image) -->
         <div class="standard-card about-intro-panel" style="padding: 35px; border-radius: 16px;">
           <div class="about-intro-text" style="display: flex; flex-direction: column; justify-content: center;">
             <h1 class="section-title" style="font-size: 2rem; margin-bottom: 20px; text-align: left; margin-top: 0;"
-              data-i18n="about_intro_title">Yarınların Havacılık Teknolojileri</h1>
+              data-i18n="about_intro_title">Hakkımızda</h1>
             <p style="color: var(--text-muted); line-height: 1.7; font-size: 0.98rem; margin-bottom: 15px;"
               data-i18n="about_intro_p1">
-              Sapmaz Academy, sivil havacılık ve insansız hava araçları teknolojilerinde 20 yılı aşkın süredir sektöre
-              yön veren, Türkiye'nin lider eğitim kurumlarından biridir. Pilot yetiştirme programlarımızdan otonom uçuş
-              yazılım eğitimlerimize kadar geniş bir spektrumda yarının profesyonellerini hazırlıyoruz.
+              Sapmaz Akademi, 2014 yılından bu yana havacılık ve ileri teknoloji alanında faaliyet gösteren Sapmaz Havacılık bünyesinde kurulmuş, sivil havacılık ve insansız hava araçları (İHA) eğitimlerinde kalite, güven ve yenilikçi yaklaşımı esas alan bir eğitim kurumudur.
             </p>
-            <p style="color: var(--text-muted); line-height: 1.7; font-size: 0.98rem; margin-bottom: 0;"
+            <p style="color: var(--text-muted); line-height: 1.7; font-size: 0.98rem; margin-bottom: 15px;"
               data-i18n="about_intro_p2">
-              Gelişmiş simülatör altyapımız, zengin online öğrenim kütüphanemiz ve her biri sektörde aktif görev alan
-              uçuş eğitmenlerimizle, teorik bilginin pratik saha tecrübesiyle harmanlandığı yüksek standartlarda eğitim
-              sunuyoruz.
+              Kuruluşumuzdan bu yana edindiğimiz sektörel bilgi birikimi, mühendislik tecrübemiz ve uygulamalı eğitim anlayışımız sayesinde binlerce kursiyerin havacılık sektörüne güvenle adım atmasına katkı sağladık. Eğitimlerimizi yalnızca mevzuata uygun sertifika programları olarak değil, katılımcılarımızı gerçek operasyonlara ve profesyonel kariyerlerine hazırlayan kapsamlı gelişim programları olarak görüyoruz.
+            </p>
+            <p style="color: var(--text-muted); line-height: 1.7; font-size: 0.98rem; margin-bottom: 15px;"
+              data-i18n="about_intro_p3">
+              Sapmaz Akademi, SHGM mevzuatına uygun İHA Pilot Eğitimleri, PPL (Private Pilot Licence) teorik eğitimleri, havacılık teknik eğitimleri ve geleceğin ihtiyaçlarına yönelik yeni nesil eğitim programlarıyla faaliyetlerini sürdürmektedir. Alanında uzman eğitmen kadromuz, modern eğitim altyapımız ve teknoloji odaklı yaklaşımımız sayesinde kursiyerimize uluslararası standartlarda bir öğrenme deneyimi sunuyoruz.
+            </p>
+            <p style="color: var(--text-muted); line-height: 1.7; font-size: 0.98rem; margin-bottom: 20px;"
+              data-i18n="about_intro_p4">
+              Bir eğitim kurumu olmanın ötesinde, insansız hava araçları teknolojileri geliştiren, Ar-Ge projeleri yürüten ve savunma ile sivil havacılık alanlarında yenilikçi çözümler üreten Sapmaz Havacılık'ın bilgi ve tecrübesini eğitim faaliyetlerine aktararak teoriyi uygulamayla birleştiriyoruz. Bu sayede öğrencilerimiz yalnızca eğitim almakla kalmıyor; sektörün gerçek dinamiklerini deneyimleyerek mezun oluyor.
+            </p>
+            <p style="color: var(--text-primary); line-height: 1.7; font-size: 1.05rem; font-weight: 700; margin-bottom: 0; font-family: 'Outfit', sans-serif;"
+              data-i18n="about_intro_tagline">
+              Gökyüzüne giden yol, doğru eğitimle başlar. Sapmaz Akademi olarak geleceğin havacılık profesyonellerini yetiştiriyor, bilgi ve tecrübemizle başarı yolculuğunuza güvenle eşlik ediyoruz.
             </p>
           </div>
           <div class="about-intro-img"
             style="border-radius: 12px; overflow: hidden; height: 100%; min-height: 280px; border: 1px solid var(--border-color);">
-            <img
-              src="/home/daphne/antigravity/sapmaz academy/sapmaz prototype/dist/inner pages/ChatGPT Image Jul 31, 2026, 05_13_45 PM.png"
-              alt="Flight Deck" style="width: 100%; height: 100%; object-fit: cover;">
+            <img src="../assets/usable_pilot.png"
+              alt="Sapmaz Akademi - Hakkımızda" style="width: 100%; height: 100%; object-fit: cover; object-position: center top;"
+              onerror="if (this.src.indexOf('usable_pilot.png') !== -1 && this.src.indexOf('assets') !== -1) { this.src='../usable_pilot.png'; } else if (this.src.indexOf('../usable_pilot.png') !== -1) { this.src='usable_pilot.png'; } else { this.src='../assets/about_us_hangar.png'; }">
           </div>
         </div>
+      </section>
 
-        <!-- Panel 2: Core Values (Vision & Mission together) -->
-        <div class="standard-card about-values-panel"
-          style="padding: 30px; border-radius: 16px; display: flex; flex-direction: column; gap: 24px; justify-content: center;">
+      <!-- Section 1.2: Core Values (Vision & Mission Grid) -->
+      <section class="about-values-section" style="margin-bottom: 60px;">
+        <div class="values-grid">
           <!-- Vision -->
-          <div class="value-item">
-            <div style="display: flex; gap: 15px; align-items: flex-start;">
+          <div class="standard-card" style="padding: 30px; border-radius: 16px; display: flex; align-items: center; box-sizing: border-box;">
+            <div style="display: flex; gap: 20px; align-items: flex-start;">
               <div class="value-icon-wrapper"
-                style="color: var(--accent); flex-shrink: 0; background: rgba(var(--accent-rgb), 0.08); border-radius: 50%; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+                style="color: var(--accent); flex-shrink: 0; background: rgba(var(--accent-rgb), 0.08); border-radius: 50%; width: 52px; height: 52px; display: flex; align-items: center; justify-content: center;">
+                <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round">
                   <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
                   <path d="M12 6v6l4 2" />
                 </svg>
               </div>
               <div>
-                <h3 style="font-size: 1.05rem; font-weight: 800; margin-bottom: 6px; color: var(--text-primary);"
+                <h3 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 8px; color: var(--text-primary); margin-top: 0;"
                   data-i18n="about_vision_title">Vizyonumuz</h3>
-                <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.55; margin-bottom: 0;"
+                <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin-bottom: 0;"
                   data-i18n="about_vision_text">
-                  İnsansız ve insanlı havacılık teknolojilerinde küresel standartları belirleyen, yenilikçi uçuş
-                  teorileri geliştiren ve dünya çapında tanınan nitelikli mezunlar yetiştiren öncü bir akademi olmak.
+                  Havacılık dünyasında güvenilirliği, eğitim kalitesi ve yetiştirdiği nitelikli profesyonellerle tanınan, ulusal ve uluslararası düzeyde öncü bir akademi olmak.
                 </p>
               </div>
             </div>
           </div>
 
-          <!-- Divider -->
-          <div style="height: 1px; background: var(--border-color); width: 100%;"></div>
-
           <!-- Mission -->
-          <div class="value-item">
-            <div style="display: flex; gap: 15px; align-items: flex-start;">
+          <div class="standard-card" style="padding: 30px; border-radius: 16px; display: flex; align-items: center; box-sizing: border-box;">
+            <div style="display: flex; gap: 20px; align-items: flex-start;">
               <div class="value-icon-wrapper"
-                style="color: var(--accent); flex-shrink: 0; background: rgba(var(--accent-rgb), 0.08); border-radius: 50%; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+                style="color: var(--accent); flex-shrink: 0; background: rgba(var(--accent-rgb), 0.08); border-radius: 50%; width: 52px; height: 52px; display: flex; align-items: center; justify-content: center;">
+                <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round">
                   <polygon points="12 2 2 7 12 12 22 7 12 2" />
                   <polyline points="2 17 12 22 22 17" />
@@ -152,15 +140,73 @@
                 </svg>
               </div>
               <div>
-                <h3 style="font-size: 1.05rem; font-weight: 800; margin-bottom: 6px; color: var(--text-primary);"
+                <h3 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 8px; color: var(--text-primary); margin-top: 0;"
                   data-i18n="about_mission_title">Misyonumuz</h3>
-                <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.55; margin-bottom: 0;"
+                <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin-bottom: 0;"
                   data-i18n="about_mission_text">
-                  Havacılık emniyeti kurallarını en üst düzeyde benimseyen, güncel havacılık regülasyonlarına tam uyumlu
-                  ve otonom teknolojilere adapte olabilen profesyonel pilot ve teknik personeller yetiştirmek.
+                  Gökyüzüne adım atmak isteyen tüm havacılık sevdalılarına emniyetli, disiplinli ve yenilikçi bir eğitim ortamı sağlayarak; sektöre etik değerlere bağlı, yüksek donanımlı bireyler kazandırmak.
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 1.5: Why Choose Us -->
+      <section class="about-why-section" style="margin-bottom: 60px;">
+        <div class="standard-card" style="padding: 40px; border-radius: 16px;">
+          <h2 class="section-title" style="margin-bottom: 35px; text-align: center; margin-top: 0;" data-i18n="about_why_title">Neden Sapmaz Akademi?</h2>
+          
+          <div class="why-us-grid">
+            <!-- Item 1: Experience -->
+            <div class="why-us-card">
+              <div class="why-icon-wrapper" style="color: var(--accent); background: rgba(var(--accent-rgb), 0.08); border-radius: 50%; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; transition: all 0.3s ease;">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  <polyline points="22 4 12 14.01 9 11.01" />
+                </svg>
+              </div>
+              <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 10px; color: var(--text-primary);" data-i18n="about_why_item1_title">Köklü Tecrübe</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.55; margin: 0;" data-i18n="about_why_item1_desc">
+                Sapmaz Havacılık’ın sektördeki güçlü altyapısı ve güvenilirliği ile desteklenen sağlam bir eğitim vizyonu.
+              </p>
+            </div>
+
+            <!-- Item 2: Instructors -->
+            <div class="why-us-card">
+              <div class="why-icon-wrapper" style="color: var(--accent); background: rgba(var(--accent-rgb), 0.08); border-radius: 50%; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; transition: all 0.3s ease;">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </div>
+              <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 10px; color: var(--text-primary);" data-i18n="about_why_item2_title">Uzman Eğitmen Kadrosu</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.55; margin: 0;" data-i18n="about_why_item2_desc">
+                Sahada ve teoride derin tecrübeye sahip, sektör profesyonellerinden oluşan güçlü eğitim ekibi.
+              </p>
+            </div>
+
+            <!-- Item 3: Tech -->
+            <div class="why-us-card">
+              <div class="why-icon-wrapper" style="color: var(--accent); background: rgba(var(--accent-rgb), 0.08); border-radius: 50%; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; transition: all 0.3s ease;">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="8" rx="2" ry="2" />
+                  <rect x="2" y="14" width="20" height="8" rx="2" ry="2" />
+                  <line x1="6" y1="6" x2="6.01" y2="6" />
+                  <line x1="6" y1="18" x2="6.01" y2="18" />
+                </svg>
+              </div>
+              <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 10px; color: var(--text-primary);" data-i18n="about_why_item3_title">Teknoloji Odaklı Yaklaşım</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.55; margin: 0;" data-i18n="about_why_item3_desc">
+                Güncel simülasyon sistemleri ve modern eğitim araçlarıyla desteklenen pratik öğrenme süreçleri.
+              </p>
+            </div>
+          </div>
+          
+          <div style="text-align: center; border-top: 1px solid var(--border-color); padding-top: 24px;">
+            <p style="color: var(--text-primary); font-size: 1.05rem; font-weight: 700; margin: 0; font-family: 'Outfit', sans-serif; letter-spacing: 0.25px;" data-i18n="about_why_footer">Sapmaz Akademi ile geleceğinizi gökyüzünde şekillendirin.</p>
           </div>
         </div>
       </section>
@@ -214,244 +260,432 @@
 
           <div class="facility-card"
             style="position: relative; height: 260px; border-radius: 12px; overflow: hidden; box-shadow: var(--card-shadow); border: 1px solid var(--border-color); transition: all 0.3s ease;">
-            <img src="https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?auto=format&fit=crop&w=500&q=80"
-              alt="Simulator Center" style="width: 100%; height: 100%; object-fit: cover; transition: all 0.5s ease;">
+            <img src="../Screenshot_20260810_102355.png"
+              alt="Sınav Merkezi" style="width: 100%; height: 100%; object-fit: cover; object-position: center center; transition: all 0.5s ease;"
+              onerror="if(this.src.indexOf('Screenshot_20260810_102355.png')!==-1&&this.src.indexOf('assets')===-1) { this.src='../assets/Screenshot_20260810_102355.png'; } else { this.src='Screenshot_20260810_102355.png'; }">
             <div class="facility-overlay"
               style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 20%, rgba(15, 23, 42, 0.2) 100%); padding: 20px; display: flex; flex-direction: column; justify-content: flex-end;">
               <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--text-overlay-primary); margin-bottom: 5px;"
-                data-i18n="fac_sim_title">Simülatör Merkezi</h3>
+                data-i18n="fac_sim_title">Sınav Merkezi</h3>
               <p style="font-size: 0.78rem; color: var(--text-overlay-secondary); line-height: 1.4; margin-bottom: 0;"
-                data-i18n="fac_sim_desc">Gerçekçi kokpit ve hava koşulları simülasyonları.</p>
+                data-i18n="fac_sim_desc">Yetkili uçuş teorik ve uygulama sınavlarının gerçekleştirildiği onaylı merkezimiz.</p>
             </div>
           </div>
 
           <div class="facility-card"
             style="position: relative; height: 260px; border-radius: 12px; overflow: hidden; box-shadow: var(--card-shadow); border: 1px solid var(--border-color); transition: all 0.3s ease;">
-            <img src="https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=500&q=80"
-              alt="Hangar" style="width: 100%; height: 100%; object-fit: cover; transition: all 0.5s ease;">
+            <img src="../WhatsApp Image 2026-07-31 at 17.06.30(3).jpeg"
+              alt="Üretim & Bakım/Onarım Tesisi" style="width: 100%; height: 100%; object-fit: cover; transition: all 0.5s ease;"
+              onerror="this.onerror=null; this.src='../assets/WhatsApp Image 2026-07-31 at 17.06.30(3).jpeg';">
             <div class="facility-overlay"
               style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 20%, rgba(15, 23, 42, 0.2) 100%); padding: 20px; display: flex; flex-direction: column; justify-content: flex-end;">
               <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--text-overlay-primary); margin-bottom: 5px;"
-                data-i18n="fac_hangar_title">Uçuş Hangarı</h3>
+                data-i18n="fac_hangar_title">Üretim & Bakım/Onarım Tesisi</h3>
               <p style="font-size: 0.78rem; color: var(--text-overlay-secondary); line-height: 1.4; margin-bottom: 0;"
-                data-i18n="fac_hangar_desc">Eğitim uçaklarımız ve teknik bakım atölyemiz.</p>
+                data-i18n="fac_hangar_desc">İHA teknolojileri geliştirme atölyemiz ve periyodik teknik bakım servisimiz.</p>
             </div>
           </div>
 
           <div class="facility-card"
             style="position: relative; height: 260px; border-radius: 12px; overflow: hidden; box-shadow: var(--card-shadow); border: 1px solid var(--border-color); transition: all 0.3s ease;">
-            <img src="https://images.unsplash.com/photo-1508849789987-4e5333c12b78?auto=format&fit=crop&w=500&q=80"
-              alt="UAV Field" style="width: 100%; height: 100%; object-fit: cover; transition: all 0.5s ease;">
+            <img src="../WhatsApp Image 2026-07-31 at 17.06.30(1).jpeg"
+              alt="Genel Merkez & Test Sahası" style="width: 100%; height: 100%; object-fit: cover; transition: all 0.5s ease;"
+              onerror="this.onerror=null; this.src='../assets/WhatsApp Image 2026-07-31 at 17.06.30(1).jpeg';">
             <div class="facility-overlay"
               style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 20%, rgba(15, 23, 42, 0.2) 100%); padding: 20px; display: flex; flex-direction: column; justify-content: flex-end;">
               <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--text-overlay-primary); margin-bottom: 5px;"
                 data-i18n="fac_field_title">İHA Test Sahası</h3>
               <p style="font-size: 0.78rem; color: var(--text-overlay-secondary); line-height: 1.4; margin-bottom: 0;"
-                data-i18n="fac_field_desc">Pratik uçuş eğitimleri için özel İHA sahası.</p>
+                data-i18n="fac_field_desc">Ankara Temelli Sincan Yenihisar Mevkili Notamlı İHA Uçuş Alanı.</p>
             </div>
           </div>
 
           <div class="facility-card"
             style="position: relative; height: 260px; border-radius: 12px; overflow: hidden; box-shadow: var(--card-shadow); border: 1px solid var(--border-color); transition: all 0.3s ease;">
-            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=500&q=80"
-              alt="Tech Lab" style="width: 100%; height: 100%; object-fit: cover; transition: all 0.5s ease;">
+            <img src="../academy.jpg"
+              alt="Eğitim Merkezi" style="width: 100%; height: 100%; object-fit: cover; transition: all 0.5s ease;"
+              onerror="if(this.src.indexOf('academy.jpg')!==-1&&this.src.indexOf('assets')===-1) { this.src='../assets/academy.jpg'; } else { this.src='academy.jpg'; }">
             <div class="facility-overlay"
               style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 20%, rgba(15, 23, 42, 0.2) 100%); padding: 20px; display: flex; flex-direction: column; justify-content: flex-end;">
               <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--text-overlay-primary); margin-bottom: 5px;"
-                data-i18n="fac_lab_title">Teknoloji Laboratuvarı</h3>
+                data-i18n="fac_lab_title">Eğitim Merkezi</h3>
               <p style="font-size: 0.78rem; color: var(--text-overlay-secondary); line-height: 1.4; margin-bottom: 0;"
-                data-i18n="fac_lab_desc">Otonom kodlama ve drone montaj laboratuvarları.</p>
+                data-i18n="fac_lab_desc">Havacılık teorik, simülatörlü uçuş ve teknik yer eğitimlerinin verildiği ana merkezimiz.</p>
             </div>
           </div>
 
         </div>
       </section>
 
-      <!-- Section 4: Interactive Milestone Timeline (Horizontal Nodes / 2-Column Cards) -->
+      <!-- Section 4: Milestone Timeline (Snaking Vertical Zig-Zag Layout) -->
       <section class="about-timeline-section" style="margin-bottom: 60px;">
         <h2 class="section-title" style="margin-bottom: 45px;" data-i18n="timeline_title">Tarihsel Yolculuğumuz</h2>
 
-        <div class="about-timeline-wrapper"
-          style="position: relative; display: flex; flex-direction: column; align-items: center; gap: 40px;">
+        <style>
+          .vertical-timeline-container {
+            position: relative;
+            max-width: 1050px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            padding: 30px 0;
+          }
+          .vertical-timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 50px; /* Center of the first card */
+            bottom: 50px; /* Center of the last card */
+            width: 4px;
+            background: linear-gradient(to bottom, var(--accent) 0%, var(--border-color) 100%);
+            transform: translateX(-50%);
+            z-index: 1;
+            opacity: 0.6;
+          }
+          .vertical-timeline-item {
+            position: relative;
+            display: flex;
+            width: 100%;
+            align-items: center;
+            box-sizing: border-box;
+          }
+          .vertical-timeline-item.left-aligned {
+            justify-content: flex-start;
+          }
+          .vertical-timeline-item.right-aligned {
+            justify-content: flex-end;
+          }
+          .vertical-timeline-node {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            padding: 5px 14px;
+            border-radius: 20px;
+            background: var(--bg-primary, #f4f6f9);
+            border: 2.5px solid var(--accent);
+            color: var(--accent);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 0.85rem;
+            z-index: 3;
+            box-shadow: 0 4px 10px rgba(var(--accent-rgb), 0.15);
+            transition: all 0.3s ease;
+          }
+          .vertical-timeline-item:hover .vertical-timeline-node {
+            background: var(--accent);
+            color: #ffffff;
+            transform: translate(-50%, -50%) scale(1.08);
+            box-shadow: 0 6px 15px rgba(var(--accent-rgb), 0.3);
+          }
+          .timeline-card-wrapper {
+            width: 45%;
+            box-sizing: border-box;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+          }
+          .vertical-timeline-item.left-aligned .timeline-card-wrapper {
+            margin-right: auto;
+          }
+          .vertical-timeline-item.right-aligned .timeline-card-wrapper {
+            margin-left: auto;
+          }
+          .timeline-card {
+            padding: 20px;
+            border-radius: 14px;
+            display: grid !important;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 16px;
+            position: relative;
+            box-sizing: border-box;
+            width: 100%;
+            z-index: 2;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+          }
+          .timeline-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12) !important;
+            border-color: var(--accent) !important;
+          }
+          .timeline-card-img-wrapper {
+            border-radius: 8px;
+            overflow: hidden;
+            height: 120px;
+            border: 1px solid var(--border-color);
+          }
+          .timeline-card-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
 
-          <!-- Timeline Timeline Selector Row -->
-          <div class="timeline-selector-row" style="position: relative; display: flex; width: 100%; max-width: 850px; justify-content: space-between; align-items: center; z-index: 5; margin-bottom: 10px; gap: 8px; overflow-x: auto; padding-bottom: 8px;">
-            <!-- Horizontal central bar -->
-            <div class="timeline-bar" style="position: absolute; left: 0; right: 0; top: 50%; height: 3px; background: var(--border-color); transform: translateY(-50%); z-index: -1;"></div>
-            
-            <!-- Nodes -->
-            <button class="timeline-node active" data-year="2014">2014</button>
-            <button class="timeline-node" data-year="2019">2019</button>
-            <button class="timeline-node" data-year="2021">2021</button>
-            <button class="timeline-node" data-year="2022a">2022</button>
-            <button class="timeline-node" data-year="2022b">2022</button>
-            <button class="timeline-node" data-year="2023a">2023</button>
-            <button class="timeline-node" data-year="2023b">2023</button>
-            <button class="timeline-node" data-year="2024">2024</button>
-            <button class="timeline-node" data-year="2025">2025</button>
-            <button class="timeline-node" data-year="2026">2026</button>
+          @media (max-width: 768px) {
+            .vertical-timeline-line {
+              left: 35px;
+              transform: none;
+              top: 30px;
+              bottom: 30px;
+            }
+            .vertical-timeline-node {
+              left: 35px;
+              top: 30px;
+              transform: translate(-50%, -50%);
+              font-size: 0.75rem;
+              padding: 3px 8px;
+            }
+            .vertical-timeline-item {
+              justify-content: flex-end !important;
+            }
+            .timeline-card-wrapper {
+              width: calc(100% - 60px) !important;
+              margin-left: 60px !important;
+              margin-right: 0 !important;
+            }
+            .timeline-card {
+              grid-template-columns: 1fr;
+              padding: 16px;
+              gap: 12px;
+            }
+            .timeline-card-img-wrapper {
+              height: 140px;
+            }
+          }
+        </style>
+
+        <div class="vertical-timeline-container">
+          <div class="vertical-timeline-line"></div>
+
+          <!-- Card 2014 (Left) -->
+          <div class="vertical-timeline-item left-aligned">
+            <div class="vertical-timeline-node">2014</div>
+            <div class="timeline-card-wrapper">
+              <div class="standard-card timeline-card">
+                <div style="display: flex; flex-direction: column; justify-content: center;">
+                  <h3 class="timeline-card-title" style="margin-top: 0; margin-bottom: 8px; font-size: 1.1rem; font-weight: 800;" data-i18n="time_2014_title">Sapmaz Havacılık'ın Kuruluşu</h3>
+                  <p class="timeline-card-desc" style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; margin: 0;" data-i18n="time_2014_desc">
+                    Havacılık alanında pilotaj, yer hizmetleri and danışmanlık sunmak amacıyla kurulduk. Sektördeki yolculuğumuzun ilk adımını attık.
+                  </p>
+                </div>
+                <div class="timeline-card-img-wrapper">
+                  <img src="../assets/images/timeline/timeline_2014.jpg" alt="2014">
+                </div>
+              </div>
+            </div>
           </div>
 
-          <!-- Timeline Detail Cards (Toggleable) -->
-          <div class="timeline-cards-container" style="position: relative; width: 100%; min-height: 240px; display: flex; align-items: center; justify-content: center;">
-            
-            <!-- Card 2014 -->
-            <div class="standard-card timeline-card active" id="card2014" style="padding: 30px; border-radius: 12px; width: 100%; max-width: 800px; position: absolute; transition: all 0.4s ease; display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px;">
-              <div style="display: flex; flex-direction: column; justify-content: center;">
-                <h3 class="timeline-card-title" data-i18n="time_2014_title">Sapmaz Havacılık'ın Kuruluşu</h3>
-                <p class="timeline-card-desc" data-i18n="time_2014_desc">
-                  Havacılık alanında pilotaj, yer hizmetleri ve danışmanlık sunmak amacıyla kurulduk. Sektördeki yolculuğumuzun ilk adımını attık.
-                </p>
+          <!-- Card 2019 (Right) -->
+          <div class="vertical-timeline-item right-aligned">
+            <div class="vertical-timeline-node">2019</div>
+            <div class="timeline-card-wrapper">
+              <div class="standard-card timeline-card">
+                <div style="display: flex; flex-direction: column; justify-content: center;">
+                  <h3 class="timeline-card-title" style="margin-top: 0; margin-bottom: 8px; font-size: 1.1rem; font-weight: 800;" data-i18n="time_2019_title">SHGM Uçuş Eğitim Yetkisi</h3>
+                  <p class="timeline-card-desc" style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; margin: 0;" data-i18n="time_2019_desc">
+                    Sivil Havacılık Genel Müdürlüğü (SHGM) tarafından resmi olarak yetkilendirilmiş İHA Eğitim Kuruluşu yetki belgemizi aldık.
+                  </p>
+                </div>
+                <div class="timeline-card-img-wrapper">
+                  <img src="../assets/images/timeline/timeline_2019.jpg" alt="2019">
+                </div>
               </div>
-              <div class="timeline-card-img-wrapper" style="border-radius: 8px; overflow: hidden; height: 160px; border: 1px solid var(--border-color);">
-                <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=500&q=80" alt="2014" style="width: 100%; height: 100%; object-fit: cover;">
-              </div>
-              <span class="timeline-card-year">2014</span>
             </div>
-
-            <!-- Card 2019 -->
-            <div class="standard-card timeline-card" id="card2019" style="padding: 30px; border-radius: 12px; width: 100%; max-width: 800px; position: absolute; opacity: 0; pointer-events: none; transform: translateY(15px); transition: all 0.4s ease; display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px;">
-              <div style="display: flex; flex-direction: column; justify-content: center;">
-                <h3 class="timeline-card-title" data-i18n="time_2019_title">SHGM Uçuş Eğitim Yetkisi</h3>
-                <p class="timeline-card-desc" data-i18n="time_2019_desc">
-                  Sivil Havacılık Genel Müdürlüğü (SHGM) tarafından resmi olarak yetkilendirilmiş İHA Eğitim Kuruluşu yetki belgemizi aldık.
-                </p>
-              </div>
-              <div class="timeline-card-img-wrapper" style="border-radius: 8px; overflow: hidden; height: 160px; border: 1px solid var(--border-color);">
-                <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?auto=format&fit=crop&w=500&q=80" alt="2019" style="width: 100%; height: 100%; object-fit: cover;">
-              </div>
-              <span class="timeline-card-year">2019</span>
-            </div>
-
-            <!-- Card 2021 -->
-            <div class="standard-card timeline-card" id="card2021" style="padding: 30px; border-radius: 12px; width: 100%; max-width: 800px; position: absolute; opacity: 0; pointer-events: none; transform: translateY(15px); transition: all 0.4s ease; display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px;">
-              <div style="display: flex; flex-direction: column; justify-content: center;">
-                <h3 class="timeline-card-title" data-i18n="time_2021_title">Zirai Drone Üretim İzni</h3>
-                <p class="timeline-card-desc" data-i18n="time_2021_desc">
-                  Tarımsal üretimi modernize etmek amacıyla zirai drone üretim izinlerimizi tamamlayarak yerli teknoloji üretimine katkı sağladık.
-                </p>
-              </div>
-              <div class="timeline-card-img-wrapper" style="border-radius: 8px; overflow: hidden; height: 160px; border: 1px solid var(--border-color);">
-                <img src="https://images.unsplash.com/photo-1586749845663-8a39a6744888?auto=format&fit=crop&w=500&q=80" alt="2021" style="width: 100%; height: 100%; object-fit: cover;">
-              </div>
-              <span class="timeline-card-year">2021</span>
-            </div>
-
-            <!-- Card 2022a -->
-            <div class="standard-card timeline-card" id="card2022a" style="padding: 30px; border-radius: 12px; width: 100%; max-width: 800px; position: absolute; opacity: 0; pointer-events: none; transform: translateY(15px); transition: all 0.4s ease; display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px;">
-              <div style="display: flex; flex-direction: column; justify-content: center;">
-                <h3 class="timeline-card-title" data-i18n="time_2022a_title">Hafif İHA İşleticisi Yetkisi</h3>
-                <p class="timeline-card-desc" data-i18n="time_2022a_desc">
-                  Sivil havacılık standartlarında hafif İHA işletici yetkisini alarak operasyonel kabiliyetlerimizi üst seviyeye taşıdık.
-                </p>
-              </div>
-              <div class="timeline-card-img-wrapper" style="border-radius: 8px; overflow: hidden; height: 160px; border: 1px solid var(--border-color);">
-                <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=500&q=80" alt="2022" style="width: 100%; height: 100%; object-fit: cover;">
-              </div>
-              <span class="timeline-card-year">2022</span>
-            </div>
-
-            <!-- Card 2022b -->
-            <div class="standard-card timeline-card" id="card2022b" style="padding: 30px; border-radius: 12px; width: 100%; max-width: 800px; position: absolute; opacity: 0; pointer-events: none; transform: translateY(15px); transition: all 0.4s ease; display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px;">
-              <div style="display: flex; flex-direction: column; justify-content: center;">
-                <h3 class="timeline-card-title">
-                  <span data-i18n="time_2022b_title">Azerbaycan'a ZİHA İhracatı</span>
-                  <span class="timeline-card-badge" data-i18n="badge_first_export" style="background: rgba(var(--accent-rgb), 0.15); border: 1px solid var(--accent); color: var(--accent); font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; font-weight: 800; margin-left: 10px; display: inline-block; vertical-align: middle; text-transform: uppercase; letter-spacing: 0.5px;">İLK İHRACAT</span>
-                </h3>
-                <p class="timeline-card-desc" data-i18n="time_2022b_desc">
-                  Geliştirdiğimiz tarımsal insansız hava araçlarının (ZİHA) Azerbaycan'a ilk ihracatını başarıyla gerçekleştirerek küresel pazara açıldık.
-                </p>
-              </div>
-              <div class="timeline-card-img-wrapper" style="border-radius: 8px; overflow: hidden; height: 160px; border: 1px solid var(--border-color);">
-                <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=500&q=80" alt="2022" style="width: 100%; height: 100%; object-fit: cover;">
-              </div>
-              <span class="timeline-card-year">2022</span>
-            </div>
-
-            <!-- Card 2023a -->
-            <div class="standard-card timeline-card" id="card2023a" style="padding: 30px; border-radius: 12px; width: 100%; max-width: 800px; position: absolute; opacity: 0; pointer-events: none; transform: translateY(15px); transition: all 0.4s ease; display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px;">
-              <div style="display: flex; flex-direction: column; justify-content: center;">
-                <h3 class="timeline-card-title" data-i18n="time_2023a_title">Sapmaz Academy Kuruldu</h3>
-                <p class="timeline-card-desc" data-i18n="time_2023a_desc">
-                  Eğitim ve akademi faaliyetlerimizi tek bir kurumsal çatı altında toplayarak profesyonel havacılık eğitimlerini kurumsallaştırdık.
-                </p>
-              </div>
-              <div class="timeline-card-img-wrapper" style="border-radius: 8px; overflow: hidden; height: 160px; border: 1px solid var(--border-color);">
-                <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=500&q=80" alt="2023" style="width: 100%; height: 100%; object-fit: cover;">
-              </div>
-              <span class="timeline-card-year">2023</span>
-            </div>
-
-            <!-- Card 2023b -->
-            <div class="standard-card timeline-card" id="card2023b" style="padding: 30px; border-radius: 12px; width: 100%; max-width: 800px; position: absolute; opacity: 0; pointer-events: none; transform: translateY(15px); transition: all 0.4s ease; display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px;">
-              <div style="display: flex; flex-direction: column; justify-content: center;">
-                <h3 class="timeline-card-title">
-                  <span data-i18n="time_2023b_title">TÜBİTAK 1507 · İHA Motoru Geliştirme</span>
-                  <span class="timeline-card-badge" data-i18n="badge_arge" style="background: rgba(var(--accent-rgb), 0.15); border: 1px solid var(--accent); color: var(--accent); font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; font-weight: 800; margin-left: 10px; display: inline-block; vertical-align: middle; text-transform: uppercase; letter-spacing: 0.5px;">AR-GE</span>
-                </h3>
-                <p class="timeline-card-desc" data-i18n="time_2023b_desc">
-                  TÜBİTAK 1507 programı kapsamında yenilikçi İHA motoru projemizi başlatarak yerli motor Ar-Ge çalışmalarına hız verdik.
-                </p>
-              </div>
-              <div class="timeline-card-img-wrapper" style="border-radius: 8px; overflow: hidden; height: 160px; border: 1px solid var(--border-color);">
-                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=500&q=80" alt="2023" style="width: 100%; height: 100%; object-fit: cover;">
-              </div>
-              <span class="timeline-card-year">2023</span>
-            </div>
-
-            <!-- Card 2024 -->
-            <div class="standard-card timeline-card" id="card2024" style="padding: 30px; border-radius: 12px; width: 100%; max-width: 800px; position: absolute; opacity: 0; pointer-events: none; transform: translateY(15px); transition: all 0.4s ease; display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px;">
-              <div style="display: flex; flex-direction: column; justify-content: center;">
-                <h3 class="timeline-card-title" data-i18n="time_2024_title">Sapmaz Savunma A.Ş.</h3>
-                <p class="timeline-card-desc" data-i18n="time_2024_desc">
-                  Savunma sanayi projeleri ve taktiksel insansız hava sistemleri odağında uzmanlaşmış Sapmaz Savunma A.Ş. şirketimizi kurduk.
-                </p>
-              </div>
-              <div class="timeline-card-img-wrapper" style="border-radius: 8px; overflow: hidden; height: 160px; border: 1px solid var(--border-color);">
-                <img src="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=500&q=80" alt="2024" style="width: 100%; height: 100%; object-fit: cover;">
-              </div>
-              <span class="timeline-card-year">2024</span>
-            </div>
-
-            <!-- Card 2025 -->
-            <div class="standard-card timeline-card" id="card2025" style="padding: 30px; border-radius: 12px; width: 100%; max-width: 800px; position: absolute; opacity: 0; pointer-events: none; transform: translateY(15px); transition: all 0.4s ease; display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px;">
-              <div style="display: flex; flex-direction: column; justify-content: center;">
-                <h3 class="timeline-card-title">
-                  <span data-i18n="time_2025_title">TÜBİTAK 1501 · Yüksek Kapasiteli ZİHA</span>
-                  <span class="timeline-card-badge" data-i18n="badge_arge" style="background: rgba(var(--accent-rgb), 0.15); border: 1px solid var(--accent); color: var(--accent); font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; font-weight: 800; margin-left: 10px; display: inline-block; vertical-align: middle; text-transform: uppercase; letter-spacing: 0.5px;">AR-GE</span>
-                </h3>
-                <p class="timeline-card-desc" data-i18n="time_2025_desc">
-                  TÜBİTAK 1501 desteğiyle yüksek taşıma kapasiteli, gelişmiş otonom zirai insansız hava aracı (ZİHA) Ar-Ge projesini başlattık.
-                </p>
-              </div>
-              <div class="timeline-card-img-wrapper" style="border-radius: 8px; overflow: hidden; height: 160px; border: 1px solid var(--border-color);">
-                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=500&q=80" alt="2025" style="width: 100%; height: 100%; object-fit: cover;">
-              </div>
-              <span class="timeline-card-year">2025</span>
-            </div>
-
-            <!-- Card 2026 -->
-            <div class="standard-card timeline-card" id="card2026" style="padding: 30px; border-radius: 12px; width: 100%; max-width: 800px; position: absolute; opacity: 0; pointer-events: none; transform: translateY(15px); transition: all 0.4s ease; display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px;">
-              <div style="display: flex; flex-direction: column; justify-content: center;">
-                <h3 class="timeline-card-title">
-                  <span data-i18n="time_2026_title">Yetkili EKS ve Sınav Merkezi</span>
-                  <span class="timeline-card-badge" data-i18n="badge_current" style="background: rgba(var(--accent-rgb), 0.15); border: 1px solid var(--accent); color: var(--accent); font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; font-weight: 800; margin-left: 10px; display: inline-block; vertical-align: middle; text-transform: uppercase; letter-spacing: 0.5px;">GÜNCEL</span>
-                </h3>
-                <p class="timeline-card-desc" data-i18n="time_2026_desc">
-                  Sınav ve yetkilendirme süreçlerini tek merkezden yönetmek üzere Yetkili EKS ve Sınav Merkezi unvanını alarak güncel hizmetlerimize ekledik.
-                </p>
-              </div>
-              <div class="timeline-card-img-wrapper" style="border-radius: 8px; overflow: hidden; height: 160px; border: 1px solid var(--border-color);">
-                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=500&q=80" alt="2026" style="width: 100%; height: 100%; object-fit: cover;">
-              </div>
-              <span class="timeline-card-year">2026</span>
-            </div>
-
           </div>
+
+          <!-- Card 2021 (Left) -->
+          <div class="vertical-timeline-item left-aligned">
+            <div class="vertical-timeline-node">2021</div>
+            <div class="timeline-card-wrapper">
+              <div class="standard-card timeline-card">
+                <div style="display: flex; flex-direction: column; justify-content: center;">
+                  <h3 class="timeline-card-title" style="margin-top: 0; margin-bottom: 8px; font-size: 1.1rem; font-weight: 800;" data-i18n="time_2021_title">Zirai Drone Üretim İzni</h3>
+                  <p class="timeline-card-desc" style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; margin: 0;" data-i18n="time_2021_desc">
+                    Tarımsal üretimi modernize etmek amacıyla zirai drone üretim izinlerimizi tamamlayarak yerli teknoloji üretimine katkı sağladık.
+                  </p>
+                </div>
+                <div class="timeline-card-img-wrapper">
+                  <img src="../assets/images/timeline/timeline_2021.jpg" alt="2021">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2022a (Right) -->
+          <div class="vertical-timeline-item right-aligned">
+            <div class="vertical-timeline-node">2022</div>
+            <div class="timeline-card-wrapper">
+              <div class="standard-card timeline-card">
+                <div style="display: flex; flex-direction: column; justify-content: center;">
+                  <h3 class="timeline-card-title" style="margin-top: 0; margin-bottom: 8px; font-size: 1.1rem; font-weight: 800;" data-i18n="time_2022a_title">Hafif İHA İşleticisi Yetkisi</h3>
+                  <p class="timeline-card-desc" style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; margin: 0;" data-i18n="time_2022a_desc">
+                    Sivil havacılık standartlarında hafif İHA işletici yetkisini alarak operasyonel kabiliyetlerimizi üst seviyeye taşıdık.
+                  </p>
+                </div>
+                <div class="timeline-card-img-wrapper">
+                  <img src="../assets/images/timeline/timeline_2022a.jpg" alt="2022">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2022b (Left) -->
+          <div class="vertical-timeline-item left-aligned">
+            <div class="vertical-timeline-node">2022</div>
+            <div class="timeline-card-wrapper">
+              <div class="standard-card timeline-card">
+                <div style="display: flex; flex-direction: column; justify-content: center;">
+                  <h3 class="timeline-card-title" style="margin-top: 0; margin-bottom: 8px; font-size: 1.1rem; font-weight: 800;">
+                    <span data-i18n="time_2022b_title">Azerbaycan'a ZİHA İhracatı</span>
+                    <span class="timeline-card-badge" data-i18n="badge_first_export"
+                      style="background: rgba(var(--accent-rgb), 0.15); border: 1px solid var(--accent); color: var(--accent); font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; font-weight: 800; margin-left: 10px; display: inline-block; vertical-align: middle; text-transform: uppercase; letter-spacing: 0.5px;">İLK İHRACAT</span>
+                  </h3>
+                  <p class="timeline-card-desc" style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; margin: 0;" data-i18n="time_2022b_desc">
+                    Geliştirdiğimiz tarımsal insansız hava araçlarının (ZİHA) Azerbaycan'a ilk ihracatını başarıyla gerçekleştirerek küresel pazara açıldık.
+                  </p>
+                </div>
+                <div class="timeline-card-img-wrapper">
+                  <img src="../assets/images/timeline/timeline_2022b.jpg" alt="2022">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2023a (Right) -->
+          <div class="vertical-timeline-item right-aligned">
+            <div class="vertical-timeline-node">2023</div>
+            <div class="timeline-card-wrapper">
+              <div class="standard-card timeline-card">
+                <div style="display: flex; flex-direction: column; justify-content: center;">
+                  <h3 class="timeline-card-title" style="margin-top: 0; margin-bottom: 8px; font-size: 1.1rem; font-weight: 800;" data-i18n="time_2023a_title">Sapmaz Academy Kuruldu</h3>
+                  <p class="timeline-card-desc" style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; margin: 0;" data-i18n="time_2023a_desc">
+                    Eğitim ve akademi faaliyetlerimizi tek bir kurumsal çatı altında toplayarak profesyonel havacılık eğitimlerini kurumsallaştırdık.
+                  </p>
+                </div>
+                <div class="timeline-card-img-wrapper">
+                  <img src="../assets/images/timeline/timeline_2023a.jpg" alt="2023">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2023b (Left) -->
+          <div class="vertical-timeline-item left-aligned">
+            <div class="vertical-timeline-node">2023</div>
+            <div class="timeline-card-wrapper">
+              <div class="standard-card timeline-card">
+                <div style="display: flex; flex-direction: column; justify-content: center;">
+                  <h3 class="timeline-card-title" style="margin-top: 0; margin-bottom: 8px; font-size: 1.1rem; font-weight: 800;">
+                    <span data-i18n="time_2023b_title">TÜBİTAK 1507 · İHA Motoru Geliştirme</span>
+                    <span class="timeline-card-badge" data-i18n="badge_arge"
+                      style="background: rgba(var(--accent-rgb), 0.15); border: 1px solid var(--accent); color: var(--accent); font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; font-weight: 800; margin-left: 10px; display: inline-block; vertical-align: middle; text-transform: uppercase; letter-spacing: 0.5px;">AR-GE</span>
+                  </h3>
+                  <p class="timeline-card-desc" style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; margin: 0;" data-i18n="time_2023b_desc">
+                    TÜBİTAK 1507 programı kapsamında yenilikçi İHA motoru projemizi başlatarak yerli motor Ar-Ge çalışmalarına hız verdik.
+                  </p>
+                </div>
+                <div class="timeline-card-img-wrapper">
+                  <img src="../assets/images/timeline/timeline_2023b.jpg" alt="2023">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2024 (Right) -->
+          <div class="vertical-timeline-item right-aligned">
+            <div class="vertical-timeline-node">2024</div>
+            <div class="timeline-card-wrapper">
+              <div class="standard-card timeline-card">
+                <div style="display: flex; flex-direction: column; justify-content: center;">
+                  <h3 class="timeline-card-title" style="margin-top: 0; margin-bottom: 8px; font-size: 1.1rem; font-weight: 800;" data-i18n="time_2024_title">Sapmaz Savunma A.Ş.</h3>
+                  <p class="timeline-card-desc" style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; margin: 0;" data-i18n="time_2024_desc">
+                    Savunma sanayi projeleri ve taktiksel insansız hava sistemleri odağında uzmanlaşmış Sapmaz Savunma A.Ş. şirketimizi kurduk.
+                  </p>
+                </div>
+                <div class="timeline-card-img-wrapper">
+                  <img src="../assets/images/timeline/timeline_2024.jpg" alt="2024">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2025 (Left) -->
+          <div class="vertical-timeline-item left-aligned">
+            <div class="vertical-timeline-node">2025</div>
+            <div class="timeline-card-wrapper">
+              <div class="standard-card timeline-card">
+                <div style="display: flex; flex-direction: column; justify-content: center;">
+                  <h3 class="timeline-card-title" style="margin-top: 0; margin-bottom: 8px; font-size: 1.1rem; font-weight: 800;">
+                    <span data-i18n="time_2025_title">TÜBİTAK 1501 · Yüksek Kapasiteli ZİHA</span>
+                    <span class="timeline-card-badge" data-i18n="badge_arge"
+                      style="background: rgba(var(--accent-rgb), 0.15); border: 1px solid var(--accent); color: var(--accent); font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; font-weight: 800; margin-left: 10px; display: inline-block; vertical-align: middle; text-transform: uppercase; letter-spacing: 0.5px;">AR-GE</span>
+                  </h3>
+                  <p class="timeline-card-desc" style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; margin: 0;" data-i18n="time_2025_desc">
+                    TÜBİTAK 1501 desteğiyle yüksek taşıma kapasiteli, gelişmiş otonom zirai insansız hava aracı (ZİHA) Ar-Ge projesini başlattık.
+                  </p>
+                </div>
+                <div class="timeline-card-img-wrapper">
+                  <img src="../assets/images/timeline/timeline_2025.jpg" alt="2025">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2026 (Right) -->
+          <div class="vertical-timeline-item right-aligned">
+            <div class="vertical-timeline-node">2026</div>
+            <div class="timeline-card-wrapper">
+              <div class="standard-card timeline-card">
+                <div style="display: flex; flex-direction: column; justify-content: center;">
+                  <h3 class="timeline-card-title" style="margin-top: 0; margin-bottom: 8px; font-size: 1.1rem; font-weight: 800;">
+                    <span data-i18n="time_2026_title">Yetkili EKS ve Sınav Merkezi</span>
+                    <span class="timeline-card-badge" data-i18n="badge_current"
+                      style="background: rgba(var(--accent-rgb), 0.15); border: 1px solid var(--accent); color: var(--accent); font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; font-weight: 800; margin-left: 10px; display: inline-block; vertical-align: middle; text-transform: uppercase; letter-spacing: 0.5px;">GÜNCEL</span>
+                  </h3>
+                  <p class="timeline-card-desc" style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; margin: 0;" data-i18n="time_2026_desc">
+                    Sınav ve yetkilendirme süreçlerini tek merkezden yönetmek üzere Yetkili EKS ve Sınav Merkezi unvanını alarak güncel hizmetlerimize ekledik.
+                  </p>
+                </div>
+                <div class="timeline-card-img-wrapper">
+                  <img src="../assets/images/timeline/timeline_2026.jpg" alt="2026">
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 
       <!-- Section 5: Accreditations Showcase (Unified Panel) -->
+      <style>
+        .accreditation-card-bg {
+          position: absolute;
+          inset: 0;
+          z-index: 0;
+          pointer-events: none;
+          opacity: 0.12;
+          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+          overflow: hidden;
+          background: #ffffff;
+        }
+
+        .accreditation-card-bg iframe {
+          position: absolute;
+          width: 160%;
+          height: 120%;
+          left: 50%;
+          top: 54%;
+          transform: translate(-50%, -50%);
+          border: none;
+          pointer-events: none;
+          transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .accreditation-card:hover .accreditation-card-bg {
+          opacity: 0.22 !important;
+        }
+
+        .accreditation-card:hover .accreditation-card-bg iframe {
+          transform: translate(-50%, -50%) scale(1.08);
+        }
+      </style>
       <section class="standard-card about-accreditations-panel"
         style="padding: 40px; border-radius: 16px; margin-bottom: 60px;">
         <div class="accreditations-container-grid"
@@ -482,76 +716,102 @@
           <div class="certs-grid-wrapper" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
 
             <!-- Certificate 1 -->
-            <div class="standard-card accreditation-card">
-              <div class="accreditation-icon"
-                style="color: var(--accent); width: 56px; height: 56px; border-radius: 50%; background: rgba(var(--accent-rgb), 0.08); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.1);">
-                <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
-                  <path
-                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
-                </svg>
-              </div>
-              <div style="text-align: center;">
-                <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--text-primary); margin-bottom: 6px;"
-                  data-i18n="acc_shgm_title">SHGM Lisanslı Kuruluş</h3>
-                <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.45; margin-bottom: 0;"
-                  data-i18n="acc_shgm_desc">
-                  Sivil Havacılık Genel Müdürlüğü onaylı havacılık eğitim kuruluşu yetkisine sahibiz.
-                </p>
+            <a href="../Sapmaz Havacılık yetki Belgesi.pdf" target="_blank" class="standard-card accreditation-card"
+              style="text-decoration: none; color: inherit; cursor: pointer;">
+              <div class="accreditation-card-bg">
+                <iframe src="../Sapmaz Havacılık yetki Belgesi.pdf#toolbar=0&navpanes=0&scrollbar=0&view=Fit"></iframe>
               </div>
               <div
-                style="font-size: 0.68rem; color: var(--text-muted); font-family: monospace; border-top: 1px dashed var(--border-color); width: 100%; padding-top: 10px; margin-top: 5px; opacity: 0.65; display: flex; justify-content: space-between;">
-                <span>ID: SHGM-TR-094</span>
-                <span style="color: var(--success-color); font-weight: bold;">ACTIVE</span>
+                style="position: relative; z-index: 1; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 15px;">
+                <div class="accreditation-icon"
+                  style="color: var(--accent); width: 56px; height: 56px; border-radius: 50%; background: rgba(var(--accent-rgb), 0.08); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.1);">
+                  <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    <path d="m9 11 2 2 4-4" />
+                  </svg>
+                </div>
+                <div style="text-align: center;">
+                  <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--text-primary); margin-bottom: 6px;"
+                    data-i18n="acc_shgm_title">İHA-0 / İHA-1 Eğitim Yetkisi</h3>
+                  <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.45; margin-bottom: 0;"
+                    data-i18n="acc_shgm_desc">
+                    Sivil Havacılık Genel Müdürlüğü (SHGM) onaylı İHA0 ve İHA1 Pilotu Eğitim Yetki Belgesi.
+                  </p>
+                </div>
+                <div
+                  style="font-size: 0.68rem; color: var(--text-muted); font-family: monospace; border-top: 1px dashed var(--border-color); width: 100%; padding-top: 10px; margin-top: 5px; opacity: 0.65; display: flex; justify-content: space-between;">
+                  <span>Belge No: TR-İHA-E-14</span>
+                  <span style="color: var(--success-color); font-weight: bold;">ACTIVE</span>
+                </div>
               </div>
-            </div>
+            </a>
 
             <!-- Certificate 2 -->
-            <div class="standard-card accreditation-card">
-              <div class="accreditation-icon"
-                style="color: var(--accent); width: 56px; height: 56px; border-radius: 50%; background: rgba(var(--accent-rgb), 0.08); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.1);">
-                <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
-                  <path
-                    d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2z" />
-                </svg>
-              </div>
-              <div style="text-align: center;">
-                <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--text-primary); margin-bottom: 6px;"
-                  data-i18n="acc_iso_title">ISO 9001:2015 Kalite</h3>
-                <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.45; margin-bottom: 0;"
-                  data-i18n="acc_iso_desc">
-                  Eğitim ve operasyon süreçlerinde uluslararası kalite ve standardizasyon yönetimi.
-                </p>
+            <a href="../Sapmaz Havacılık İHA2 ve İHA3 yetki Belgesi.pdf" target="_blank"
+              class="standard-card accreditation-card" style="text-decoration: none; color: inherit; cursor: pointer;">
+              <div class="accreditation-card-bg">
+                <iframe
+                  src="../Sapmaz Havacılık İHA2 ve İHA3 yetki Belgesi.pdf#toolbar=0&navpanes=0&scrollbar=0&view=Fit"></iframe>
               </div>
               <div
-                style="font-size: 0.68rem; color: var(--text-muted); font-family: monospace; border-top: 1px dashed var(--border-color); width: 100%; padding-top: 10px; margin-top: 5px; opacity: 0.65; display: flex; justify-content: space-between;">
-                <span>ISO: 9001-2015</span>
-                <span style="color: var(--success-color); font-weight: bold;">VERIFIED</span>
+                style="position: relative; z-index: 1; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 15px;">
+                <div class="accreditation-icon"
+                  style="color: var(--accent); width: 56px; height: 56px; border-radius: 50%; background: rgba(var(--accent-rgb), 0.08); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.1);">
+                  <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    <path d="m9 11 2 2 4-4" />
+                  </svg>
+                </div>
+                <div style="text-align: center;">
+                  <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--text-primary); margin-bottom: 6px;"
+                    data-i18n="acc_iso_title">İHA-2 / İHA-3 Eğitim Yetkisi</h3>
+                  <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.45; margin-bottom: 0;"
+                    data-i18n="acc_iso_desc">
+                    Sivil Havacılık Genel Müdürlüğü (SHGM) onaylı İHA2 ve İHA3 Pilotu Eğitim Yetki Belgesi.
+                  </p>
+                </div>
+                <div
+                  style="font-size: 0.68rem; color: var(--text-muted); font-family: monospace; border-top: 1px dashed var(--border-color); width: 100%; padding-top: 10px; margin-top: 5px; opacity: 0.65; display: flex; justify-content: space-between;">
+                  <span>Belge No: TR-İHA-E-84</span>
+                  <span style="color: var(--success-color); font-weight: bold;">ACTIVE</span>
+                </div>
               </div>
-            </div>
+            </a>
 
             <!-- Certificate 3 -->
-            <div class="standard-card accreditation-card">
-              <div class="accreditation-icon"
-                style="color: var(--accent); width: 56px; height: 56px; border-radius: 50%; background: rgba(var(--accent-rgb), 0.08); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.1);">
-                <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
-                  <path
-                    d="M12 11.55C9.64 9.35 6.48 8 3 8v11c3.48 0 6.64 1.35 9 3.55 2.36-2.2 5.52-3.55 9-3.55V8c-3.48 0-6.64 1.35-9 3.55zM12 8c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3z" />
-                </svg>
-              </div>
-              <div style="text-align: center;">
-                <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--text-primary); margin-bottom: 6px;"
-                  data-i18n="acc_univ_title">Üniversite İş Birlikleri</h3>
-                <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.45; margin-bottom: 0;"
-                  data-i18n="acc_univ_desc">
-                  Akademik entegrasyonlar, e-Devlet onaylı sertifikasyon ve teknik mühendislik destekleri.
-                </p>
+            <a href="../SAPMAZ Hafif İHA İşleticisi Belgesi.pdf" target="_blank"
+              class="standard-card accreditation-card" style="text-decoration: none; color: inherit; cursor: pointer;">
+              <div class="accreditation-card-bg">
+                <iframe
+                  src="../SAPMAZ Hafif İHA İşleticisi Belgesi.pdf#toolbar=0&navpanes=0&scrollbar=0&view=Fit"></iframe>
               </div>
               <div
-                style="font-size: 0.68rem; color: var(--text-muted); font-family: monospace; border-top: 1px dashed var(--border-color); width: 100%; padding-top: 10px; margin-top: 5px; opacity: 0.65; display: flex; justify-content: space-between;">
-                <span>PARTNER: YTU / IAU</span>
-                <span style="color: var(--success-color); font-weight: bold;">VERIFIED</span>
+                style="position: relative; z-index: 1; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 15px;">
+                <div class="accreditation-icon"
+                  style="color: var(--accent); width: 56px; height: 56px; border-radius: 50%; background: rgba(var(--accent-rgb), 0.08); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.1);">
+                  <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    <path d="m9 11 2 2 4-4" />
+                  </svg>
+                </div>
+                <div style="text-align: center;">
+                  <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--text-primary); margin-bottom: 6px;"
+                    data-i18n="acc_univ_title">Hafif İHA İşleticisi Yetkisi</h3>
+                  <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.45; margin-bottom: 0;"
+                    data-i18n="acc_univ_desc">
+                    Sivil Havacılık Genel Müdürlüğü (SHGM) onaylı Hafif İnsansız Hava Aracı İşleticisi Yetki Belgesi.
+                  </p>
+                </div>
+                <div
+                  style="font-size: 0.68rem; color: var(--text-muted); font-family: monospace; border-top: 1px dashed var(--border-color); width: 100%; padding-top: 10px; margin-top: 5px; opacity: 0.65; display: flex; justify-content: space-between;">
+                  <span>Belge No: TR-İHA-İŞLETİCİ-02</span>
+                  <span style="color: var(--success-color); font-weight: bold;">ACTIVE</span>
+                </div>
               </div>
-            </div>
+            </a>
 
           </div>
         </div>
@@ -826,7 +1086,6 @@
 
     </div>
   </footer>
-
   <script src="about.min.js"></script>
 </body>
 
