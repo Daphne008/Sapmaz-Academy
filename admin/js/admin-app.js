@@ -658,26 +658,37 @@ class AdminApp {
 
     this.updateLanguageUI();
 
-    if (this.currentView === 'overview') {
-      await this.renderDashboardOverview(mainCanvas);
-    } else if (this.currentView === 'applications') {
-      await this.renderApplicationsView(mainCanvas);
-    } else if (this.currentView === 'contacts') {
-      await this.renderContactsView(mainCanvas);
-    } else if (this.currentView === 'courses') {
-      await this.renderCoursesView(mainCanvas);
-    } else if (this.currentView === 'course-editor') {
-      await this.renderCourseEditor(mainCanvas, params.courseId);
-    } else if (this.currentView === 'news') {
-      await this.renderNewsView(mainCanvas);
-    } else if (this.currentView === 'news-editor') {
-      await this.renderNewsEditor(mainCanvas, params.newsId);
-    } else if (this.currentView === 'resources') {
-      await this.renderResourcesView(mainCanvas);
-    } else if (this.currentView === 'resource-editor') {
-      await this.renderResourceEditor(mainCanvas, params.resourceId);
-    } else if (this.currentView === 'settings') {
-      this.renderSettingsView(mainCanvas);
+    try {
+      if (this.currentView === 'overview') {
+        await this.renderDashboardOverview(mainCanvas);
+      } else if (this.currentView === 'applications') {
+        await this.renderApplicationsView(mainCanvas);
+      } else if (this.currentView === 'contacts') {
+        await this.renderContactsView(mainCanvas);
+      } else if (this.currentView === 'courses') {
+        await this.renderCoursesView(mainCanvas);
+      } else if (this.currentView === 'course-editor') {
+        await this.renderCourseEditor(mainCanvas, params.courseId);
+      } else if (this.currentView === 'news') {
+        await this.renderNewsView(mainCanvas);
+      } else if (this.currentView === 'news-editor') {
+        await this.renderNewsEditor(mainCanvas, params.newsId);
+      } else if (this.currentView === 'resources') {
+        await this.renderResourcesView(mainCanvas);
+      } else if (this.currentView === 'resource-editor') {
+        await this.renderResourceEditor(mainCanvas, params.resourceId);
+      } else if (this.currentView === 'settings') {
+        this.renderSettingsView(mainCanvas);
+      }
+    } catch (err) {
+      console.error('Error rendering view ' + this.currentView + ':', err);
+      mainCanvas.innerHTML = `
+        <div style="padding: 40px; text-align: center; color: var(--admin-danger, #ef4444);">
+          <h2 style="font-size:1.5rem; margin-bottom:12px;">⚠️ Error Loading View</h2>
+          <p style="color:var(--admin-text-muted, #94a3b8); margin-bottom:16px;">Failed to render view: "${this.currentView}".</p>
+          <pre style="background: rgba(0,0,0,0.2); padding: 12px; border-radius: 8px; font-size: 0.85rem; text-align: left; display: inline-block; max-width:100%; overflow-x:auto;">${err.stack || err.message}</pre>
+        </div>
+      `;
     }
   }
 
@@ -948,11 +959,19 @@ class AdminApp {
 
     // Multi-Column Filtering Engine
     const filteredApps = apps.filter(item => {
-      if (filters.id && !item.id.toLowerCase().includes(filters.id.toLowerCase())) return false;
-      if (filters.applicant && !item.name.toLowerCase().includes(filters.applicant.toLowerCase()) && !item.email.toLowerCase().includes(filters.applicant.toLowerCase())) return false;
-      if (filters.course && filters.course !== 'ALL' && !item.course.toLowerCase().includes(filters.course.toLowerCase())) return false;
-      if (filters.date && !item.date.toLowerCase().includes(filters.date.toLowerCase())) return false;
-      if (filters.status && filters.status !== 'ALL' && item.status.toLowerCase().replace(' ','') !== filters.status.toLowerCase().replace(' ','')) return false;
+      if (!item) return false;
+      const id = (item.id || '').toLowerCase();
+      const name = (item.name || '').toLowerCase();
+      const email = (item.email || '').toLowerCase();
+      const course = (item.course || '').toLowerCase();
+      const date = (item.date || '').toLowerCase();
+      const status = (item.status || '').toLowerCase().replace(/\s+/g, '');
+
+      if (filters.id && !id.includes(filters.id.toLowerCase())) return false;
+      if (filters.applicant && !name.includes(filters.applicant.toLowerCase()) && !email.includes(filters.applicant.toLowerCase())) return false;
+      if (filters.course && filters.course !== 'ALL' && !course.includes(filters.course.toLowerCase())) return false;
+      if (filters.date && !date.includes(filters.date.toLowerCase())) return false;
+      if (filters.status && filters.status !== 'ALL' && status !== filters.status.toLowerCase().replace(/\s+/g, '')) return false;
       return true;
     });
 
@@ -1217,12 +1236,21 @@ class AdminApp {
 
     // Multi-Column Filtering Engine
     const filteredContacts = contacts.filter(item => {
-      if (filters.id && !item.id.toLowerCase().includes(filters.id.toLowerCase())) return false;
-      if (filters.from && !item.name.toLowerCase().includes(filters.from.toLowerCase()) && !item.email.toLowerCase().includes(filters.from.toLowerCase())) return false;
-      if (filters.subject && !item.subject.toLowerCase().includes(filters.subject.toLowerCase())) return false;
-      if (filters.date && !item.date.toLowerCase().includes(filters.date.toLowerCase())) return false;
-      if (filters.priority && filters.priority !== 'ALL' && item.priority.toLowerCase() !== filters.priority.toLowerCase()) return false;
-      if (filters.status && filters.status !== 'ALL' && item.status.toLowerCase() !== filters.status.toLowerCase()) return false;
+      if (!item) return false;
+      const id = (item.id || '').toLowerCase();
+      const name = (item.name || '').toLowerCase();
+      const email = (item.email || '').toLowerCase();
+      const subject = (item.subject || '').toLowerCase();
+      const date = (item.date || '').toLowerCase();
+      const priority = (item.priority || '').toLowerCase();
+      const status = (item.status || '').toLowerCase();
+
+      if (filters.id && !id.includes(filters.id.toLowerCase())) return false;
+      if (filters.from && !name.includes(filters.from.toLowerCase()) && !email.includes(filters.from.toLowerCase())) return false;
+      if (filters.subject && !subject.includes(filters.subject.toLowerCase())) return false;
+      if (filters.date && !date.includes(filters.date.toLowerCase())) return false;
+      if (filters.priority && filters.priority !== 'ALL' && priority !== filters.priority.toLowerCase()) return false;
+      if (filters.status && filters.status !== 'ALL' && status !== filters.status.toLowerCase()) return false;
       return true;
     });
 
@@ -1758,11 +1786,18 @@ class AdminApp {
 
     // Multi-Column Filtering Engine
     const filteredNews = news.filter(item => {
-      if (filters.title && !item.titleTR.toLowerCase().includes(filters.title.toLowerCase())) return false;
-      if (filters.category && filters.category !== 'ALL' && !item.category.toLowerCase().includes(filters.category.toLowerCase())) return false;
-      if (filters.author && !item.author.toLowerCase().includes(filters.author.toLowerCase())) return false;
-      if (filters.date && !item.date.toLowerCase().includes(filters.date.toLowerCase())) return false;
-      if (filters.status && filters.status !== 'ALL' && item.status.toLowerCase() !== filters.status.toLowerCase()) return false;
+      if (!item) return false;
+      const titleTR = (item.titleTR || item.title || item.name || '').toLowerCase();
+      const category = (item.category || '').toLowerCase();
+      const author = (item.author || '').toLowerCase();
+      const date = (item.date || '').toLowerCase();
+      const status = (item.status || '').toLowerCase();
+
+      if (filters.title && !titleTR.includes(filters.title.toLowerCase())) return false;
+      if (filters.category && filters.category !== 'ALL' && !category.includes(filters.category.toLowerCase())) return false;
+      if (filters.author && !author.includes(filters.author.toLowerCase())) return false;
+      if (filters.date && !date.includes(filters.date.toLowerCase())) return false;
+      if (filters.status && filters.status !== 'ALL' && status !== filters.status.toLowerCase()) return false;
       return true;
     });
 
@@ -2009,12 +2044,21 @@ class AdminApp {
 
     // Multi-Column Filtering Engine
     const filteredResources = resources.filter(item => {
-      if (filters.title && !item.titleTR.toLowerCase().includes(filters.title.toLowerCase()) && !(item.titleEN && item.titleEN.toLowerCase().includes(filters.title.toLowerCase()))) return false;
-      if (filters.category && filters.category !== 'ALL' && item.category.toLowerCase() !== filters.category.toLowerCase()) return false;
-      if (filters.format && filters.format !== 'ALL' && item.format.toLowerCase() !== filters.format.toLowerCase()) return false;
-      if (filters.size && item.fileSize && !item.fileSize.toLowerCase().includes(filters.size.toLowerCase())) return false;
-      if (filters.date && !item.date.toLowerCase().includes(filters.date.toLowerCase())) return false;
-      if (filters.status && filters.status !== 'ALL' && item.status.toLowerCase() !== filters.status.toLowerCase()) return false;
+      if (!item) return false;
+      const titleTR = (item.titleTR || item.title || item.name || '').toLowerCase();
+      const titleEN = (item.titleEN || '').toLowerCase();
+      const category = (item.category || '').toLowerCase();
+      const format = (item.format || '').toLowerCase();
+      const fileSize = (item.fileSize || '').toLowerCase();
+      const date = (item.date || '').toLowerCase();
+      const status = (item.status || '').toLowerCase();
+
+      if (filters.title && !titleTR.includes(filters.title.toLowerCase()) && !titleEN.includes(filters.title.toLowerCase())) return false;
+      if (filters.category && filters.category !== 'ALL' && category !== filters.category.toLowerCase()) return false;
+      if (filters.format && filters.format !== 'ALL' && format !== filters.format.toLowerCase()) return false;
+      if (filters.size && !fileSize.includes(filters.size.toLowerCase())) return false;
+      if (filters.date && !date.includes(filters.date.toLowerCase())) return false;
+      if (filters.status && filters.status !== 'ALL' && status !== filters.status.toLowerCase()) return false;
       return true;
     });
 
