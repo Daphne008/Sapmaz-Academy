@@ -6,8 +6,8 @@
 
 class GitContentStorage {
   constructor(config = {}) {
-    this.owner = config.owner || localStorage.getItem('sapmaz_git_owner') || 'sapmaz-academy';
-    this.repo = config.repo || localStorage.getItem('sapmaz_git_repo') || 'sapmaz-website';
+    this.owner = config.owner || localStorage.getItem('sapmaz_git_owner') || 'Daphne008';
+    this.repo = config.repo || localStorage.getItem('sapmaz_git_repo') || 'Sapmaz-Academy';
     this.branch = config.branch || localStorage.getItem('sapmaz_git_branch') || 'main';
     this.token = config.token || localStorage.getItem('sapmaz_git_token') || '';
     this.isLocal = config.isLocal !== undefined ? config.isLocal : !this.token;
@@ -38,23 +38,89 @@ class GitContentStorage {
 
   // Fetch list of items in a content collection (e.g. 'news', 'courses', 'applications', 'contacts')
   async listCollection(collectionName) {
-    if (this.isLocal) {
+    let items = [];
+
+    // Helper to normalize any item record into standard schema
+    const normalizeRecord = (data) => {
+      if (!data || typeof data !== 'object') return data;
+      const statusVal = data.status || (data.active !== undefined ? (data.active ? 'Published' : 'Draft') : 'Published');
+      const titleTRVal = data.titleTR || data.title || data.name || 'Untitled';
+      const titleENVal = data.titleEN || data.titleTR || data.title || data.name || 'Untitled';
+      const durationVal = data.duration || (data.durationHours ? `${data.durationHours} Saat` : '');
+      const nextDateVal = data.nextDate || data.nextSessionDate || data.date || '';
+      const excerptVal = data.excerpt || data.summaryTR || data.summary || '';
+      const descriptionVal = data.description || data.body || '';
+
+      return {
+        _fileName: data._fileName || `${data.id || 'item'}.json`,
+        category: data.category || 'General',
+        fee: data.fee || '',
+        author: data.author || 'Admin',
+        date: data.date || '',
+        ...data,
+        titleTR: titleTRVal,
+        titleEN: titleENVal,
+        status: statusVal,
+        duration: durationVal,
+        nextDate: nextDateVal,
+        excerpt: excerptVal,
+        description: descriptionVal
+      };
+    };
+
+    // 1. Try LocalStorage
+    try {
       const stored = localStorage.getItem(`sapmaz_collection_${collectionName}`);
-      return stored ? JSON.parse(stored) : null;
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        if (Array.isArray(parsed)) {
+          items = parsed.map(normalizeRecord);
+        }
+      }
+    } catch (e) {}
+
+    if (!Array.isArray(items)) items = [];
+
+    // 2. Fetch GitHub API if token exists or running remote
+    if (this.token) {
+      try {
+        const url = `https://api.github.com/repos/${this.owner}/${this.repo}/contents/content/${collectionName}?ref=${this.branch}`;
+        const response = await fetch(url, {
+          headers: this._getHeaders()
+        });
+        if (response.ok) {
+          const files = await response.json();
+          if (Array.isArray(files)) {
+            const jsonFiles = files.filter(f => f.name && f.name.endsWith('.json'));
+            
+            const fetched = await Promise.all(jsonFiles.map(async f => {
+              try {
+                const res = await fetch(f.download_url);
+                if (res.ok) return await res.json();
+              } catch (e) {}
+              return null;
+            }));
+
+            fetched.forEach(data => {
+              if (data && (data.id || data.titleTR || data.title || data.name)) {
+                const itemRecord = normalizeRecord(data);
+
+                const idx = items.findIndex(existing => (existing.id && data.id && existing.id === data.id) || existing._fileName === itemRecord._fileName);
+                if (idx >= 0) {
+                  items[idx] = itemRecord;
+                } else {
+                  items.push(itemRecord);
+                }
+              }
+            });
+          }
+        }
+      } catch (err) {
+        console.error('Error fetching collection list from GitHub:', err);
+      }
     }
 
-    try {
-      const url = `https://api.github.com/repos/${this.owner}/${this.repo}/contents/content/${collectionName}?ref=${this.branch}`;
-      const response = await fetch(url, {
-        headers: this._getHeaders()
-      });
-      if (!response.ok) throw new Error(`GitHub API Error: ${response.statusText}`);
-      const files = await response.json();
-      return files.filter(f => f.name.endsWith('.json'));
-    } catch (err) {
-      console.error('Error fetching collection list:', err);
-      return null;
-    }
+    return items.map(normalizeRecord);
   }
 
   // Save or update an item in a collection
@@ -62,22 +128,30 @@ class GitContentStorage {
     const filePath = `content/${collectionName}/${fileName}`;
     const jsonContent = JSON.stringify(data, null, 2);
 
-    if (this.isLocal) {
-      let collection = (await this.listCollection(collectionName)) || [];
-      const index = collection.findIndex(item => (item.id && data.id && item.id === data.id) || item._fileName === fileName);
-      const itemRecord = { _fileName: fileName, ...data };
+    // 1. ALWAYS update local storage first so changes take effect immediately
+    let collection = [];
+    try {
+      const stored = localStorage.getItem(`sapmaz_collection_${collectionName}`);
+      if (stored) collection = JSON.parse(stored);
+    } catch (e) {}
 
-      if (index >= 0) {
-        collection[index] = itemRecord;
-      } else {
-        collection.unshift(itemRecord);
-      }
+    const index = collection.findIndex(item => (item.id && data.id && item.id === data.id) || item._fileName === fileName);
+    const itemRecord = { _fileName: fileName, ...data };
 
-      localStorage.setItem(`sapmaz_collection_${collectionName}`, JSON.stringify(collection));
+    if (index >= 0) {
+      collection[index] = itemRecord;
+    } else {
+      collection.unshift(itemRecord);
+    }
+
+    localStorage.setItem(`sapmaz_collection_${collectionName}`, JSON.stringify(collection));
+
+    // 2. If running locally or no token, return local success
+    if (this.isLocal || !this.token) {
       return { success: true, mode: 'local', path: filePath, data: itemRecord };
     }
 
-    // GitHub API Mode
+    // 3. GitHub API Mode
     try {
       let sha = null;
       try {
@@ -108,14 +182,15 @@ class GitContentStorage {
 
       if (!putRes.ok) {
         const errData = await putRes.json();
-        throw new Error(errData.message || 'Failed to commit file to GitHub');
+        console.warn('GitHub API sync warning:', errData.message);
+        return { success: true, mode: 'local-fallback', path: filePath, data: itemRecord };
       }
 
       const result = await putRes.json();
       return { success: true, mode: 'github', commit: result.commit.sha, path: filePath };
     } catch (err) {
-      console.error('Error saving file to GitHub:', err);
-      throw err;
+      console.warn('GitHub API sync error, saved locally:', err);
+      return { success: true, mode: 'local-fallback', path: filePath, data: itemRecord };
     }
   }
 

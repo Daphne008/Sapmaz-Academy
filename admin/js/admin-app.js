@@ -880,8 +880,8 @@ class AdminApp {
             ${paginatedCourses.map(c => `
               <div class="quick-list-item">
                 <div>
-                  <div class="quick-item-title">${c.titleTR}</div>
-                  <div class="quick-item-sub">${c.category} • ${c.fee}</div>
+                  <div class="quick-item-title">${c.titleTR || c.title || 'Untitled'}</div>
+                  <div class="quick-item-sub">${c.category || ''} ${c.fee ? '• ' + c.fee : ''}</div>
                 </div>
                 <button class="btn btn-secondary btn-sm" onclick="app.navigateToView('course-editor', {courseId:'${c.id}'})">${this.t('edit')}</button>
               </div>
@@ -903,10 +903,10 @@ class AdminApp {
             ${paginatedNews.map(n => `
               <div class="quick-list-item">
                 <div>
-                  <div class="quick-item-title">${n.titleTR}</div>
-                  <div class="quick-item-sub">${n.category} • ${n.date}</div>
+                  <div class="quick-item-title">${n.titleTR || n.title || 'Untitled'}</div>
+                  <div class="quick-item-sub">${n.category || ''} ${n.date ? '• ' + n.date : ''}</div>
                 </div>
-                <button class="btn btn-secondary btn-sm" onclick="app.navigateToView('news-editor', {newsId:${n.id}})">${this.t('edit')}</button>
+                <button class="btn btn-secondary btn-sm" onclick="app.navigateToView('news-editor', {newsId:'${n.id}'})">${this.t('edit')}</button>
               </div>
             `).join('')}
           </div>
@@ -926,8 +926,8 @@ class AdminApp {
             ${paginatedResources.map(r => `
               <div class="quick-list-item">
                 <div>
-                  <div class="quick-item-title">${r.titleTR}</div>
-                  <div class="quick-item-sub">${r.category} • ${r.format}</div>
+                  <div class="quick-item-title">${r.titleTR || r.title || 'Untitled'}</div>
+                  <div class="quick-item-sub">${r.category || ''} ${r.format ? '• ' + r.format : ''}</div>
                 </div>
                 <button class="btn btn-secondary btn-sm" onclick="app.navigateToView('resource-editor', {resourceId:'${r.id}'})">${this.t('edit')}</button>
               </div>
@@ -1536,12 +1536,12 @@ class AdminApp {
             <tbody>
               ${filteredCourses.length > 0 ? filteredCourses.map(c => `
                 <tr>
-                  <td><strong>${c.titleTR}</strong></td>
-                  <td>${c.category}</td>
-                  <td>${c.duration}</td>
-                  <td>${c.fee}</td>
-                  <td>${c.nextDate}</td>
-                  <td><span class="badge-status badge-${c.status.toLowerCase()}">${this.t('status_' + c.status)}</span></td>
+                  <td><strong>${c.titleTR || c.title || 'Untitled'}</strong></td>
+                  <td>${c.category || '-'}</td>
+                  <td>${c.duration || '-'}</td>
+                  <td>${c.fee || '-'}</td>
+                  <td>${c.nextDate || '-'}</td>
+                  <td><span class="badge-status badge-${(c.status || 'Published').toLowerCase()}">${this.t('status_' + (c.status || 'Published'))}</span></td>
                   <td>
                     <button class="btn btn-secondary btn-sm" onclick="app.navigateToView('course-editor', {courseId:'${c.id}'})">${this.t('edit')}</button>
                   </td>
@@ -1828,13 +1828,13 @@ class AdminApp {
             <tbody>
               ${filteredNews.length > 0 ? filteredNews.map(n => `
                 <tr>
-                  <td><strong>${n.titleTR}</strong></td>
-                  <td>${n.category}</td>
-                  <td>${n.author}</td>
-                  <td>${n.date}</td>
-                  <td><span class="badge-status badge-${n.status.toLowerCase()}">${this.t('status_' + n.status)}</span></td>
+                  <td><strong>${n.titleTR || n.title || 'Untitled'}</strong></td>
+                  <td>${n.category || '-'}</td>
+                  <td>${n.author || '-'}</td>
+                  <td>${n.date || '-'}</td>
+                  <td><span class="badge-status badge-${(n.status || 'Published').toLowerCase()}">${this.t('status_' + (n.status || 'Published'))}</span></td>
                   <td>
-                    <button class="btn btn-secondary btn-sm" onclick="app.navigateToView('news-editor', {newsId:${n.id}})">${this.t('edit')}</button>
+                    <button class="btn btn-secondary btn-sm" onclick="app.navigateToView('news-editor', {newsId:'${n.id}'})">${this.t('edit')}</button>
                   </td>
                 </tr>
               `).join('') : `
@@ -2090,12 +2090,12 @@ class AdminApp {
             <tbody>
               ${filteredResources.length > 0 ? filteredResources.map(r => `
                 <tr>
-                  <td><strong>${r.titleTR}</strong></td>
-                  <td><span class="badge-status badge-info" style="text-transform:uppercase;">${r.category}</span></td>
-                  <td>${r.format}</td>
+                  <td><strong>${r.titleTR || r.title || 'Untitled'}</strong></td>
+                  <td><span class="badge-status badge-info" style="text-transform:uppercase;">${r.category || 'GENERAL'}</span></td>
+                  <td>${r.format || '-'}</td>
                   <td>${r.fileSize || 'Auto'}</td>
-                  <td>${r.date}</td>
-                  <td><span class="badge-status badge-${r.status.toLowerCase()}">${this.t('status_' + r.status)}</span></td>
+                  <td>${r.date || '-'}</td>
+                  <td><span class="badge-status badge-${(r.status || 'Published').toLowerCase()}">${this.t('status_' + (r.status || 'Published'))}</span></td>
                   <td>
                     <button class="btn btn-secondary btn-sm" onclick="app.navigateToView('resource-editor', {resourceId:'${r.id}'})">${this.t('edit')}</button>
                   </td>
@@ -2458,8 +2458,8 @@ class AdminApp {
     if (matchedNews.length > 0) {
       html += `<div class="search-result-group-title">${this.t('nav_news')}</div>`;
       matchedNews.forEach(n => {
-        html += `<div class="search-result-item" onclick="app.navigateToView('news-editor', {newsId:${n.id}}); app.hideSearch();">
-          <div><div class="search-result-title">${n.titleTR}</div><div class="search-result-sub">${n.category}</div></div>
+        html += `<div class="search-result-item" onclick="app.navigateToView('news-editor', {newsId:'${n.id}'}); app.hideSearch();">
+          <div><div class="search-result-title">${n.titleTR || n.title || 'Untitled'}</div><div class="search-result-sub">${n.category || ''}</div></div>
         </div>`;
       });
     }
