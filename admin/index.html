@@ -82,7 +82,7 @@
       <ul class="admin-nav">
         <!-- Main Overview -->
         <li class="admin-nav-item active">
-          <a href="#overview">
+          <a href="#overview" onclick="app.navigateToView('overview'); return false;">
             <span class="nav-link-left" data-i18n="nav_dashboard">📌 Dashboard</span>
           </a>
         </li>
@@ -90,13 +90,13 @@
         <!-- Group 1: INBOXES (Communication) -->
         <li class="nav-section-label" data-i18n="group_inboxes">INBOXES</li>
         <li class="admin-nav-item">
-          <a href="#applications">
+          <a href="#applications" onclick="app.navigateToView('applications'); return false;">
             <span class="nav-link-left" data-i18n="nav_applications">📥 Course Applications</span>
             <span id="appNavUnreadBadge" class="nav-unread-badge" style="display:none;">0</span>
           </a>
         </li>
         <li class="admin-nav-item">
-          <a href="#contacts">
+          <a href="#contacts" onclick="app.navigateToView('contacts'); return false;">
             <span class="nav-link-left" data-i18n="nav_contacts">💬 Contact Forms</span>
             <span id="contactNavUnreadBadge" class="nav-unread-badge" style="display:none;">0</span>
           </a>
@@ -105,17 +105,17 @@
         <!-- Group 2: CONTENT MANAGEMENT (Publishing) -->
         <li class="nav-section-label" data-i18n="group_content">CONTENT MANAGEMENT</li>
         <li class="admin-nav-item">
-          <a href="#courses">
+          <a href="#courses" onclick="app.navigateToView('courses'); return false;">
             <span class="nav-link-left" data-i18n="nav_courses">📚 Course Listings</span>
           </a>
         </li>
         <li class="admin-nav-item">
-          <a href="#news">
+          <a href="#news" onclick="app.navigateToView('news'); return false;">
             <span class="nav-link-left" data-i18n="nav_news">📰 News & Articles</span>
           </a>
         </li>
         <li class="admin-nav-item">
-          <a href="#resources">
+          <a href="#resources" onclick="app.navigateToView('resources'); return false;">
             <span class="nav-link-left" data-i18n="nav_resources_admin">📁 Resource Pool Files</span>
           </a>
         </li>
@@ -123,7 +123,7 @@
         <!-- Group 3: SYSTEM -->
         <li class="nav-section-label" data-i18n="group_system">SYSTEM</li>
         <li class="admin-nav-item">
-          <a href="#settings">
+          <a href="#settings" onclick="app.navigateToView('settings'); return false;">
             <span class="nav-link-left" data-i18n="nav_settings">⚙️ Settings & Users</span>
           </a>
         </li>
