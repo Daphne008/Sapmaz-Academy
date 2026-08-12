@@ -49,12 +49,18 @@ class GitContentStorage {
       const durationVal = data.duration || (data.durationHours ? `${data.durationHours} Saat` : '');
       const nextDateVal = data.nextDate || data.nextSessionDate || data.date || '';
       const excerptVal = data.excerpt || data.summaryTR || data.summary || '';
-      const descriptionVal = data.description || data.body || '';
+      const summaryTRVal = data.summaryTR || data.excerpt || data.summary || '';
+      const summaryENVal = data.summaryEN || summaryTRVal;
+      const descriptionVal = data.description || data.descriptionTR || data.body || '';
+      const bodyVal = data.body || descriptionVal;
+      const feeVal = data.fee || data.price || '';
+      const priceVal = data.price || feeVal;
+      const fileSizeVal = data.fileSize || data.size || '';
+      const formatVal = data.format || data.type || '';
 
       return {
         _fileName: data._fileName || `${data.id || 'item'}.json`,
         category: data.category || 'General',
-        fee: data.fee || '',
         author: data.author || 'Admin',
         date: data.date || '',
         ...data,
@@ -64,7 +70,14 @@ class GitContentStorage {
         duration: durationVal,
         nextDate: nextDateVal,
         excerpt: excerptVal,
-        description: descriptionVal
+        summaryTR: summaryTRVal,
+        summaryEN: summaryENVal,
+        description: descriptionVal,
+        body: bodyVal,
+        fee: feeVal,
+        price: priceVal,
+        fileSize: fileSizeVal,
+        format: formatVal
       };
     };
 

@@ -10,7 +10,7 @@ class AdminApp {
   constructor() {
     this.storage = new GitContentStorage();
     this.currentView = 'overview';
-    this.lang = localStorage.getItem('sapmaz_admin_lang') || 'tr';
+    this.lang = localStorage.getItem('sapmaz_admin_lang') || localStorage.getItem('language') || 'tr';
     this.activeDrawer = null;
     this.activeModal = null;
     this.editingCourseId = null;
@@ -241,6 +241,7 @@ class AdminApp {
   toggleLanguage() {
     this.lang = this.lang === 'tr' ? 'en' : 'tr';
     localStorage.setItem('sapmaz_admin_lang', this.lang);
+    localStorage.setItem('language', this.lang);
     this.updateLanguageUI();
     this.renderCurrentView();
   }
