@@ -2666,6 +2666,7 @@ class AdminApp {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   window.app = new AdminApp();
+  await window.app.init();
 });
