@@ -11,6 +11,205 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
+  <style id="admin-auth-critical-css">
+    /* Embedded Critical Authentication & Overlay Styles for GitHub Pages */
+    .login-overlay {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      background: rgba(15, 23, 42, 0.82) !important;
+      backdrop-filter: blur(14px) !important;
+      -webkit-backdrop-filter: blur(14px) !important;
+      display: none;
+      align-items: center !important;
+      justify-content: center !important;
+      z-index: 10000 !important;
+      padding: 20px !important;
+      box-sizing: border-box !important;
+    }
+
+    .login-overlay.active {
+      display: flex !important;
+      opacity: 1 !important;
+    }
+
+    .login-card {
+      width: 100% !important;
+      max-width: 440px !important;
+      background: #ffffff !important;
+      border: 1px solid rgba(226, 232, 240, 0.9) !important;
+      border-radius: 20px !important;
+      box-shadow: 0 25px 60px rgba(15, 23, 42, 0.3), 0 0 40px rgba(0, 119, 182, 0.12) !important;
+      padding: 40px 36px 32px !important;
+      box-sizing: border-box !important;
+      animation: loginCardPop 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+
+    @keyframes loginCardPop {
+      from { transform: scale(0.92) translateY(10px); opacity: 0; }
+      to { transform: scale(1) translateY(0); opacity: 1; }
+    }
+
+    .login-card-header {
+      text-align: center !important;
+      margin-bottom: 28px !important;
+    }
+
+    .login-logo {
+      height: 52px !important;
+      width: auto !important;
+      margin-bottom: 16px !important;
+      border-radius: 8px !important;
+    }
+
+    .login-title {
+      font-size: 1.45rem !important;
+      font-weight: 800 !important;
+      color: #0f172a !important;
+      letter-spacing: -0.02em !important;
+      margin-bottom: 6px !important;
+      margin-top: 0 !important;
+    }
+
+    .login-subtitle {
+      font-size: 0.88rem !important;
+      color: #64748b !important;
+      margin: 0 !important;
+    }
+
+    .login-form .form-group {
+      margin-bottom: 20px !important;
+      text-align: left !important;
+    }
+
+    .login-form label {
+      display: block !important;
+      font-size: 0.84rem !important;
+      font-weight: 700 !important;
+      color: #64748b !important;
+      margin-bottom: 7px !important;
+    }
+
+    .input-with-icon {
+      position: relative !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+
+    .input-with-icon .input-icon {
+      position: absolute !important;
+      left: 14px !important;
+      font-size: 1rem !important;
+      pointer-events: none !important;
+      opacity: 0.7 !important;
+      z-index: 2 !important;
+    }
+
+    .input-with-icon .form-control {
+      padding-left: 42px !important;
+    }
+
+    .login-form .form-control {
+      width: 100% !important;
+      background-color: #f8fafc !important;
+      border: 1px solid #e2e8f0 !important;
+      border-radius: 8px !important;
+      padding: 11px 16px !important;
+      color: #0f172a !important;
+      font-size: 0.9rem !important;
+      font-family: inherit !important;
+      outline: none !important;
+      box-sizing: border-box !important;
+      transition: all 0.25s ease !important;
+    }
+
+    .login-form .form-control:focus {
+      border-color: #0077b6 !important;
+      box-shadow: 0 0 0 3px rgba(0, 119, 182, 0.12) !important;
+      background-color: #ffffff !important;
+    }
+
+    .login-options {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      margin: 16px 0 24px !important;
+    }
+
+    .remember-me-label {
+      display: flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      font-size: 0.84rem !important;
+      font-weight: 600 !important;
+      color: #64748b !important;
+      cursor: pointer !important;
+    }
+
+    .remember-me-label input[type="checkbox"] {
+      width: 16px !important;
+      height: 16px !important;
+      accent-color: #0077b6 !important;
+      cursor: pointer !important;
+    }
+
+    .login-alert {
+      padding: 12px 16px !important;
+      border-radius: 8px !important;
+      font-size: 0.86rem !important;
+      font-weight: 600 !important;
+      margin-bottom: 20px !important;
+      text-align: left !important;
+    }
+
+    .login-alert.alert-danger {
+      background-color: #fee2e2 !important;
+      color: #b91c1c !important;
+      border: 1px solid #fca5a5 !important;
+    }
+
+    .login-alert.alert-success {
+      background-color: #d1fae5 !important;
+      color: #047857 !important;
+      border: 1px solid #a7f3d0 !important;
+    }
+
+    .btn-block {
+      width: 100% !important;
+    }
+
+    .btn-lg {
+      padding: 12px 24px !important;
+      font-size: 0.95rem !important;
+    }
+
+    .login-card-footer {
+      margin-top: 28px !important;
+      padding-top: 20px !important;
+      border-top: 1px solid #e2e8f0 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      font-size: 0.8rem !important;
+    }
+
+    .btn-text-sm {
+      background: none !important;
+      border: none !important;
+      color: #0077b6 !important;
+      font-weight: 700 !important;
+      font-size: 0.82rem !important;
+      cursor: pointer !important;
+    }
+
+    .login-security-notice {
+      color: #94a3b8 !important;
+      font-size: 0.76rem !important;
+      font-weight: 600 !important;
+    }
+  </style>
 </head>
 
 <body>
@@ -102,8 +301,8 @@
   </header>
 
   <!-- Login Modal Overlay (Full Screen Screen Lock for Unauthenticated Users) -->
-  <div id="loginOverlay" class="login-overlay active">
-    <div class="login-card">
+  <div id="loginOverlay" class="login-overlay active" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); display: flex; align-items: center; justify-content: center; z-index: 10000; padding: 20px;">
+    <div class="login-card" style="width: 100%; max-width: 440px; background: #ffffff; border: 1px solid rgba(226, 232, 240, 0.8); border-radius: 20px; box-shadow: 0 25px 60px rgba(15, 23, 42, 0.25); padding: 40px 36px 32px;">
       <div class="login-card-header">
         <img src="../logo.svg" alt="Sapmaz Academy Logo" class="login-logo" onerror="this.src='../academy.jpg'" />
         <h2 class="login-title" data-i18n="auth_login_title">Sapmaz Academy Panel</h2>
