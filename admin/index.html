@@ -19,7 +19,7 @@
       left: 0 !important;
       width: 100vw !important;
       height: 100vh !important;
-      background: rgba(15, 23, 42, 0.82) !important;
+      background: rgba(15, 23, 42, 0.85) !important;
       backdrop-filter: blur(14px) !important;
       -webkit-backdrop-filter: blur(14px) !important;
       display: none !important;
@@ -96,6 +96,7 @@
       position: relative !important;
       display: flex !important;
       align-items: center !important;
+      width: 100% !important;
     }
 
     .input-with-icon .input-icon {
@@ -104,11 +105,8 @@
       font-size: 1rem !important;
       pointer-events: none !important;
       opacity: 0.7 !important;
-      z-index: 2 !important;
-    }
-
-    .input-with-icon .form-control {
-      padding-left: 42px !important;
+      z-index: 5 !important;
+      line-height: 1 !important;
     }
 
     .login-form .form-control {
@@ -123,6 +121,11 @@
       outline: none !important;
       box-sizing: border-box !important;
       transition: all 0.25s ease !important;
+    }
+
+    .login-form .input-with-icon .form-control,
+    .input-with-icon .form-control {
+      padding-left: 46px !important;
     }
 
     .login-form .form-control:focus {
