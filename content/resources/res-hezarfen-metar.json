@@ -1,0 +1,12 @@
+{
+  "id": "res-hezarfen-metar",
+  "titleTR": "Test Hezarfen (LTBW) Canlı Meydan Durumu & METAR / TAF Rehberi",
+  "titleEN": "Test Hezarfen Airfield METAR / TAF Live Status Guide",
+  "category": "hezarfen",
+  "format": "PDF Document",
+  "fileSize": "2.1 MB",
+  "fileUrl": "../assets/docs/hezarfen_airfield_guide.pdf",
+  "date": "2026-08-14",
+  "status": "Published",
+  "descriptionTR": "Hezarfen Ahmet Çelebi Havaalanı pist yönü, rüzgar limitleri ve kule frekans bilgileri."
+}
