@@ -465,6 +465,27 @@ class AdminApp {
     this.showToast(this.t('auth_msg_logged_out'), 'info');
   }
 
+  toggleUserMenu(force, event) {
+    if (event) {
+      if (typeof event.preventDefault === 'function') event.preventDefault();
+      if (typeof event.stopPropagation === 'function') event.stopPropagation();
+    }
+    const dropdown = document.getElementById('userMenuDropdown');
+    if (!dropdown) return;
+    if (force !== undefined) {
+      if (force) {
+        dropdown.classList.add('active');
+        dropdown.style.display = 'block';
+      } else {
+        dropdown.classList.remove('active');
+        dropdown.style.display = 'none';
+      }
+    } else {
+      const isActive = dropdown.classList.toggle('active');
+      dropdown.style.display = isActive ? 'block' : 'none';
+    }
+  }
+
   async seedInitialDataIfEmpty() {
     // --- COURSES ---
     let courses = await this.storage.listCollection('courses');
@@ -783,17 +804,40 @@ class AdminApp {
       });
     });
 
-    const searchInput = document.getElementById('globalSearchInput');
-    if (searchInput) {
-      searchInput.addEventListener('input', (e) => this.handleGlobalSearch(e.target.value));
+    const userBtn = document.getElementById('userProfileBtn');
+    if (userBtn) {
+      userBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        this.toggleUserMenu();
+      });
     }
 
     const notifBtn = document.getElementById('notifTriggerBtn');
     if (notifBtn) {
-      notifBtn.addEventListener('click', () => {
+      notifBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
         const drop = document.getElementById('notifDropdown');
         if (drop) drop.classList.toggle('active');
       });
+    }
+
+    document.addEventListener('click', (e) => {
+      const userWidget = document.getElementById('userProfileWidget');
+      if (userWidget && !userWidget.contains(e.target)) {
+        this.toggleUserMenu(false);
+      }
+      const notifGroup = document.querySelector('.notification-trigger');
+      if (notifGroup && !notifGroup.contains(e.target)) {
+        const drop = document.getElementById('notifDropdown');
+        if (drop) drop.classList.remove('active');
+      }
+    });
+
+    const searchInput = document.getElementById('globalSearchInput');
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => this.handleGlobalSearch(e.target.value));
     }
 
     const drawerBackdrop = document.getElementById('drawerBackdrop');

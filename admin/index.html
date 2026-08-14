@@ -280,7 +280,7 @@
 
       <!-- Logged-in User Profile Dropdown Widget -->
       <div id="userProfileWidget" class="user-profile-widget" style="display:none;">
-        <button id="userProfileBtn" class="user-profile-btn" onclick="app.toggleUserMenu()">
+        <button id="userProfileBtn" type="button" class="user-profile-btn" onclick="app.toggleUserMenu(event)">
           <span id="userAvatar" class="user-avatar">👨‍✈️</span>
           <div class="user-info-text">
             <span id="userName" class="user-name">Admin User</span>
@@ -295,10 +295,10 @@
             <span id="userDropdownEmail">admin@sapmazhavacilik.com</span>
           </div>
           <hr class="user-menu-divider" />
-          <button class="user-menu-item" onclick="app.navigateToView('settings'); app.toggleUserMenu(false);">
+          <button type="button" class="user-menu-item" onclick="app.navigateToView('settings'); app.toggleUserMenu(false);">
             <span>⚙️</span> <span data-i18n="nav_settings">System Settings</span>
           </button>
-          <button class="user-menu-item text-danger" onclick="app.handleLogout()">
+          <button type="button" class="user-menu-item text-danger" onclick="app.handleLogout()">
             <span>🚪</span> <span data-i18n="auth_logout">Log Out</span>
           </button>
         </div>
