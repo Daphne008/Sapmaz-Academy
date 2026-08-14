@@ -8,6 +8,7 @@
 
 class AdminApp {
   constructor() {
+    this.auth = new AdminAuth();
     this.storage = new GitContentStorage();
     this.currentView = 'overview';
     this.lang = localStorage.getItem('sapmaz_admin_lang') || localStorage.getItem('language') || 'tr';
@@ -296,6 +297,116 @@ class AdminApp {
   clearColumnFilters(view) {
     this.columnFilters[view] = {};
     this.renderCurrentView();
+  }
+
+  async init() {
+    if (!this.initAuth()) {
+      return;
+    }
+    await this.seedInitialDataIfEmpty();
+    this.bindEvents();
+    this.updateLanguageUI();
+    const initialRoute = (window.location.hash || '#overview').replace('#', '').split('?')[0] || 'overview';
+    await this.navigateToView(initialRoute, {}, false);
+    this.updateNotificationBadges();
+  }
+
+  initAuth() {
+    const loginOverlay = document.getElementById('loginOverlay');
+    const userWidget = document.getElementById('userProfileWidget');
+
+    if (this.auth.isAuthenticated()) {
+      if (loginOverlay) {
+        loginOverlay.classList.remove('active');
+        loginOverlay.style.setProperty('display', 'none', 'important');
+      }
+      if (userWidget) userWidget.style.display = 'flex';
+
+      const user = this.auth.getCurrentUser();
+      if (user) {
+        const avatarEl = document.getElementById('userAvatar');
+        const nameEl = document.getElementById('userName');
+        const roleEl = document.getElementById('userRole');
+        const dropNameEl = document.getElementById('userDropdownName');
+        const dropEmailEl = document.getElementById('userDropdownEmail');
+
+        if (avatarEl) avatarEl.textContent = user.avatar || '👨‍✈️';
+        if (nameEl) nameEl.textContent = user.fullName || user.username;
+        if (roleEl) roleEl.textContent = user.role || 'Admin';
+        if (dropNameEl) dropNameEl.textContent = user.fullName || user.username;
+        if (dropEmailEl) dropEmailEl.textContent = user.email || (user.username + '@sapmazhavacilik.com');
+      }
+      return true;
+    } else {
+      if (loginOverlay) {
+        loginOverlay.classList.add('active');
+        loginOverlay.style.setProperty('display', 'flex', 'important');
+      }
+      if (userWidget) userWidget.style.display = 'none';
+      return false;
+    }
+  }
+
+  async handleLoginSubmit(e) {
+    if (e) e.preventDefault();
+    const usernameInput = document.getElementById('loginUsername');
+    const passwordInput = document.getElementById('loginPassword');
+    const rememberInput = document.getElementById('loginRememberMe');
+    const alertEl = document.getElementById('loginAlert');
+    const spinnerEl = document.getElementById('loginBtnSpinner');
+    const btnTextEl = document.getElementById('loginBtnText');
+    const submitBtn = document.getElementById('loginSubmitBtn');
+
+    if (!usernameInput || !passwordInput) return;
+
+    const username = usernameInput.value.trim();
+    const password = passwordInput.value;
+    const rememberMe = rememberInput ? rememberInput.checked : false;
+
+    if (alertEl) {
+      alertEl.style.display = 'none';
+      alertEl.className = 'login-alert';
+    }
+    if (spinnerEl) spinnerEl.style.display = 'inline-block';
+    if (btnTextEl) btnTextEl.style.opacity = '0.7';
+    if (submitBtn) submitBtn.disabled = true;
+
+    try {
+      const res = await this.auth.login(username, password, rememberMe);
+      if (res.success) {
+        const loginOverlay = document.getElementById('loginOverlay');
+        if (loginOverlay) {
+          loginOverlay.classList.remove('active');
+          loginOverlay.style.setProperty('display', 'none', 'important');
+        }
+        this.initAuth();
+        this.init();
+        this.showToast(this.t('auth_msg_logged_in'), 'success');
+      } else {
+        if (alertEl) {
+          alertEl.className = 'login-alert alert-danger';
+          alertEl.textContent = this.t(res.messageKey || 'auth_err_invalid_pass');
+          alertEl.style.display = 'block';
+        }
+      }
+    } catch (err) {
+      if (alertEl) {
+        alertEl.className = 'login-alert alert-danger';
+        alertEl.textContent = 'Giriş yapılırken hata oluştu: ' + err.message;
+        alertEl.style.display = 'block';
+      }
+    } finally {
+      if (spinnerEl) spinnerEl.style.display = 'none';
+      if (btnTextEl) btnTextEl.style.opacity = '1';
+      if (submitBtn) submitBtn.disabled = false;
+    }
+  }
+
+  handleLogout() {
+    this.auth.logout();
+    this.toggleUserMenu(false);
+    this.initAuth();
+    this.showToast(this.t('auth_msg_logged_out'), 'info');
   }
 
   async seedInitialDataIfEmpty() {
