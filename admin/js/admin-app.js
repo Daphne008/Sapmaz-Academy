@@ -6,6 +6,62 @@
  * Automatic File Metadata Extraction (Format & Size calculated from file data)
  */
 
+function formatDateRange(startDateStr, finishDateStr, lang = 'tr') {
+  if (!startDateStr) return '';
+  const start = new Date(startDateStr);
+  if (isNaN(start.getTime())) return startDateStr || '';
+
+  if (!finishDateStr || startDateStr === finishDateStr) {
+    const month = start.toLocaleString(lang === 'tr' ? 'tr-TR' : 'en-US', { month: 'long' });
+    const day = start.getDate();
+    const year = start.getFullYear();
+    return lang === 'tr' ? `${day} ${month} ${year}` : `${month} ${day}, ${year}`;
+  }
+
+  const finish = new Date(finishDateStr);
+  if (isNaN(finish.getTime())) {
+    const month = start.toLocaleString(lang === 'tr' ? 'tr-TR' : 'en-US', { month: 'long' });
+    const day = start.getDate();
+    const year = start.getFullYear();
+    return lang === 'tr' ? `${day} ${month} ${year}` : `${month} ${day}, ${year}`;
+  }
+
+  const startDay = start.getDate();
+  const startMonth = start.toLocaleString(lang === 'tr' ? 'tr-TR' : 'en-US', { month: 'long' });
+  const startYear = start.getFullYear();
+
+  const finishDay = finish.getDate();
+  const finishMonth = finish.toLocaleString(lang === 'tr' ? 'tr-TR' : 'en-US', { month: 'long' });
+  const finishYear = finish.getFullYear();
+
+  if (startYear === finishYear) {
+    if (startMonth === finishMonth) {
+      return lang === 'tr'
+        ? `${startDay} - ${finishDay} ${startMonth} ${startYear}`
+        : `${startMonth} ${startDay} - ${finishDay}, ${startYear}`;
+    } else {
+      return lang === 'tr'
+        ? `${startDay} ${startMonth} - ${finishDay} ${finishMonth} ${startYear}`
+        : `${startMonth} ${startDay} - ${finishMonth} ${finishDay}, ${startYear}`;
+    }
+  } else {
+    return lang === 'tr'
+      ? `${startDay} ${startMonth} ${startYear} - ${finishDay} ${finishMonth} ${finishYear}`
+      : `${startMonth} ${startDay}, ${startYear} - ${finishMonth} ${finishDay}, ${finishYear}`;
+  }
+}
+
+function calculateDurationDays(startDateStr, finishDateStr, lang = 'tr') {
+  if (!startDateStr || !finishDateStr) return '';
+  const start = new Date(startDateStr);
+  const finish = new Date(finishDateStr);
+  if (isNaN(start.getTime()) || isNaN(finish.getTime())) return '';
+  const diffTime = finish.getTime() - start.getTime();
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+  if (diffDays <= 0) return '';
+  return lang === 'tr' ? `${diffDays} Gün` : `${diffDays} Days`;
+}
+
 class AdminApp {
   constructor() {
     this.auth = new AdminAuth();
@@ -1679,9 +1735,9 @@ class AdminApp {
                 <tr>
                   <td><strong>${c.category || c.titleTR || c.title || 'Untitled'}</strong></td>
                   <td>${c.category || '-'}</td>
-                  <td>${c.duration || '-'}</td>
+                  <td>${c.duration || calculateDurationDays(c.startDate, c.finishDate, this.lang) || '-'}</td>
                   <td>${c.fee || '-'}</td>
-                  <td>${c.startDate || c.nextDate || '-'}${c.finishDate ? ' — ' + c.finishDate : ''}</td>
+                  <td>${formatDateRange(c.startDate || c.nextDate, c.finishDate, this.lang) || c.startDate || c.nextDate || '-'}</td>
                   <td><span class="badge-status badge-${(c.status || 'Published').toLowerCase()}">${this.t('status_' + (c.status || 'Published'))}</span></td>
                   <td>
                     <button class="btn btn-secondary btn-sm" onclick="app.navigateToView('course-editor', {courseId:'${c.id}'})">${this.t('edit')}</button>
@@ -1706,10 +1762,13 @@ class AdminApp {
       id: 'course-' + Date.now(),
       category: 'İHA-1 (Orta Sınıf Drone Ehliyeti)',
       duration: '',
-      location: 'Online',
+      location: 'Kadıköy Plaza & Tuzla Uçuş Sahası',
       fee: '',
       startDate: '',
       finishDate: '',
+      paymentMethod: 'Banka Havalesi / Kredi Kartı',
+      assignedStudents: 0,
+      classSchedule: 'weekday_morning',
       status: 'Draft',
       excerpt: '',
       description: ''
@@ -1776,11 +1835,11 @@ class AdminApp {
         <div class="form-grid-3">
           <div class="form-group">
             <label>${this.t('lbl_duration')}</label>
-            <input type="text" id="courseDurationInput" class="form-control" value="${course.duration || ''}" placeholder="Örn: 36 Saat / 4 Hafta">
+            <input type="text" id="courseDurationInput" class="form-control" value="${course.duration || ''}" placeholder="Örn: 36 Saat / 5 Gün">
           </div>
           <div class="form-group">
             <label>${this.t('lbl_location')}</label>
-            <input type="text" id="courseLocationInput" class="form-control" value="${course.location || 'Online'}" placeholder="Örn: Online, Hibrit veya Kadıköy Plaza">
+            <input type="text" id="courseLocationInput" class="form-control" value="${course.location || 'Kadıköy Plaza & Tuzla Uçuş Sahası'}" placeholder="Örn: Kadıköy Plaza & Tuzla Uçuş Sahası">
           </div>
           <div class="form-group">
             <label>${this.t('lbl_tuition_fee')} (₺)</label>
@@ -1790,7 +1849,7 @@ class AdminApp {
             </div>
           </div>
         </div>
-        <div class="form-grid-2" style="margin-top:15px;">
+        <div class="form-grid-3" style="margin-top:15px;">
           <div class="form-group">
             <label>${this.t('lbl_start_date')}</label>
             <input type="date" id="courseStartDateInput" class="form-control" value="${course.startDate || course.nextDate || ''}">
@@ -1798,6 +1857,24 @@ class AdminApp {
           <div class="form-group">
             <label>${this.t('lbl_finish_date')}</label>
             <input type="date" id="courseFinishDateInput" class="form-control" value="${course.finishDate || course.endDate || ''}">
+          </div>
+          <div class="form-group">
+            <label>${this.t('lbl_payment_method')}</label>
+            <input type="text" id="coursePaymentMethodInput" class="form-control" value="${course.paymentMethod || 'Banka Havalesi / Kredi Kartı'}" placeholder="Örn: Banka Havalesi / Kredi Kartı">
+          </div>
+        </div>
+        <div class="form-grid-2" style="margin-top:15px;">
+          <div class="form-group">
+            <label>${this.t('lbl_class_schedule')}</label>
+            <select id="courseClassScheduleSelect" class="form-control">
+              <option value="weekday_morning" ${course.classSchedule === 'weekday_morning' ? 'selected' : ''}>Hafta İçi Sabah (Gündüz) Sınıfı / Weekday Morning Intake</option>
+              <option value="weekday_afternoon" ${course.classSchedule === 'weekday_afternoon' ? 'selected' : ''}>Hafta İçi Öğleden Sonra Sınıfı / Weekday Afternoon Intake</option>
+              <option value="weekend" ${course.classSchedule === 'weekend' ? 'selected' : ''}>Hafta Sonu Sınıfı / Weekend Intake</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>${this.t('lbl_assigned_students')}</label>
+            <input type="number" id="courseAssignedStudentsInput" class="form-control" value="${course.assignedStudents !== undefined ? course.assignedStudents : (course.registeredCount !== undefined ? course.registeredCount : 0)}" placeholder="0" min="0">
           </div>
         </div>
 
@@ -1848,12 +1925,35 @@ class AdminApp {
 
   async saveCourseForm(status) {
     const category = document.getElementById('courseCategorySelect').value;
-    const duration = document.getElementById('courseDurationInput').value.trim();
-    const location = document.getElementById('courseLocationInput') ? document.getElementById('courseLocationInput').value.trim() : 'Online';
+    const location = document.getElementById('courseLocationInput') ? document.getElementById('courseLocationInput').value.trim() : 'Kadıköy Plaza & Tuzla Uçuş Sahası';
     let feeRaw = document.getElementById('courseFeeInput').value.trim();
     const fee = feeRaw ? (feeRaw.startsWith('₺') ? feeRaw : `₺${feeRaw}`) : '';
     const startDate = document.getElementById('courseStartDateInput').value;
     const finishDate = document.getElementById('courseFinishDateInput').value;
+    const paymentMethod = document.getElementById('coursePaymentMethodInput') ? document.getElementById('coursePaymentMethodInput').value.trim() : 'Banka Havalesi / Kredi Kartı';
+    const assignedStudentsVal = document.getElementById('courseAssignedStudentsInput') ? parseInt(document.getElementById('courseAssignedStudentsInput').value, 10) : 0;
+    const assignedStudents = isNaN(assignedStudentsVal) ? 0 : assignedStudentsVal;
+    const classSchedule = document.getElementById('courseClassScheduleSelect') ? document.getElementById('courseClassScheduleSelect').value : 'weekday_morning';
+
+    let typeTR = 'Hafta İçi Sabah Sınıfı';
+    let typeEN = 'Weekday Morning Intake';
+    let isWeekend = false;
+
+    if (classSchedule === 'weekday_afternoon') {
+      typeTR = 'Hafta İçi Öğleden Sonra Sınıfı';
+      typeEN = 'Weekday Afternoon Intake';
+      isWeekend = false;
+    } else if (classSchedule === 'weekend') {
+      typeTR = 'Hafta Sonu Sınıfı';
+      typeEN = 'Weekend Intake';
+      isWeekend = true;
+    }
+
+    let duration = document.getElementById('courseDurationInput').value.trim();
+    if (!duration && startDate && finishDate) {
+      duration = calculateDurationDays(startDate, finishDate, 'tr');
+    }
+
     const excerpt = document.getElementById('courseExcerptInput').value;
     const description = document.getElementById('courseWysiwygEditor').innerHTML;
 
@@ -1866,6 +1966,13 @@ class AdminApp {
       startDate,
       finishDate,
       nextDate: startDate,
+      paymentMethod,
+      assignedStudents,
+      registeredCount: assignedStudents,
+      classSchedule,
+      typeTR,
+      typeEN,
+      isWeekend,
       status,
       excerpt,
       description

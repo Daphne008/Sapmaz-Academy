@@ -1144,52 +1144,153 @@ async function setupSessionsPagination(sessionsArray) {
   // Merge admin-published intake sessions from GitHub / Local Storage
   try {
     const adminCourses = await fetchPublishedCollection('courses');
+    let applications = [];
+    try {
+      applications = await fetchPublishedCollection('applications');
+    } catch (err) {}
+
     const cleanKey = (courseKey || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+
+    function formatDateRange(startDateStr, finishDateStr, lang = 'tr') {
+      if (!startDateStr) return '';
+      const start = new Date(startDateStr);
+      if (isNaN(start.getTime())) return startDateStr || '';
+
+      if (!finishDateStr || startDateStr === finishDateStr) {
+        const month = start.toLocaleString(lang === 'tr' ? 'tr-TR' : 'en-US', { month: 'long' });
+        const day = start.getDate();
+        const year = start.getFullYear();
+        return lang === 'tr' ? `${day} ${month} ${year}` : `${month} ${day}, ${year}`;
+      }
+
+      const finish = new Date(finishDateStr);
+      if (isNaN(finish.getTime())) {
+        const month = start.toLocaleString(lang === 'tr' ? 'tr-TR' : 'en-US', { month: 'long' });
+        const day = start.getDate();
+        const year = start.getFullYear();
+        return lang === 'tr' ? `${day} ${month} ${year}` : `${month} ${day}, ${year}`;
+      }
+
+      const startDay = start.getDate();
+      const startMonth = start.toLocaleString(lang === 'tr' ? 'tr-TR' : 'en-US', { month: 'long' });
+      const startYear = start.getFullYear();
+
+      const finishDay = finish.getDate();
+      const finishMonth = finish.toLocaleString(lang === 'tr' ? 'tr-TR' : 'en-US', { month: 'long' });
+      const finishYear = finish.getFullYear();
+
+      if (startYear === finishYear) {
+        if (startMonth === finishMonth) {
+          return lang === 'tr'
+            ? `${startDay} - ${finishDay} ${startMonth} ${startYear}`
+            : `${startMonth} ${startDay} - ${finishDay}, ${startYear}`;
+        } else {
+          return lang === 'tr'
+            ? `${startDay} ${startMonth} - ${finishDay} ${finishMonth} ${startYear}`
+            : `${startMonth} ${startDay} - ${finishMonth} ${finishDay}, ${startYear}`;
+        }
+      } else {
+        return lang === 'tr'
+          ? `${startDay} ${startMonth} ${startYear} - ${finishDay} ${finishMonth} ${finishYear}`
+          : `${startMonth} ${startDay}, ${startYear} - ${finishMonth} ${finishDay}, ${finishYear}`;
+      }
+    }
+
+    function calculateDurationDays(startDateStr, finishDateStr, lang = 'tr') {
+      if (!startDateStr || !finishDateStr) return '';
+      const start = new Date(startDateStr);
+      const finish = new Date(finishDateStr);
+      if (isNaN(start.getTime()) || isNaN(finish.getTime())) return '';
+      const diffTime = finish.getTime() - start.getTime();
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+      if (diffDays <= 0) return '';
+      return lang === 'tr' ? `${diffDays} Gün` : `${diffDays} Days`;
+    }
 
     adminCourses.forEach(ac => {
       const acid = (ac.id || '').toLowerCase().replace(/[^a-z0-9]/g, '');
-      const actitle = (ac.titleTR || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+      const actitle = (ac.titleTR || ac.title || '').toLowerCase().replace(/[^a-z0-9]/g, '');
       const accat = (ac.category || '').toLowerCase().replace(/[^a-z0-9]/g, '');
 
       if (!cleanKey || acid.includes(cleanKey) || cleanKey.includes(acid) || actitle.includes(cleanKey) || accat.includes(cleanKey) || (cleanKey.includes('iha0') && acid.includes('iha0'))) {
+        const appCount = Array.isArray(applications) ? applications.filter(app => {
+          if (!app || !app.course) return false;
+          const status = (app.status || '').toLowerCase().trim();
+          const isApproved = status === 'approved' || status === 'onaylandı';
+          if (!isApproved) return false;
+          const appC = app.course.toLowerCase();
+          return (accat && appC.includes(accat)) || (actitle && appC.includes(actitle)) || (acid && appC.includes(acid));
+        }).length : 0;
+
+        const assignedStudents = (ac.assignedStudents !== undefined && ac.assignedStudents !== null && !isNaN(ac.assignedStudents))
+          ? Number(ac.assignedStudents)
+          : ((ac.registeredCount !== undefined && ac.registeredCount !== null && !isNaN(ac.registeredCount))
+            ? Number(ac.registeredCount)
+            : appCount);
+
+        const calculatedDateTR = formatDateRange(ac.startDate || ac.nextDate, ac.finishDate || ac.endDate, 'tr');
+        const calculatedDateEN = formatDateRange(ac.startDate || ac.nextDate, ac.finishDate || ac.endDate, 'en');
+
+        let defaultTypeTR = ac.typeTR;
+        let defaultTypeEN = ac.typeEN;
+        let defaultIsWeekend = ac.isWeekend !== undefined ? !!ac.isWeekend : false;
+
+        if (ac.classSchedule === 'weekday_afternoon') {
+          defaultTypeTR = 'Hafta İçi Öğleden Sonra Sınıfı';
+          defaultTypeEN = 'Weekday Afternoon Intake';
+          defaultIsWeekend = false;
+        } else if (ac.classSchedule === 'weekend') {
+          defaultTypeTR = 'Hafta Sonu Sınıfı';
+          defaultTypeEN = 'Weekend Intake';
+          defaultIsWeekend = true;
+        } else if (ac.classSchedule === 'weekday_morning') {
+          defaultTypeTR = 'Hafta İçi Sabah Sınıfı';
+          defaultTypeEN = 'Weekday Morning Intake';
+          defaultIsWeekend = false;
+        }
+
         if (ac.sessions && Array.isArray(ac.sessions)) {
           ac.sessions.forEach(s => {
+            const sDateTR = formatDateRange(s.startDate || ac.startDate || ac.nextDate, s.finishDate || ac.finishDate || ac.endDate, 'tr');
+            const sDateEN = formatDateRange(s.startDate || ac.startDate || ac.nextDate, s.finishDate || ac.finishDate || ac.endDate, 'en');
             sessions.unshift({
               id: s.id || `session-${Date.now()}`,
-              startDate: s.startDate || ac.nextDate || '2026-08-20',
-              dateTextTR: s.dateTextTR || s.dateText || '20 - 24 Ağustos 2026',
-              dateTextEN: s.dateTextEN || s.dateText || 'August 20 - 24, 2026',
-              typeTR: s.typeTR || 'Hafta İçi Sınıfı',
-              typeEN: s.typeEN || 'Weekday Intake',
-              isWeekend: !!s.isWeekend,
-              timingTR: s.timingTR || '09:00 – 17:00 (Teorik & Pratik Uçuş)',
-              timingEN: s.timingEN || '09:00 – 17:00 (Theory & Practice)',
-              locationTR: s.locationTR || 'Kadıköy Plaza & Tuzla Uçuş Sahası',
-              locationEN: s.locationEN || 'Kadikoy Plaza & Airfield',
+              startDate: s.startDate || ac.startDate || ac.nextDate || '2026-08-20',
+              dateTextTR: sDateTR || s.dateTextTR || s.dateText || calculatedDateTR || '20 - 24 Ağustos 2026',
+              dateTextEN: sDateEN || s.dateTextEN || s.dateText || calculatedDateEN || 'August 20 - 24, 2026',
+              typeTR: s.typeTR || defaultTypeTR || 'Hafta İçi Sabah Sınıfı',
+              typeEN: s.typeEN || defaultTypeEN || 'Weekday Morning Intake',
+              isWeekend: s.isWeekend !== undefined ? !!s.isWeekend : defaultIsWeekend,
+              timingTR: s.timingTR || ac.duration || calculateDurationDays(ac.startDate, ac.finishDate, 'tr') || '09:00 – 17:00 (Teorik & Pratik Uçuş)',
+              timingEN: s.timingEN || ac.duration || calculateDurationDays(ac.startDate, ac.finishDate, 'en') || '09:00 – 17:00 (Theory & Practice)',
+              locationTR: s.locationTR || ac.location || 'Kadıköy Plaza & Tuzla Uçuş Sahası',
+              locationEN: s.locationEN || ac.location || 'Kadikoy Plaza & Airfield',
               capacityTextTR: s.capacityTextTR || `${ac.capacity || 20} Kontenjan (Kayıtlar Açık)`,
               capacityTextEN: s.capacityTextEN || `${ac.capacity || 20} Capacity (Open)`,
-              paymentTR: s.paymentTR || 'Banka Havalesi / Kredi Kartı',
-              paymentEN: s.paymentEN || 'Wire Transfer / Credit Card',
+              paymentTR: s.paymentTR || ac.paymentMethod || 'Banka Havalesi / Kredi Kartı',
+              paymentEN: s.paymentEN || ac.paymentMethod || 'Wire Transfer / Credit Card',
+              registeredCount: (s.registeredCount !== undefined && s.registeredCount !== null && !isNaN(s.registeredCount)) ? Number(s.registeredCount) : assignedStudents,
               price: s.fee || ac.fee || (cleanKey.includes('iha0') ? '4.350,00 TL' : '7.300,00 TL')
             });
           });
         } else {
           sessions.unshift({
             id: ac.id || `session-${Date.now()}`,
-            startDate: ac.nextDate || '2026-08-20',
-            dateTextTR: `${ac.titleTR} — Sınıf Açılışı`,
-            dateTextEN: `${ac.titleTR} — Class Intake`,
-            typeTR: ac.category || 'Hafta İçi Sınıfı',
-            typeEN: ac.category || 'Weekday Intake',
-            isWeekend: false,
-            timingTR: ac.duration || '09:00 – 17:00 (Teorik & Pratik)',
-            timingEN: ac.duration || '09:00 – 17:00 (Theory & Practice)',
-            locationTR: 'Kadıköy Plaza & Tuzla Uçuş Sahası',
-            locationEN: 'Kadikoy Plaza & Airfield',
+            startDate: ac.startDate || ac.nextDate || '2026-08-20',
+            dateTextTR: calculatedDateTR || `${ac.titleTR || ac.category} — Sınıf Açılışı`,
+            dateTextEN: calculatedDateEN || `${ac.titleEN || ac.category} — Class Intake`,
+            typeTR: defaultTypeTR || 'Hafta İçi Sabah Sınıfı',
+            typeEN: defaultTypeEN || 'Weekday Morning Intake',
+            isWeekend: defaultIsWeekend,
+            timingTR: ac.duration || calculateDurationDays(ac.startDate, ac.finishDate, 'tr') || '09:00 – 17:00 (Teorik & Pratik)',
+            timingEN: ac.duration || calculateDurationDays(ac.startDate, ac.finishDate, 'en') || '09:00 – 17:00 (Theory & Practice)',
+            locationTR: ac.location || 'Kadıköy Plaza & Tuzla Uçuş Sahası',
+            locationEN: ac.location || 'Kadikoy Plaza & Airfield',
             capacityTextTR: `${ac.capacity || 20} Kontenjan (Kayıtlar Açık)`,
             capacityTextEN: `${ac.capacity || 20} Capacity (Open)`,
-            paymentTR: 'Banka Havalesi / Kredi Kartı',
-            paymentEN: 'Wire Transfer / Credit Card',
+            paymentTR: ac.paymentMethod || 'Banka Havalesi / Kredi Kartı',
+            paymentEN: ac.paymentMethod || 'Wire Transfer / Credit Card',
+            registeredCount: assignedStudents,
             price: ac.fee || '4.350,00 TL'
           });
         }
@@ -1309,7 +1410,7 @@ async function setupSessionsPagination(sessionsArray) {
               </div>
               <div class="detail-item">
                 <span class="detail-lbl">${registeredLabel}</span>
-                <span class="detail-val">${session.registeredCount} ${studentsLabel}</span>
+                <span class="detail-val">${(session.registeredCount !== undefined && session.registeredCount !== null && !isNaN(session.registeredCount)) ? session.registeredCount : (session.assignedStudents || 0)} ${studentsLabel}</span>
               </div>
               <div class="detail-item">
                 <span class="detail-lbl">${paymentLabel}</span>
