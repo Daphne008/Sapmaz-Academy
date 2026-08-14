@@ -169,9 +169,10 @@ class AdminApp {
       "lbl_course_excerpt": { tr: "Kısa Özet (Kart görünümü önizleme metni)", en: "Short Excerpt (Preview text for card view)" },
       "sec_logistics": { tr: "2. Kurs Detayları & Lojistik Bölümü", en: "2. Course Details & Logistics Section" },
       "lbl_duration": { tr: "Süre", en: "Duration" },
-      "lbl_capacity": { tr: "Kontenjan Kapasitesi", en: "Class Capacity" },
+      "lbl_location": { tr: "Eğitim Lokasyonu / Formatı", en: "Location / Delivery Format" },
       "lbl_tuition_fee": { tr: "Eğitim Ücreti", en: "Tuition Fee" },
-      "lbl_next_start_date": { tr: "Gelecek Başlangıç Tarihi", en: "Next Start Date" },
+      "lbl_start_date": { tr: "Başlangıç Tarihi", en: "Start Date" },
+      "lbl_finish_date": { tr: "Bitiş Tarihi", en: "Finish Date" },
       "sec_syllabus": { tr: "3. Müfredat & Genel Bakış Bölümü", en: "3. Course Overview & Syllabus Section" },
       "sec_media": { tr: "4. Medya & Dosya Ekleri Bölümü", en: "4. Media & Document Attachments Section" },
       "drop_course_media": { tr: "Broşür, müfredat PDF veya kapak görselini buraya sürükleyip bırakın", en: "Drag & drop course brochures, syllabus PDFs or header images here" },
@@ -183,14 +184,17 @@ class AdminApp {
       "sec_article_details": { tr: "1. Makale Detayları Bölümü", en: "1. Article Details Section" },
       "lbl_article_title": { tr: "Haber Başlığı *", en: "Article Title *" },
       "lbl_site_category": { tr: "Kategori (Site Kategorileri) *", en: "Category (Site Categories) *" },
-      "lbl_author": { tr: "Yazar / Yetkili", en: "Author / Staff Member" },
       "lbl_publish_date": { tr: "Yayın Tarihi", en: "Publish Date" },
       "lbl_article_status": { tr: "Yayın Durumu", en: "Article Status" },
-      "sec_article_summary": { tr: "2. Özet & Spot Metin Bölümü", en: "2. Summary & Excerpt Section" },
-      "lbl_summary_desc": { tr: "Spot Özet (Arama sonuçlarında ve ana sayfada görünür)", en: "Summary / Excerpt (Used in search results & homepage previews)" },
-      "sec_article_body": { tr: "3. Makale İçeriği Bölümü", en: "3. Article Body Section" },
-      "sec_cover_image": { tr: "4. Öne Çıkan Kapak Görseli Bölümü", en: "4. Featured Cover Image Section" },
+      "sec_article_summary": { tr: "2. Özet / Giriş Metni Bölümü", en: "2. Summary / Intro Section" },
+      "lbl_summary_desc": { tr: "Giriş Metni / Spot Özet (Kart önizlemesinde ve detay başlığında görünür)", en: "Introductory Text / Summary (Shown in card preview & article header)" },
+      "sec_article_quote": { tr: "3. Vurgu Alıntısı (Quote) Bölümü", en: "3. Highlight Pull-Quote Section" },
+      "lbl_article_quote": { tr: "Öne Çıkan Alıntı Metni (Makale detayında kutu olarak vurgulanır)", en: "Pull-Quote Text (Highlighted quote box in article view)" },
+      "sec_article_body": { tr: "4. Makale İçeriği Bölümü", en: "4. Article Body Section" },
+      "sec_cover_image": { tr: "5. Öne Çıkan Kapak Görseli Bölümü", en: "5. Featured Cover Image Section" },
       "drop_news_cover": { tr: "Kapak görselini seçmek için tıklayın veya sürükleyin", en: "Click or drop featured cover image here" },
+      "sec_attachments": { tr: "6. Dosya Ekleri Bölümü", en: "6. Document Attachments Section" },
+      "drop_news_attachments": { tr: "İndirilebilir dosya eklerini (PDF, DOCX) buraya yükleyin veya sürükleyin", en: "Upload downloadable file attachments (PDF, DOCX) here" },
 
       // Resource Editor Form & Auto-Detection Metadata
       "title_edit_resource": { tr: "Kaynak Dokümanını Düzenle", en: "Edit Resource Document" },
@@ -202,11 +206,8 @@ class AdminApp {
       "lbl_target_tab": { tr: "Hedef Kategori (Site Sekmesi) *", en: "Target Category (Site Tab) *" },
       "lbl_auto_format": { tr: "Otomatik Algılanan Format", en: "Auto-Detected Format" },
       "lbl_auto_size": { tr: "Otomatik Algılanan Dosya Boyutu", en: "Auto-Detected File Size" },
-      "lbl_file_url": { tr: "Dosya Yolu / İndirme Bağlantısı", en: "File Path / Download URL" },
-      "sec_res_desc": { tr: "2. Açıklama & SSS Yanıt Metni Bölümü", en: "2. Resource Description / Answer Body Section" },
-      "lbl_res_desc_text": { tr: "Özet Açıklama veya SSS Yanıt Metni", en: "Summary Description or FAQ Answer Text" },
-      "sec_res_drop": { tr: "3. Dosya Yükleme Alanı (Format & Boyut Otomatik Hesaplanır)", en: "3. File Attachment Dropzone (Format & Size Auto-Extracted)" },
-      "drop_res_file": { tr: "PDF veya ZIP kaynak dosyasını seçin (Format & Boyut otomatik okunur)", en: "Select PDF/ZIP resource file (Format & Size auto-extracted)" },
+      "sec_res_drop": { tr: "2. Dosya Yükleme Alanı (Format & Boyut Otomatik Hesaplanır)", en: "2. File Attachment Dropzone (Format & Size Auto-Extracted)" },
+      "drop_res_file": { tr: "PDF veya ZIP kaynak dosyasını seçin veya buraya sürükleyin", en: "Select or drop PDF/ZIP resource file here" },
 
       // Settings Screen
       "sec_storage_engine": { tr: "Depolama & GitHub API Motoru Yapılandırması", en: "Storage & GitHub API Engine Config" },
@@ -1565,11 +1566,11 @@ class AdminApp {
             <tbody>
               ${filteredCourses.length > 0 ? filteredCourses.map(c => `
                 <tr>
-                  <td><strong>${c.titleTR || c.title || 'Untitled'}</strong></td>
+                  <td><strong>${c.category || c.titleTR || c.title || 'Untitled'}</strong></td>
                   <td>${c.category || '-'}</td>
                   <td>${c.duration || '-'}</td>
                   <td>${c.fee || '-'}</td>
-                  <td>${c.nextDate || '-'}</td>
+                  <td>${c.startDate || c.nextDate || '-'}${c.finishDate ? ' — ' + c.finishDate : ''}</td>
                   <td><span class="badge-status badge-${(c.status || 'Published').toLowerCase()}">${this.t('status_' + (c.status || 'Published'))}</span></td>
                   <td>
                     <button class="btn btn-secondary btn-sm" onclick="app.navigateToView('course-editor', {courseId:'${c.id}'})">${this.t('edit')}</button>
@@ -1592,12 +1593,12 @@ class AdminApp {
   async renderCourseEditor(container, courseId = null) {
     let course = {
       id: 'course-' + Date.now(),
-      titleTR: '',
       category: 'İHA-1 (Orta Sınıf Drone Ehliyeti)',
       duration: '',
-      capacity: 20,
+      location: 'Online',
       fee: '',
-      nextDate: '',
+      startDate: '',
+      finishDate: '',
       status: 'Draft',
       excerpt: '',
       description: ''
@@ -1621,35 +1622,29 @@ class AdminApp {
 
       <div class="editor-container">
         <div class="form-section-title">${this.t('sec_basic_info')}</div>
-        <div class="form-grid-2">
-          <div class="form-group">
-            <label>${this.t('lbl_course_title')}</label>
-            <input type="text" id="courseTitleInput" class="form-control" value="${course.titleTR}" placeholder="Örn: İHA-1 — Orta Sınıf Drone Ehliyeti">
-          </div>
-          <div class="form-group">
-            <label>${this.t('lbl_course_category')}</label>
-            <select id="courseCategorySelect" class="form-control">
-              <optgroup label="Drone / İHA Eğitimleri">
-                <option value="İHA-0 (Temel Drone Ehliyeti)" ${course.category === 'İHA-0 (Temel Drone Ehliyeti)' ? 'selected' : ''}>İHA-0 — Temel Drone Ehliyeti</option>
-                <option value="İHA-1 (Orta Sınıf Drone Ehliyeti)" ${course.category === 'İHA-1 (Orta Sınıf Drone Ehliyeti)' ? 'selected' : ''}>İHA-1 — Orta Sınıf Drone Ehliyeti</option>
-                <option value="İHA-2 (Büyük İHA Ehliyeti)" ${course.category === 'İHA-2 (Büyük İHA Ehliyeti)' ? 'selected' : ''}>İHA-2 — Büyük İHA Ehliyeti</option>
-                <option value="İHA-3 (İleri Endüstriyel Ehliyet)" ${course.category === 'İHA-3 (İleri Endüstriyel Ehliyet)' ? 'selected' : ''}>İHA-3 — İleri Endüstriyel Ehliyet</option>
-              </optgroup>
-              <optgroup label="Pilotaj (Uçak) Eğitimleri">
-                <option value="PPL (Özel Pilot Lisansı)" ${course.category === 'PPL (Özel Pilot Lisansı)' ? 'selected' : ''}>PPL — Özel Pilot Lisansı</option>
-                <option value="ATPL (Havayolu Taşımacılık Pilotu)" ${course.category === 'ATPL (Havayolu Taşımacılık Pilotu)' ? 'selected' : ''}>ATPL — Havayolu Taşımacılık Pilotu</option>
-                <option value="CPL (Ticari Pilot Lisansı)" ${course.category === 'CPL (Ticari Pilot Lisansı)' ? 'selected' : ''}>CPL — Ticari Pilot Lisansı</option>
-                <option value="NR (Gece Yetkisi)" ${course.category === 'NR (Gece Yetkisi)' ? 'selected' : ''}>NR — Gece Yetkisi</option>
-                <option value="PIC (Sorumlu Pilot Uçuşu)" ${course.category === 'PIC (Sorumlu Pilot Uçuşu)' ? 'selected' : ''}>PIC — Sorumlu Pilot Uçuşu</option>
-                <option value="IR (Aletli Uçuş Yetkisi)" ${course.category === 'IR (Aletli Uçuş Yetkisi)' ? 'selected' : ''}>IR — Aletli Uçuş Yetkisi</option>
-                <option value="ME (Çok Motor Yetkisi)" ${course.category === 'ME (Çok Motor Yetkisi)' ? 'selected' : ''}>ME — Çok Motor Yetkisi</option>
-                <option value="MCC (Çoklu Mürettebat İşbirliği)" ${course.category === 'MCC (Çoklu Mürettebat İşbirliği)' ? 'selected' : ''}>MCC — Çoklu Mürettebat İşbirliği</option>
-              </optgroup>
-            </select>
-          </div>
+        <div class="form-group">
+          <label>${this.t('lbl_course_category')}</label>
+          <select id="courseCategorySelect" class="form-control">
+            <optgroup label="Drone / İHA Eğitimleri">
+              <option value="İHA-0 (Temel Drone Ehliyeti)" ${course.category === 'İHA-0 (Temel Drone Ehliyeti)' ? 'selected' : ''}>İHA-0 — Temel Drone Ehliyeti</option>
+              <option value="İHA-1 (Orta Sınıf Drone Ehliyeti)" ${course.category === 'İHA-1 (Orta Sınıf Drone Ehliyeti)' ? 'selected' : ''}>İHA-1 — Orta Sınıf Drone Ehliyeti</option>
+              <option value="İHA-2 (Büyük İHA Ehliyeti)" ${course.category === 'İHA-2 (Büyük İHA Ehliyeti)' ? 'selected' : ''}>İHA-2 — Büyük İHA Ehliyeti</option>
+              <option value="İHA-3 (İleri Endüstriyel Ehliyet)" ${course.category === 'İHA-3 (İleri Endüstriyel Ehliyet)' ? 'selected' : ''}>İHA-3 — İleri Endüstriyel Ehliyet</option>
+            </optgroup>
+            <optgroup label="Pilotaj (Uçak) Eğitimleri">
+              <option value="PPL (Özel Pilot Lisansı)" ${course.category === 'PPL (Özel Pilot Lisansı)' ? 'selected' : ''}>PPL — Özel Pilot Lisansı</option>
+              <option value="ATPL (Havayolu Taşımacılık Pilotu)" ${course.category === 'ATPL (Havayolu Taşımacılık Pilotu)' ? 'selected' : ''}>ATPL — Havayolu Taşımacılık Pilotu</option>
+              <option value="CPL (Ticari Pilot Lisansı)" ${course.category === 'CPL (Ticari Pilot Lisansı)' ? 'selected' : ''}>CPL — Ticari Pilot Lisansı</option>
+              <option value="NR (Gece Yetkisi)" ${course.category === 'NR (Gece Yetkisi)' ? 'selected' : ''}>NR — Gece Yetkisi</option>
+              <option value="PIC (Sorumlu Pilot Uçuşu)" ${course.category === 'PIC (Sorumlu Pilot Uçuşu)' ? 'selected' : ''}>PIC — Sorumlu Pilot Uçuşu</option>
+              <option value="IR (Aletli Uçuş Yetkisi)" ${course.category === 'IR (Aletli Uçuş Yetkisi)' ? 'selected' : ''}>IR — Aletli Uçuş Yetkisi</option>
+              <option value="ME (Çok Motor Yetkisi)" ${course.category === 'ME (Çok Motor Yetkisi)' ? 'selected' : ''}>ME — Çok Motor Yetkisi</option>
+              <option value="MCC (Çoklu Mürettebat İşbirliği)" ${course.category === 'MCC (Çoklu Mürettebat İşbirliği)' ? 'selected' : ''}>MCC — Çoklu Mürettebat İşbirliği</option>
+            </optgroup>
+          </select>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="margin-top:20px;">
           <label>${this.t('lbl_course_status')}</label>
           <div class="radio-group">
             <label class="radio-label">
@@ -1661,29 +1656,38 @@ class AdminApp {
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="margin-top:20px;">
           <label>${this.t('lbl_course_excerpt')}</label>
-          <textarea id="courseExcerptInput" class="form-control">${course.excerpt}</textarea>
+          <textarea id="courseExcerptInput" class="form-control">${course.excerpt || ''}</textarea>
         </div>
 
         <div class="form-section-title" style="margin-top:30px;">${this.t('sec_logistics')}</div>
         <div class="form-grid-3">
           <div class="form-group">
             <label>${this.t('lbl_duration')}</label>
-            <input type="text" id="courseDurationInput" class="form-control" value="${course.duration}" placeholder="Örn: 36 Saat / 4 Hafta">
+            <input type="text" id="courseDurationInput" class="form-control" value="${course.duration || ''}" placeholder="Örn: 36 Saat / 4 Hafta">
           </div>
           <div class="form-group">
-            <label>${this.t('lbl_capacity')}</label>
-            <input type="number" id="courseCapacityInput" class="form-control" value="${course.capacity}">
+            <label>${this.t('lbl_location')}</label>
+            <input type="text" id="courseLocationInput" class="form-control" value="${course.location || 'Online'}" placeholder="Örn: Online, Hibrit veya Kadıköy Plaza">
           </div>
           <div class="form-group">
-            <label>${this.t('lbl_tuition_fee')}</label>
-            <input type="text" id="courseFeeInput" class="form-control" value="${course.fee}" placeholder="Örn: ₺14.500">
+            <label>${this.t('lbl_tuition_fee')} (₺)</label>
+            <div style="display:flex; align-items:center;">
+              <span style="padding:10px 14px; background:var(--admin-surface-muted, #f1f5f9); border:1px solid var(--admin-border, #cbd5e1); border-right:none; border-radius:8px 0 0 8px; font-weight:700;">₺</span>
+              <input type="text" id="courseFeeInput" class="form-control" style="border-top-left-radius:0; border-bottom-left-radius:0;" value="${course.fee ? course.fee.replace(/^₺\s*/, '') : ''}" placeholder="14.500">
+            </div>
           </div>
         </div>
-        <div class="form-group">
-          <label>${this.t('lbl_next_start_date')}</label>
-          <input type="text" id="courseDateInput" class="form-control" value="${course.nextDate}" placeholder="Örn: 2026-09-01 veya Esnek">
+        <div class="form-grid-2" style="margin-top:15px;">
+          <div class="form-group">
+            <label>${this.t('lbl_start_date')}</label>
+            <input type="date" id="courseStartDateInput" class="form-control" value="${course.startDate || course.nextDate || ''}">
+          </div>
+          <div class="form-group">
+            <label>${this.t('lbl_finish_date')}</label>
+            <input type="date" id="courseFinishDateInput" class="form-control" value="${course.finishDate || course.endDate || ''}">
+          </div>
         </div>
 
         <div class="form-section-title" style="margin-top:30px;">${this.t('sec_syllabus')}</div>
@@ -1696,7 +1700,7 @@ class AdminApp {
             <button class="wysiwyg-btn" onclick="app.execFormat('createLink')">🔗 Link</button>
             <button class="wysiwyg-btn" onclick="app.execFormat('removeFormat')">Clear Format</button>
           </div>
-          <div id="courseWysiwygEditor" class="wysiwyg-content" contenteditable="true">${course.description}</div>
+          <div id="courseWysiwygEditor" class="wysiwyg-content" contenteditable="true">${course.description || ''}</div>
         </div>
 
         <div class="form-section-title" style="margin-top:30px;">${this.t('sec_media')}</div>
@@ -1732,28 +1736,25 @@ class AdminApp {
   }
 
   async saveCourseForm(status) {
-    const title = document.getElementById('courseTitleInput').value.trim();
-    if (!title) {
-      this.showToast('Lütfen ders başlığı giriniz!', 'danger');
-      return;
-    }
-
     const category = document.getElementById('courseCategorySelect').value;
+    const duration = document.getElementById('courseDurationInput').value.trim();
+    const location = document.getElementById('courseLocationInput') ? document.getElementById('courseLocationInput').value.trim() : 'Online';
+    let feeRaw = document.getElementById('courseFeeInput').value.trim();
+    const fee = feeRaw ? (feeRaw.startsWith('₺') ? feeRaw : `₺${feeRaw}`) : '';
+    const startDate = document.getElementById('courseStartDateInput').value;
+    const finishDate = document.getElementById('courseFinishDateInput').value;
     const excerpt = document.getElementById('courseExcerptInput').value;
-    const duration = document.getElementById('courseDurationInput').value;
-    const capacity = document.getElementById('courseCapacityInput').value;
-    const fee = document.getElementById('courseFeeInput').value;
-    const nextDate = document.getElementById('courseDateInput').value;
     const description = document.getElementById('courseWysiwygEditor').innerHTML;
 
     const courseData = {
       id: this.editingCourseId,
-      titleTR: title,
       category,
       duration,
-      capacity: parseInt(capacity) || 20,
+      location,
       fee,
-      nextDate,
+      startDate,
+      finishDate,
+      nextDate: startDate,
       status,
       excerpt,
       description
@@ -1892,10 +1893,10 @@ class AdminApp {
       id: Date.now(),
       titleTR: '',
       category: 'Drone / İHA',
-      author: 'Ahmet Yılmaz',
       date: new Date().toISOString().substring(0, 10),
       status: 'Draft',
       summaryTR: '',
+      quoteTR: '',
       body: ''
     };
 
@@ -1920,7 +1921,7 @@ class AdminApp {
         <div class="form-grid-2">
           <div class="form-group">
             <label>${this.t('lbl_article_title')}</label>
-            <input type="text" id="newsTitleInput" class="form-control" value="${article.titleTR}" placeholder="Örn: Sapmaz Academy Simülasyon Testleri Başladı">
+            <input type="text" id="newsTitleInput" class="form-control" value="${article.titleTR || article.title || ''}" placeholder="Örn: Sapmaz Academy Simülasyon Testleri Başladı">
           </div>
           <div class="form-group">
             <label>${this.t('lbl_site_category')}</label>
@@ -1934,14 +1935,10 @@ class AdminApp {
           </div>
         </div>
 
-        <div class="form-grid-3">
-          <div class="form-group">
-            <label>${this.t('lbl_author')}</label>
-            <input type="text" id="newsAuthorInput" class="form-control" value="${article.author}">
-          </div>
+        <div class="form-grid-2" style="margin-top:15px;">
           <div class="form-group">
             <label>${this.t('lbl_publish_date')}</label>
-            <input type="date" id="newsDateInput" class="form-control" value="${article.date}">
+            <input type="date" id="newsDateInput" class="form-control" value="${article.date || article.dateValue || ''}">
           </div>
           <div class="form-group">
             <label>${this.t('lbl_article_status')}</label>
@@ -1955,7 +1952,13 @@ class AdminApp {
         <div class="form-section-title" style="margin-top:30px;">${this.t('sec_article_summary')}</div>
         <div class="form-group">
           <label>${this.t('lbl_summary_desc')}</label>
-          <textarea id="newsSummaryInput" class="form-control">${article.summaryTR}</textarea>
+          <textarea id="newsSummaryInput" class="form-control">${article.summaryTR || article.introTR || ''}</textarea>
+        </div>
+
+        <div class="form-section-title" style="margin-top:30px;">${this.t('sec_article_quote')}</div>
+        <div class="form-group">
+          <label>${this.t('lbl_article_quote')}</label>
+          <textarea id="newsQuoteInput" class="form-control" placeholder="Örn: Yeni mevzuat havacılık emniyetini üst düzeye taşıyacaktır.">${article.quoteTR || article.quote || ''}</textarea>
         </div>
 
         <div class="form-section-title" style="margin-top:30px;">${this.t('sec_article_body')}</div>
@@ -1967,7 +1970,7 @@ class AdminApp {
             <button class="wysiwyg-btn" onclick="app.execFormat('insertUnorderedList')">• Bullet List</button>
             <button class="wysiwyg-btn" onclick="app.execFormat('createLink')">🔗 Link</button>
           </div>
-          <div id="newsWysiwygEditor" class="wysiwyg-content" contenteditable="true">${article.body}</div>
+          <div id="newsWysiwygEditor" class="wysiwyg-content" contenteditable="true">${article.body || article.contentTR || ''}</div>
         </div>
 
         <div class="form-section-title" style="margin-top:30px;">${this.t('sec_cover_image')}</div>
@@ -1975,6 +1978,13 @@ class AdminApp {
           <div class="dropzone-icon">🖼️</div>
           <div class="dropzone-text">${this.t('drop_news_cover')}</div>
           <input type="file" id="newsCoverFile" style="display:none;" onchange="app.showToast('Cover image attached')">
+        </div>
+
+        <div class="form-section-title" style="margin-top:30px;">${this.t('sec_attachments')}</div>
+        <div class="dropzone-area" onclick="document.getElementById('newsAttachmentFile').click()">
+          <div class="dropzone-icon">📁</div>
+          <div class="dropzone-text">${this.t('drop_news_attachments')}</div>
+          <input type="file" id="newsAttachmentFile" style="display:none;" multiple onchange="app.showToast('Attachment added to article')">
         </div>
       </div>
 
@@ -2001,20 +2011,23 @@ class AdminApp {
     }
 
     const category = document.getElementById('newsCategorySelect').value;
-    const author = document.getElementById('newsAuthorInput').value;
     const date = document.getElementById('newsDateInput').value;
     const summaryTR = document.getElementById('newsSummaryInput').value;
+    const quoteTR = document.getElementById('newsQuoteInput').value;
     const body = document.getElementById('newsWysiwygEditor').innerHTML;
 
     const newsData = {
       id: this.editingNewsId,
       titleTR: title,
       category,
-      author,
       date,
+      dateValue: date,
       status,
       summaryTR,
-      body
+      introTR: summaryTR,
+      quoteTR,
+      body,
+      contentTR: body
     };
 
     await this.storage.saveItem('news', `${newsData.id}.json`, newsData);
@@ -2169,8 +2182,7 @@ class AdminApp {
       fileSize: '2.5 MB',
       fileUrl: '',
       date: new Date().toISOString().substring(0, 10),
-      status: 'Published',
-      descriptionTR: ''
+      status: 'Published'
     };
 
     if (resourceId) {
@@ -2180,6 +2192,7 @@ class AdminApp {
     }
 
     this.editingResourceId = resource.id;
+    this.uploadedFileUrl = resource.fileUrl || '';
 
     container.innerHTML = `
       <div class="page-top-bar">
@@ -2205,12 +2218,11 @@ class AdminApp {
         <div class="form-grid-2">
           <div class="form-group">
             <label>${this.t('lbl_target_tab')}</label>
-            <select id="resCategorySelect" class="form-control" onchange="app.updateResourceMetadataFromCategory(this.value)">
+            <select id="resCategorySelect" class="form-control">
               <option value="directives" ${resource.category === 'directives' ? 'selected' : ''}>Havacılık Talimatları (Directives)</option>
               <option value="regions" ${resource.category === 'regions' ? 'selected' : ''}>Bölgeler & NOTAM (Airspace / NOTAMs)</option>
               <option value="students" ${resource.category === 'students' ? 'selected' : ''}>Öğrenci Dokümanları (Student Files)</option>
               <option value="hezarfen" ${resource.category === 'hezarfen' ? 'selected' : ''}>Hezarfen Portal (Airfield Info)</option>
-              <option value="faq" ${resource.category === 'faq' ? 'selected' : ''}>Sıkça Sorulan Sorular (FAQ Item)</option>
             </select>
           </div>
 
@@ -2234,17 +2246,6 @@ class AdminApp {
             <div style="font-size:0.75rem; font-weight:800; color:var(--admin-text-muted); text-transform:uppercase;">${this.t('lbl_auto_size')}</div>
             <div id="resAutoFileSizeBadge" style="font-size:1.05rem; font-weight:800; color:var(--admin-text-main); margin-top:4px;">${resource.fileSize || 'Auto-Detecting...'}</div>
           </div>
-        </div>
-
-        <div class="form-group">
-          <label>${this.t('lbl_file_url')}</label>
-          <input type="text" id="resFileUrlInput" class="form-control" value="${resource.fileUrl}" placeholder="Örn: ../assets/docs/sht_iha.pdf veya https://..." oninput="app.updateResourceMetadataFromUrl(this.value)">
-        </div>
-
-        <div class="form-section-title" style="margin-top:30px;">${this.t('sec_res_desc')}</div>
-        <div class="form-group">
-          <label>${this.t('lbl_res_desc_text')}</label>
-          <textarea id="resDescInput" class="form-control" style="min-height:100px;">${resource.descriptionTR}</textarea>
         </div>
 
         <div class="form-section-title" style="margin-top:30px;">${this.t('sec_res_drop')}</div>
@@ -2291,49 +2292,12 @@ class AdminApp {
 
     const formatBadge = document.getElementById('resAutoFormatBadge');
     const sizeBadge = document.getElementById('resAutoFileSizeBadge');
-    const urlInput = document.getElementById('resFileUrlInput');
 
     if (formatBadge) formatBadge.textContent = format;
     if (sizeBadge) sizeBadge.textContent = formattedSize;
-    if (urlInput && !urlInput.value) {
-      urlInput.value = `../assets/docs/${file.name}`;
-    }
+    this.uploadedFileUrl = `../assets/docs/${file.name}`;
 
     this.showToast(`File selected: ${file.name} (${formattedSize}) - Format: ${format}`, 'success');
-  }
-
-  updateResourceMetadataFromUrl(url) {
-    const formatBadge = document.getElementById('resAutoFormatBadge');
-    const sizeBadge = document.getElementById('resAutoFileSizeBadge');
-    if (!formatBadge || !sizeBadge) return;
-
-    const lower = url.toLowerCase().trim();
-    if (lower.startsWith('http://') || lower.startsWith('https://')) {
-      formatBadge.textContent = 'Direct Link';
-      sizeBadge.textContent = 'External Web Link';
-    } else if (lower.startsWith('#faq') || document.getElementById('resCategorySelect').value === 'faq') {
-      formatBadge.textContent = 'Interactive FAQ';
-      sizeBadge.textContent = 'Web Content';
-    } else if (lower.endsWith('.pdf')) {
-      formatBadge.textContent = 'PDF Document';
-      if (sizeBadge.textContent === 'Auto-Detecting...' || sizeBadge.textContent === 'External Web Link') {
-        sizeBadge.textContent = '2.5 MB';
-      }
-    } else if (lower.endsWith('.zip') || lower.endsWith('.rar')) {
-      formatBadge.textContent = 'ZIP Archive';
-      if (sizeBadge.textContent === 'Auto-Detecting...') {
-        sizeBadge.textContent = '5.0 MB';
-      }
-    }
-  }
-
-  updateResourceMetadataFromCategory(cat) {
-    if (cat === 'faq') {
-      const formatBadge = document.getElementById('resAutoFormatBadge');
-      const sizeBadge = document.getElementById('resAutoFileSizeBadge');
-      if (formatBadge) formatBadge.textContent = 'Interactive FAQ';
-      if (sizeBadge) sizeBadge.textContent = 'Web Content';
-    }
   }
 
   async saveResourceForm(status) {
@@ -2347,8 +2311,6 @@ class AdminApp {
     const category = document.getElementById('resCategorySelect').value;
     const format = document.getElementById('resAutoFormatBadge').textContent || 'PDF Document';
     const fileSize = document.getElementById('resAutoFileSizeBadge').textContent || '2.5 MB';
-    const fileUrl = document.getElementById('resFileUrlInput').value;
-    const descriptionTR = document.getElementById('resDescInput').value;
 
     const resourceData = {
       id: this.editingResourceId,
@@ -2357,10 +2319,9 @@ class AdminApp {
       category,
       format,
       fileSize,
-      fileUrl,
+      fileUrl: this.uploadedFileUrl || '../assets/docs/resource.pdf',
       date: new Date().toISOString().substring(0, 10),
-      status,
-      descriptionTR
+      status
     };
 
     await this.storage.saveItem('resources', `${resourceData.id}.json`, resourceData);
