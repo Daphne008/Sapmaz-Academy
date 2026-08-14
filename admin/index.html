@@ -22,7 +22,7 @@
       background: rgba(15, 23, 42, 0.82) !important;
       backdrop-filter: blur(14px) !important;
       -webkit-backdrop-filter: blur(14px) !important;
-      display: none;
+      display: none !important;
       align-items: center !important;
       justify-content: center !important;
       z-index: 10000 !important;
@@ -301,8 +301,8 @@
   </header>
 
   <!-- Login Modal Overlay (Full Screen Screen Lock for Unauthenticated Users) -->
-  <div id="loginOverlay" class="login-overlay active" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); display: flex; align-items: center; justify-content: center; z-index: 10000; padding: 20px;">
-    <div class="login-card" style="width: 100%; max-width: 440px; background: #ffffff; border: 1px solid rgba(226, 232, 240, 0.8); border-radius: 20px; box-shadow: 0 25px 60px rgba(15, 23, 42, 0.25); padding: 40px 36px 32px;">
+  <div id="loginOverlay" class="login-overlay active">
+    <div class="login-card">
       <div class="login-card-header">
         <img src="../logo.svg" alt="Sapmaz Academy Logo" class="login-logo" onerror="this.src='../academy.jpg'" />
         <h2 class="login-title" data-i18n="auth_login_title">Sapmaz Academy Panel</h2>
