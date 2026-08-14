@@ -1,0 +1,41 @@
+{
+  "_fileName": "APP-1001.json",
+  "category": "General",
+  "author": "Admin",
+  "date": "2026-08-10 11:45",
+  "id": "APP-1001",
+  "name": "Hasan Caner",
+  "email": "hasan.caner@email.com",
+  "phone": "+90 532 111 2233",
+  "addressTC": "12345678901 / Kadıköy, İstanbul",
+  "course": "İHA-1 — Orta Sınıf Drone Ehliyeti",
+  "schedule": "2026-09-01 Dönemi",
+  "fee": "₺14.500",
+  "status": "Pending Review",
+  "experience": "2 yıldır hobi amaçlı FPV drone uçuruyorum.",
+  "files": [
+    {
+      "name": "mezuniyet_belgesi.pdf",
+      "size": "1.2 MB"
+    }
+  ],
+  "notes": [
+    {
+      "staff": "Ahmet Yılmaz",
+      "time": "2026-08-10 12:00",
+      "text": "Ön başvuru alındı."
+    }
+  ],
+  "titleTR": "Hasan Caner",
+  "titleEN": "Hasan Caner",
+  "duration": "",
+  "nextDate": "2026-08-10 11:45",
+  "excerpt": "",
+  "summaryTR": "",
+  "summaryEN": "",
+  "description": "",
+  "body": "",
+  "price": "₺14.500",
+  "fileSize": "",
+  "format": ""
+}
