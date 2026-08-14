@@ -1371,19 +1371,19 @@ select.form-control option {
 
 /* Full Screen Login Overlay */
 .login-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(15, 23, 42, 0.75);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: rgba(15, 23, 42, 0.85) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
   display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 10000;
-  padding: 20px;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 10000 !important;
+  padding: 20px !important;
   opacity: 0;
   transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -1395,13 +1395,13 @@ select.form-control option {
 
 /* Glassmorphic Login Card */
 .login-card {
-  width: 100%;
-  max-width: 440px;
-  background: #ffffff;
-  border: 1px solid rgba(226, 232, 240, 0.8);
-  border-radius: 20px;
-  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.25), 0 0 40px rgba(0, 119, 182, 0.08);
-  padding: 40px 36px 32px;
+  width: 100% !important;
+  max-width: 440px !important;
+  background: #ffffff !important;
+  border: 1px solid rgba(226, 232, 240, 0.8) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.25), 0 0 40px rgba(0, 119, 182, 0.08) !important;
+  padding: 40px 36px 32px !important;
   animation: loginCardPop 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
